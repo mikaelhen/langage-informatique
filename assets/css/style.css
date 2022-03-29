@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h2 {
+    display: flex;
+    font-size: 80px;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background-color: antiquewhite;
+    border-bottom: 1px solid black;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35%;
+
+}
+ul {
+    list-style: square;
+}
+.btn {
+    width: 180px;
+    height: 100px;
+    border-radius: 25px;
+}
+.titre input{
+    height: 50px;
+    width: 100px;
+}
+.detaille input {
+    width: 800px;
+    height: 400px;
+}
