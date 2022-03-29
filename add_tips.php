@@ -49,12 +49,14 @@ if ($_GET["action"] == "ajout")
 
 if(isset($_POST['submit']))
 {
-    $sql = "INSERT INTO tips (titre_tips,detail_tips,) values( :titre_tips , :detail_tips)";
+    $sql = "INSERT INTO tips (titre_tips,detail_tips) values( :titre_tips, :detail_tips)";
         $add = $bdd->prepare($sql);
         $add->execute(array(
             ':titre_tips' => $titre,
-            ':detail' => $detail, 
+            ':detail_tips' => $detail
         ));
+
+        echo "votre tips a bien été ajouter";
         // Database::disconnect();
         header("Location: liste.php");
 
