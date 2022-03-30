@@ -21,7 +21,7 @@ body {
     display: flex;
     align-items: center;
     width: 100%;
-    color:black;
+    color: black;
     font-family: 'sen', sans-serif;
 }
 
@@ -31,7 +31,7 @@ h1.logo {
     margin-top: 10px;
 }
 
-.user-content{
+.user-content {
     color: red;
 
 }
@@ -46,7 +46,7 @@ h1.logo {
     color: blue;
 }
 
-.deconnection-container a{
+.deconnection-container {
     cursor: pointer;
     color: black;
 }
