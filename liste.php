@@ -25,7 +25,7 @@ $sql = "SELECT * FROM tips WHERE id_tips";
 
 foreach ($row as &$tip) {
     ?>
-        <li><p><a href=""><?php echo $tip['titre_tips']?></a></p></li>
+        <li><a href=""><?php echo $tip['titre_tips']?></a></li>
     <?php
 }
 
@@ -37,6 +37,7 @@ foreach ($row as &$tip) {
     <button class="btn">
         <a href="add_tips.php">ajouter un tips</a>
     </button>
+    <a class="btn" href="liste.php">Retour</a>
     </div>
     </div>
 </body>

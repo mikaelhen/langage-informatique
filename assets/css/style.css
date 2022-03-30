@@ -12,6 +12,7 @@ h2 {
     height: 200px;
     background-color: antiquewhite;
     border-bottom: 1px solid black;
+    margin: 0;
 }
 
 .container {
@@ -59,4 +60,9 @@ h2 {
     list-style: none;
     padding: 0;
     
+}
+div.container {
+    margin: 50px;
+}
+form {
 }

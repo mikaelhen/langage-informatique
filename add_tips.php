@@ -40,7 +40,7 @@ if ($_GET["action"] == "ajout")
             <input type="name" name="detail_tips" placeholder="detail" value="<?php echo !empty($detail)?$detail:''; ?>">
         </div>
  
-        <input type="submit" class="btn btn-success" name="submit" value="submit">
+        <input type="submit" class="btn" name="submit" value="submit">
                  <a class="btn" href="liste.php">Retour</a>
 
     </form>
