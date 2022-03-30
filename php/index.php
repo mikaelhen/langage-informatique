@@ -18,8 +18,8 @@
   </header>
 
   <div class="nav box">
-    <h1>TIPS Langage Informatique</h1>
-    <p>Bienvenu sur le site d'echange et de partage sur le code informatique.<br><br> Ce site est fait dans le but d'apporter ses idées, ses expériences, d'enrichir ses connaissances. </p>
+    <h1><span style="color: #059862;font-weight: bold;"> TIPS</span> Langage Informatique</h1>
+    <p>Bienvenu sur le site d'<span style="color: #059862;font-weight: bold;">échange</span>et de <span style="color: #059862;font-weight: bold;">partage</span> sur le code informatique.<br><br> Ce site est fait dans le but d'apporter ses <span style="color: #059862;font-weight: bold;"> idées</span>, ses <span style="color: #059862;font-weight: bold;"> expériences</span>, d'enrichir ses <span style="color: #059862;font-weight: bold;"> connaissances</span>. </p>
   </div>
 
   <div class="container">
