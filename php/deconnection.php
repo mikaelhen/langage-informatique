@@ -1,8 +1,15 @@
-<?php 
+
+<?php
 session_start();
-include('config.php');  
-    session_destroy();
+include('../assets/include/bdd.php');
 
-    
 
-    header("Location:index.php?disc_err=deconnecté")
+
+
+session_destroy();
+
+
+
+header("Location:index.php?disc_err=deconnecté")
+
+?>

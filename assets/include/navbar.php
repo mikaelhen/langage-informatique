@@ -1,25 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+session_start();
+?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <title>navbar</title>
-</head>
-
-<body>
-
-    <header>
-        <nav>
+<header>
+    <nav>
+        <?php
+        if (isset($_SESSION['user'])) {
+            echo ('Connecté en tant que : ' . $_SESSION['user']); ?>
+            <a href="index.php">
+                <div class="logo"><img src="../assets/img/logo2.png"></div>
+            </a>
+            <li><a href="deconnection.php">deconnexion</a></li>
+        <?php
+        } else { ?>
             <li><a href="inscription.php">Inscription</a></li>
             <a href="index.php">
                 <div class="logo"><img src="../assets/img/logo2.png"></div>
             </a>
             <li><a href="connexion.php">Connexion</a></li>
-        </nav>
-    </header>
-</body>
+        <?php
+        }
 
-</html>
+        ?>
+
+    </nav>
+</header>

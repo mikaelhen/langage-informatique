@@ -47,7 +47,7 @@ session_start();
 
                             if ($password == $data['mdp_users']) {
                                 $_SESSION['user'] = $pseudo;
-                                header('Location:connection.php');
+                                header('Location:index.php');
                             } else
                                 echo "Mot de passe incorrect";
                         } else
