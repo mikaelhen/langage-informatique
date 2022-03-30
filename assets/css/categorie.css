@@ -46,7 +46,7 @@ h1.logo {
     color: blue;
 }
 
-.deconnection-container a{
+.deconnection-container {
     cursor: pointer;
     color: black;
 }

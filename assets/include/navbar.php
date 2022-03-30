@@ -15,10 +15,10 @@
 <div class="navbar">
     <?php if (isset($_SESSION['user'])) { ?>
         <div class='user-content'><?php echo ("connecté en tant que : $_SESSION[user]"); ?></div> 
-        <div class="deconnection-container">Deconnection
+        <div class="deconnection-container">
             
         <div class="navbar-container"> 
-        <a href="Deconnection.php"></a></div><?php } else { ?>
+        <a href="Deconnection.php">Deconnection</a></div><?php } else { ?>
             <?php } ?>
             <div class="logo-container">
                 <h1 class="logo">Tips</h1>
