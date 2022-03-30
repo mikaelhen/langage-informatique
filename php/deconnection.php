@@ -1,10 +1,6 @@
 <?php 
 session_start();
-include('../assets/include/bdd.php');
-
-
- 
-    
+include('config.php');  
     session_destroy();
 
     
