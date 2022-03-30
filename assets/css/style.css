@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -106,4 +107,72 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: aqua;
+}
+h2 {
+    display: flex;
+    font-size: 80px;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background-color: antiquewhite;
+    border-bottom: 1px solid black;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35%;
+
+}
+.ul {
+    list-style: square;
+    font-size: 40px;
+
+}
+.p {
+    font-size: 40px;
+}
+.btn {
+    width: 180px;
+    height: 100px;
+    border-radius: 25px;
+    background-color: antiquewhite;
+}
+.titre input{
+    height: 50px;
+    width: 100px;
+}
+.detaille input {
+    width: 800px;
+    height: 400px;
+}
+
+.container a {
+    font-size:21px;
+    text-decoration: none;
+    cursor: pointer;
+    color: blue;
+    
+}
+.container a:hover {
+    color:black;
+}
+
+.container ul{
+    list-style: none;
+    padding: 0;
+    
+}
+div.container {
+    margin: 50px;
+}
+form {
 }
