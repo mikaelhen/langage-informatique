@@ -17,7 +17,7 @@ session_start();
 
 <body>
     <div class="loginBox">
-        <a href="index.php"> <img src="../assets/img/logo1.png" class="user"></a>
+        <a href="index.php"> <img src="../assets/img/logo2.png" class="user"></a>
         <h2>Login</h2>
         <form action="connexion.php" method="post">
             <p>Pseudo</p>
