@@ -1,43 +1,25 @@
-<header>
-    <nav>
-        <li><a href="inscription.php">Inscription</a></li>
-        <a href="index.php">
-            <div class="logo"><img src="../assets/img/logo2.png"></div>
-        </a>
-        <li><a href="connexion.php">Connexion</a></li>
-    </nav>
-</header>
-
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="../assets/css/categorie.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css">
-    <title>Categorie</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>navbar</title>
 </head>
+
 <body>
 
-<div class="navbar">
-    <?php if (isset($_SESSION['user'])) { ?>
-        <div class='user-content'><?php echo ("connecté en tant que : $_SESSION[user]"); ?></div> 
-        <div class="deconnection-container">Deconnection
-            
-        <div class="navbar-container"> 
-        <a href="Deconnection.php"></a></div><?php } else { ?>
-            <?php } ?>
-            <div class="logo-container">
-                <h1 class="logo">Tips</h1>
-            </div>
-        </div>
-</div>
-
-
-
+    <header>
+        <nav>
+            <li><a href="inscription.php">Inscription</a></li>
+            <a href="index.php">
+                <div class="logo"><img src="../assets/img/logo2.png"></div>
+            </a>
+            <li><a href="connexion.php">Connexion</a></li>
+        </nav>
+    </header>
 </body>
-</html>
 
+</html>
