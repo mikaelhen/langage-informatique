@@ -36,7 +36,7 @@ session_start();
                         $pseudo = htmlspecialchars($_POST['pseudo']);
                         $password = htmlspecialchars($_POST['password']);
 
-                        $check = $bdd->prepare('SELECT * FROM users WHERE nom_users = ?');
+                        $check = $bdd->prepare('SELECT * FROM users WHERE pseudo_users = ?');
                         $check->execute(array($pseudo));
                         $data = $check->fetch();
                         $row = $check->rowCount();

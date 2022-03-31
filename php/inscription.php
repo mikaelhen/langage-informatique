@@ -42,7 +42,7 @@
                         if (isset($_POST['pseudo'], $_POST['email'], $_POST['password']) && !empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['password'])) {
 
 
-                            $check = $bdd->prepare('SELECT * FROM users WHERE nom_users = ?');
+                            $check = $bdd->prepare('SELECT * FROM users WHERE pseudo_users = ?');
                             $check->execute(array($_POST['pseudo']));
                             $data = $check->fetch();
                             $row = $check->rowCount();
@@ -52,14 +52,14 @@
                             } else {
 
 
-                                $sql = "INSERT INTO users (nom_users, email_users, mdp_users) 
-                        VALUES (:nom_users, :email_users,:mdp_users)";
+                                $sql = "INSERT INTO users (pseudo_users, mail_users, mdp_users) 
+                        VALUES (:pseudo_users, :mail_users,:mdp_users)";
 
                                 $query = $bdd->prepare($sql);
 
                                 // permet de verifier que c'est bien une chaine de caractere
-                                $query->bindValue(":nom_users", $_POST['pseudo'], PDO::PARAM_STR);
-                                $query->bindValue(":email_users", $_POST['email'], PDO::PARAM_STR);
+                                $query->bindValue(":pseudo_users", $_POST['pseudo'], PDO::PARAM_STR);
+                                $query->bindValue(":mail_users", $_POST['email'], PDO::PARAM_STR);
                                 $query->bindValue(":mdp_users", $_POST['password'], PDO::PARAM_STR);
 
                                 $query->execute();
