@@ -38,7 +38,8 @@ require_once '../assets/include/bdd.php';
         </div>
         <div class="container2">
             <button class="btn">
-                <b href="add_tips.php">ajouter un tips</b>
+                <b href="add_tips.php">
+                    ajouter un tips</b>
             </button>
             <a class="btn" href="liste.php">Retour</a>
         </div>
