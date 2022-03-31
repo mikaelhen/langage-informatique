@@ -121,6 +121,12 @@ h2 {
     background-color:#059862 ;
 }
 
+.btn:hover{
+    color:black ;
+    background-color:#059862 ;
+}
+
+
 .btn b:hover{
     color:black ;
     background-color:#059862 ;
