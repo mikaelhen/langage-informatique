@@ -68,8 +68,8 @@ h2 {
 }
 
 .btn {
-    width: 180px;
-    height: 100px;
+    width: 225px;
+    height: 109px;
     border-radius: 25px;
     background-color: #D9EEE1;
 }
@@ -97,8 +97,8 @@ h2 {
     background-color: #D9EEE1;
     FONT-WEIGHT: BOLD;
     MARGIN-BOTTOM: 10px;
-    PADDING-LEFT: 20px;
-    padding-right: 20px;
+    PADDING-LEFT: 10px;
+    padding-right: 10px;
 }
 
 .container2 b {
