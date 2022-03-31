@@ -26,18 +26,17 @@ session_start();
   <div class="box">
     <img src="../assets/img/images.png">
   </div>
-
-
+  <?php
+  $sql = "SELECT * FROM langage WHERE id_langage=".$_GET['id_langage']."";
+                                    $requete = $bdd ->prepare($sql);
+                                    $requete ->execute(); 
+                                    $row =$requete->fetch();
+                                    ?>
   <div class="container">
-    <article class="box2"><img src="../assets/img/PDO.jpg"></article>
-    <article class="box2"><img src="../assets/img/formation-php-poo.jpg"></article>
-    <article class="box2"><img src="../assets/img/CRUD.jpg"></article>
-    <article class="box2"><img src="../assets/img/maxresdefault.jpg"></article>
-    <article class="box2"><img src="../assets/img/CHAT.jpg"></article>
-    <article class="box2"><img src="../assets/img/PHP REPORTS.jpg"></article>
-    <article class="box2"><img src="../assets/img/search modal.jpg"></article>
-    <article class="box2"><img src="../assets/img/PHP LOGIN.jpg"></article>
-
+    <article class="box2">
+      <img src="../assets/img/PDO.jpg">
+    </article>
+    
   </div>
   </div>
 
