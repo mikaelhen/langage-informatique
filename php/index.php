@@ -41,7 +41,7 @@
       <article class="box1"><img src="../assets/img/js.jpg">
 
       </article>
-      <article class="box1"><a href="http://localhost/langage-informatique/php/categorie.php"> <img src="../assets/img/php.jpg"></a>
+      <article class="box1"><a href="categorie.php"> <img src="../assets/img/php.jpg"></a>
 
       </article>
       <article class="box1"><img src="../assets/img/python.jpg">
