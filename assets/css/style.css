@@ -71,7 +71,7 @@ h2 {
     width: 180px;
     height: 100px;
     border-radius: 25px;
-    background-color: beige;
+    background-color: #D9EEE1;
 }
 
 .titre input {
@@ -111,11 +111,11 @@ h2 {
 }
 
 .container2 b:hover {
-    color: black;
+    color: #059862;
 }
 
 .container2 a:hover {
-    color: black;
+    color: #059862;
 }
 
 .container2 ul {
