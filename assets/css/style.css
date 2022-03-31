@@ -107,6 +107,9 @@ h2 {
     margin-left: auto;
 }
 
+.container2 b:hover {
+    color: black;
+}
 
 .container2 a:hover {
     color: black;
