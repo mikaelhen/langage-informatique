@@ -43,7 +43,7 @@ require_once '../assets/include/bdd.php';
 foreach ($row as &$categorie) {
 ?>
     <article class="box2">
-                <a href="liste.php?id_liste=<?php echo $categorie['id_categorie'] ?>">
+                <a href="liste.php?id_tips=<?php echo $categorie['id_categorie'] ?>">
                 <img src="../assets/img/<?php echo $categorie['id_image'];?>">
                 </a>
     </article>
