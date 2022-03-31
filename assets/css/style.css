@@ -70,7 +70,7 @@ h2 {
     width: 180px;
     height: 100px;
     border-radius: 25px;
-    background-color: antiquewhite;
+    background-color: beige;
 }
 
 .titre input {
@@ -93,6 +93,7 @@ h2 {
     align-items: center;
     justify-content: center;
     margin-left: auto;
+    background-color: beige;
 }
 
 .container2 b {
@@ -100,11 +101,12 @@ h2 {
     text-decoration: none;
     cursor: pointer;
     color: blue;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: auto;
+    background-color: beige;
 }
 
 .container2 b:hover {
