@@ -70,7 +70,7 @@ body {
     height:400px;
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     background-color: #D9EEE1;
     margin-bottom: 50px;
 
