@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'assets/include/bdd.php';;
+require_once '../assets/include/bdd.php';;
 ?>
 <!DOCTYPE html>
 <html lang="fr">
