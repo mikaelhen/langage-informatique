@@ -85,16 +85,17 @@ h2 {
 }
 
 .container2 a {
-    font-size: 21px;
+    font-size: 22px;
     text-decoration: none;
     cursor: pointer;
-    color: blue;
+    color: BLACK;
     border: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: auto;
-    background-color: beige;
+    background-color: #D9EEE1;
+    FONT-WEIGHT: BOLD;
 }
 
 .container2 b {
