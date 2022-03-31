@@ -101,13 +101,13 @@ h2 {
     font-size: 21px;
     text-decoration: none;
     cursor: pointer;
-    color: blue;
+    color: BLACK;
     /* border: 1px solid black; */
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: auto;
-    background-color: beige;
+    background-color: #D9EEE1;
 }
 
 .container2 b:hover {
