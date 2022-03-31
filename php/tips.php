@@ -44,7 +44,10 @@ while($row = $results->fetch())
 }
 ?>
 
-
+<button class="btn">
+                <a href="add_tips.php">ajouter un tips</a>
+            </button>
+            <a class="btn" href="liste.php">Retour</a>
 
 
 
