@@ -35,6 +35,7 @@ require_once '../assets/include/bdd.php';
         ':idcat' => $_GET['id_categorie']
       ]);
       $row1 = $requete1->fetch(); 
+      
   // $sql = "SELECT * FROM langage WHERE id_langage=".$_GET['id_langage']."";
   //                                   $requete = $bdd ->prepare($sql);
   //                                   $requete ->execute(); 
