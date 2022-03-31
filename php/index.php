@@ -39,7 +39,7 @@ require_once '../assets/include/bdd.php';
 foreach ($row as &$langage) {
 ?>
       <article class="box1">
-                <a href="langage.php?id_langage=<?php echo $langage['id_langage'] ?>">
+                <a href="categorie.php?id_categorie=<?php echo $langage['id_langage'] ?>">
                 <img src="../assets/img/<?php echo $langage['id_affiche'];?>">
                 </a>
       </article>

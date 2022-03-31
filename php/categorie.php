@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once '../assets/include/bdd.php';
 ?>
 
 <!DOCTYPE html>
@@ -27,16 +28,28 @@ session_start();
     <img src="../assets/img/images.png">
   </div>
   <?php
-  $sql = "SELECT * FROM langage WHERE id_langage=".$_GET['id_langage']."";
-                                    $requete = $bdd ->prepare($sql);
-                                    $requete ->execute(); 
-                                    $row =$requete->fetch();
-                                    ?>
+      $sql = "SELECT * FROM possede p,categorie c,langage l WHERE p.id_langage = l.id_langage and p.id_categorie=c.id_categorie and l.id_langage=".$_GET['id_categorie']."";
+      $requete = $bdd ->prepare($sql);
+      $requete ->execute();
+      $row = $requete->fetchAll(); 
+  // $sql = "SELECT * FROM langage WHERE id_langage=".$_GET['id_langage']."";
+  //                                   $requete = $bdd ->prepare($sql);
+  //                                   $requete ->execute(); 
+  //                                   $row =$requete->fetch();
+  //                                   ?>
   <div class="container">
+  <?php
+
+foreach ($row as &$categorie) {
+?>
     <article class="box2">
-      <img src="../assets/img/PDO.jpg">
+                <a href="liste.php?id_liste=<?php echo $categorie['id_categorie'] ?>">
+                <img src="../assets/img/<?php echo $categorie['id_affiche'];?>">
+                </a>
     </article>
-    
+    <?php
+        }
+      ?>
   </div>
   </div>
 
