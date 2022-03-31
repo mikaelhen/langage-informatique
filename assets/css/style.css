@@ -88,7 +88,11 @@ h2 {
     text-decoration: none;
     cursor: pointer;
     color: blue;
-
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
 }
 
 .container2 a:hover {
