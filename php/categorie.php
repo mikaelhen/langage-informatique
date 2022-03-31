@@ -24,49 +24,53 @@ require_once '../assets/include/bdd.php';
 <body>
   <?php include "../assets/include/navbar.php" ?>
   <?php
-      $sql = "SELECT * FROM possede p,categorie c,langage l WHERE p.id_langage = l.id_langage and p.id_categorie=c.id_categorie and l.id_langage=".$_GET['id_categorie']."";
-      $requete = $bdd ->prepare($sql);
-      $requete ->execute();
-      $row = $requete->fetchAll(); 
-      $sql1 = "SELECT * FROM langage WHERE id_langage=:idcat";
-      // $sql1 = "SELECT * FROM possede p,categorie c,langage l WHERE p.id_langage = l.id_langage and p.id_categorie=c.id_categorie and l.id_langage=".$_GET['id_categorie']."";
-      $requete1 = $bdd ->prepare($sql1);
-      $requete1 ->execute([
-        ':idcat' => $_GET['id_categorie']
-      ]);
-      $row1 = $requete1->fetch(); 
-      
+  $sql = "SELECT * FROM possede p,categorie c,langage l WHERE p.id_langage = l.id_langage and p.id_categorie=c.id_categorie and l.id_langage=" . $_GET['id_categorie'] . "";
+  $requete = $bdd->prepare($sql);
+  $requete->execute();
+  $row = $requete->fetchAll();
+  $sql1 = "SELECT * FROM langage WHERE id_langage=:idcat";
+  // $sql1 = "SELECT * FROM possede p,categorie c,langage l WHERE p.id_langage = l.id_langage and p.id_categorie=c.id_categorie and l.id_langage=".$_GET['id_categorie']."";
+  $requete1 = $bdd->prepare($sql1);
+  $requete1->execute([
+    ':idcat' => $_GET['id_categorie']
+  ]);
+  $row1 = $requete1->fetch();
+
   // $sql = "SELECT * FROM langage WHERE id_langage=".$_GET['id_langage']."";
   //                                   $requete = $bdd ->prepare($sql);
   //                                   $requete ->execute(); 
   //                                   $row =$requete->fetch();
-  //                                   ?>
+  //                                   
+  ?>
 
-<?php
-  
-  if($requete1->rowCount()>0) {
-  
-?>
-  <div class="box">
-  <img src="../assets/img/<?php echo $row1['id_affiche'];?>">
-  </div>
-<?php } ?>
-  
-  <div class="container">
   <?php
-if($requete->rowCount()>0) {
 
-foreach ($row as &$categorie) {
-?>
-    <article class="box2">
-                <a href="liste.php?id_tips=<?php echo $categorie['id_categorie'] ?>">
-                <img src="../assets/img/<?php echo $categorie['id_image'];?>">
-                </a>
-    </article>
+  if ($requete1->rowCount() > 0) {
+
+  ?>
+    <div class="contenaire5">
+      <div class="box3">
+        <img src="../assets/img/<?php echo $row1['id_affiche']; ?>">
+      </div>
+    </div>
+
+  <?php } ?>
+
+  <div class="container">
     <?php
-        }
+    if ($requete->rowCount() > 0) {
+
+      foreach ($row as &$categorie) {
+    ?>
+        <article class="box2">
+          <a href="liste.php?id_tips=<?php echo $categorie['id_categorie'] ?>">
+            <img src="../assets/img/<?php echo $categorie['id_image']; ?>">
+          </a>
+        </article>
+    <?php
       }
-      ?>
+    }
+    ?>
   </div>
   </div>
 
