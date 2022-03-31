@@ -36,7 +36,7 @@ require_once '../assets/include/bdd.php';
   // $sql = "SELECT * FROM langage WHERE id_langage=".$_GET['id_langage']."";
   //                                   $requete = $bdd ->prepare($sql);
   //                                   $requete ->execute(); 
-  //                                   $row =$requete->fetch();
+  //                                   $row =$requete->fetch()
   //                                   
   ?>
   <div class="container">
