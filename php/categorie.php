@@ -23,33 +23,35 @@ require_once '../assets/include/bdd.php';
 
 <body>
   <?php include "../assets/include/navbar.php" ?>
-
-  <div class="box">
-    <img src="../assets/img/images.png">
+  <div class="contenaire5">
+    <div class="box3">
+      <img src="../assets/img/images.png">
+    </div>
   </div>
   <?php
-      $sql = "SELECT * FROM possede p,categorie c,langage l WHERE p.id_langage = l.id_langage and p.id_categorie=c.id_categorie and l.id_langage=".$_GET['id_categorie']."";
-      $requete = $bdd ->prepare($sql);
-      $requete ->execute();
-      $row = $requete->fetchAll(); 
+  $sql = "SELECT * FROM possede p,categorie c,langage l WHERE p.id_langage = l.id_langage and p.id_categorie=c.id_categorie and l.id_langage=" . $_GET['id_categorie'] . "";
+  $requete = $bdd->prepare($sql);
+  $requete->execute();
+  $row = $requete->fetchAll();
   // $sql = "SELECT * FROM langage WHERE id_langage=".$_GET['id_langage']."";
   //                                   $requete = $bdd ->prepare($sql);
   //                                   $requete ->execute(); 
   //                                   $row =$requete->fetch();
-  //                                   ?>
+  //                                   
+  ?>
   <div class="container">
-  <?php
-
-foreach ($row as &$categorie) {
-?>
-    <article class="box2">
-                <a href="liste.php?id_liste=<?php echo $categorie['id_categorie'] ?>">
-                <img src="../assets/img/<?php echo $categorie['id_image'];?>">
-                </a>
-    </article>
     <?php
-        }
-      ?>
+
+    foreach ($row as &$categorie) {
+    ?>
+      <article class="box2">
+        <a href="liste.php?id_liste=<?php echo $categorie['id_categorie'] ?>">
+          <img src="../assets/img/<?php echo $categorie['id_image']; ?>">
+        </a>
+      </article>
+    <?php
+    }
+    ?>
   </div>
   </div>
 
