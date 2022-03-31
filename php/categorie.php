@@ -23,9 +23,14 @@ require_once '../assets/include/bdd.php';
 
 <body>
   <?php include "../assets/include/navbar.php" ?>
-
+  <?php
+        $sql = "SELECT * FROM langage WHERE id_langage";
+        $requete = $bdd->prepare($sql);
+        $requete->execute();
+        $langage = $requete->fetch();
+        ?>
   <div class="box">
-    <img src="../assets/img/images.png">
+  <img src="../assets/img/<?php echo $langage['id_affiche'];?>">
   </div>
   <?php
       $sql = "SELECT * FROM possede p,categorie c,langage l WHERE p.id_langage = l.id_langage and p.id_categorie=c.id_categorie and l.id_langage=".$_GET['id_categorie']."";
