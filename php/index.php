@@ -1,3 +1,6 @@
+<?php session_start();
+require_once '../assets/include/bdd.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,34 +26,27 @@
       <h1><span style="color: #059862;font-weight: bold;"> TIPS</span> Langage Informatique</h1>
       <p>Bienvenu sur le site d'<span style="color: #059862;font-weight: bold;">échange</span>et de <span style="color: #059862;font-weight: bold;">partage</span> sur le code informatique.<br><br> Ce site est fait dans le but d'apporter ses <span style="color: #059862;font-weight: bold;"> idées</span>, ses <span style="color: #059862;font-weight: bold;"> expériences</span>, d'enrichir ses <span style="color: #059862;font-weight: bold;"> connaissances</span>. </p>
     </div>
+    <?php
+        $sql = "SELECT * FROM langage WHERE id_langage";
+        $requete = $bdd->prepare($sql);
+        $requete->execute();
+        $row = $requete->fetchAll();
+        ?>
 
     <div class="container">
-      <article class="box1"><img src="../assets/img/html.jpg">
+    <?php
 
+foreach ($row as &$langage) {
+?>
+      <article class="box1">
+                <a href="langage.php?id_langage=<?php echo $langage['id_langage'] ?>">
+                <img src="../assets/img/<?php echo $langage['id_affiche'];?>">
+                </a>
       </article>
-      <article class="box1"><img src="../assets/img/Cplus.jpg">
-
-
-      </article>
-      <article class="box1"><img src="../assets/img/css.png">
-
-      </article>
-      <article class="box1"><img src="../assets/img/kotlin.jpg">
-
-      </article>
-      <article class="box1"><img src="../assets/img/js.jpg">
-
-      </article>
-      <article class="box1"><a href="categorie.php"> <img src="../assets/img/php.jpg"></a>
-
-      </article>
-      <article class="box1"><img src="../assets/img/python.jpg">
-
-      </article>
-      <article class="box1"><img src="../assets/img/java.png">
-
-      </article>
-      <article class="box1"><img src="../assets/img/ruby.jpg">
+      <?php
+        }
+      ?>
+      
     </div>
 
     <?php include "../assets/include/footer.php"; ?>
