@@ -121,10 +121,15 @@ h2 {
     background-color:#059862 ;
 }
 
-.container2 a:hover {
-    color: #059862;
+.btn b:hover{
+    color:black ;
+    background-color:#059862 ;
 }
 
+.container2 a:hover {
+    color:black ;
+    background-color:#059862 ;
+}
 .container2 ul {
     list-style: none;
     padding: 0;
