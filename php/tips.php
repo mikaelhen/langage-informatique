@@ -6,6 +6,7 @@ include 'config.php';
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,43 +17,47 @@ include 'config.php';
 
 
 </head>
-<body>
-    
 
-<div class="tips">Tips en PHP</div>
+<body>
+
+
+    <div class="tips">Tips en PHP</div>
     <?php
-$results = $conn->query('SELECT  * FROM tips');
-while($row = $results->fetch())
-{
+    $results = $conn->query('SELECT  * FROM tips');
+    while ($row = $results->fetch()) {
 
 
     ?>
 
-<div class="titre">Titre de tips: <?php echo $row['titre_tips'].'<br>';?>
-</div>
-<div>Détail de tips: 
-    <pre  class="detail">
+        <div class="titre">Titre de tips: <?php echo $row['titre_tips'] . '<br>'; ?>
+        </div>
+        <div>Détail de tips:
+            <pre class="detail">
         <code>
 
-            <?php  echo $row['detail_tips'].'<br>'; ?>
+            <?php echo $row['detail_tips'] . '<br>'; ?>
         </code>
 
     </pre>
 
-</div>
-<?php
-}
-?>
+        </div>
+    <?php
+    }
+    ?>
 
-<button class="btn">
-                <a href="add_tips.php">ajouter un tips</a>
-            </button>
-            <a class="btn" href="liste.php">Retour</a>
+    <button class="btn">
+        <a href="add_tips.php">ajouter un tips</a>
+    </button>
+    <div class="btn">
+        <a href="liste.php">Retour</a>
+    </div>
 
 
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
-<script>hljs.highlightAll();</script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
 
 </body>
+
 </html>
