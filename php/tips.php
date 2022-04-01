@@ -46,7 +46,7 @@ include 'config.php';
     ?>
 
     <button class="btn">
-        <a href="add_tips.php">ajouter un tips</a>
+        <a href="add_tips.php">Ajouter un tips</a>
     </button>
     <div class="btn">
         <a href="liste.php">Retour</a>

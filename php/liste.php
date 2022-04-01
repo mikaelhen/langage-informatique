@@ -24,7 +24,7 @@ require_once '../assets/include/bdd.php';
         $row = $requete->fetchAll();
         ?>
         <h2>LES TIPS</h2>
-        <div class="container2">
+        <div class="container4">
             <ul>
                 <?php
 

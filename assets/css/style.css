@@ -42,7 +42,7 @@ h2 {
     font-size: 80px;
     align-items: center;
     justify-content: center;
-    height: 200px;
+    height: 400px;
     background-color: #282A35;
     border-bottom: 1px solid black;
     margin: 0;
@@ -57,8 +57,25 @@ h2 {
 
 }
 
+.container4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35%;
+    background-color:#D9EEE1;
+}
+
+.container4 a {
+   text-decoration: none;
+    
+}
+
+.container4 li {
+    list-style-type: none; 
+}
+
 .ul {
-    list-style: square;
+    list-style-type: none;
     font-size: 40px;
 
 }
@@ -88,53 +105,23 @@ h2 {
     font-size: 22px;
     text-decoration: none;
     cursor: pointer;
-   margin-left: auto;
-     font-weight: bold;
-     color: #282A35;
-}
-
-.container2 b {
-    font-size: 22px;
-    text-decoration: none;
-    cursor: pointer;
-    color: BLACK;
-    /* border: 1px solid black; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-left: auto;
-    background-color: #D9EEE1;
-    FONT-WEIGHT: BOLD;
-    MARGIN-BOTTOM: 10px;
-    PADDING-LEFT: 10px;
-    padding-right: 10px;
+    font-weight: bold;
+    color: #282A35;
 }
 
-
-.container2 b:hover {
-    color:black ;
-    background-color:#059862 ;
-}
-
-.btn:hover{
-    color:black ;
-    background-color:#059862 ;
-}
-
-
-.btn b:hover{
-    color:black ;
-    background-color:#059862 ;
+.btn:hover {
+    color: black;
+    background-color: #059862;
 }
 
 .container2 a:hover {
-    color:black ;
-    background-color:#059862 ;
+    color: black;
+    background-color: #059862;
 }
+
 .container2 ul {
     list-style: none;
-    padding: 0;
-
 }
 
 div.container2 {
