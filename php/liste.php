@@ -31,6 +31,9 @@ require_once '../assets/include/bdd.php';
                 foreach ($row as &$tip) {
                 ?>
                     <li>
+                        <a href="tips.php?id_tips=<?php echo $tip['id_tips'] ?>">
+                        <?php echo $tip['titre_tips'] ?>
+
                         <a href="tips.php?id_tips=<?php echo $tip['titre_tips'] ?>">
                             <?php echo $tip['titre_tips'] ?>
                         </a>
