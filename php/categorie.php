@@ -31,9 +31,9 @@ require_once '../assets/include/bdd.php';
   $sql1 = "SELECT * FROM langage WHERE id_langage=:idcat";
   // $sql1 = "SELECT * FROM possede p,categorie c,langage l WHERE p.id_langage = l.id_langage and p.id_categorie=c.id_categorie and l.id_langage=".$_GET['id_categorie']."";
   $requete1 = $bdd->prepare($sql1);
-  $requete1->execute([
+  $requete1->execute(array(
     ':idcat' => $_GET['id_categorie']
-  ]);
+  ));
   $row1 = $requete1->fetch();
 
   // $sql = "SELECT * FROM langage WHERE id_langage=".$_GET['id_langage']."";
