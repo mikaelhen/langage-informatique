@@ -34,7 +34,7 @@ require_once '../assets/include/bdd.php';
                         <a href="tips.php?id_tips=<?php echo $tip['id_tips'] ?>">
                         <?php echo $tip['titre_tips'] ?>
 
-                        <a href="tips.php?id_tips=<?php echo $tip['titre_tips'] ?>">
+                        <a href="tips.php?id_tips=<?php echo $tip['id_tips'] ?>">
                             <?php echo $tip['titre_tips'] ?>
                         </a>
                     </li>

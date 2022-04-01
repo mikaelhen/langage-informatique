@@ -34,11 +34,6 @@ $row = $requete->fetch();
     // $requete = $bdd->prepare($sql);
     // $requete->execute();
     // $row = $requete->fetch();{
-
-    $results = $conn->query('SELECT  * FROM tips');
-    while ($row = $results->fetch()) {
-
-
     ?>
 
         <div class="titre">Titre de tips: <?php echo $row['titre_tips'] . '<br>'; ?>
