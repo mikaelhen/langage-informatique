@@ -154,6 +154,11 @@ div.container2 {
         grid-gap: 20px;
         padding-top: 50px;
     }
+    
+       img {
+        height: 80%;
+        width: 40%;
+    }
 }
 
 @media screen and (max-width:479px) {
