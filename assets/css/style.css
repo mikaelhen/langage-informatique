@@ -157,6 +157,11 @@ div.container2 {
 }
 
 @media screen and (max-width:479px) {
+    img {
+        height: 80%;
+        width: 40%;
+    }
+
     .container {
         grid-column: 1 / span 6;
         display: grid;
@@ -174,5 +179,5 @@ div.container2 {
 
     }
 
-   
+
 }
