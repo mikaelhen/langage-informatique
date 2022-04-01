@@ -1,7 +1,5 @@
-<?php
-include 'config.php';
-
-
+<?php session_start();
+require_once '../assets/include/bdd.php';
 ?>
 
 <!DOCTYPE html>
@@ -21,11 +19,18 @@ include 'config.php';
 
 <div class="tips">Tips en PHP</div>
     <?php
-$results = $conn->query('SELECT  * FROM tips');
-while($row = $results->fetch())
+$sql = "SELECT * FROM tips WHERE id_tips=:idcat";
+$requete = $bdd->prepare($sql);
+$requete->execute(array(
+  ':idcat' => $_GET['id_tips']
+));
+$row = $requete->fetch();
 {
-
-
+    // $sql = "SELECT * FROM avoir a,categorie c,tips t WHERE a.id_tips = t.id_tips and c.id_categorie= a.id_categorie and c.id_categorie=".$_GET['id_tips']."";
+ 
+    // $requete = $bdd->prepare($sql);
+    // $requete->execute();
+    // $row = $requete->fetch();{
     ?>
 
 <div class="titre">Titre de tips: <?php echo $row['titre_tips'].'<br>';?>
