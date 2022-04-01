@@ -71,13 +71,36 @@ nav a:hover {
     font-size: 20px;
 }
 
-@media screen and (max-width:767px) and (min-width:480px) {
-   .nav h1 {
-        font-size: 15px;
+@media screen and (min-width: 768px) and (max-width: 1023px) {
 
-   }  
-   
+    .nav p {
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
+
+
+
+@media screen and (max-width:767px) and (min-width:480px) {
+    .nav p {
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    
+    .nav h1 {
+        font-size: 20px;
+    }
+
+    .nav p {
+        font-size: 15px;
+    }
+
+}
+
+
 
 @media screen and (max-width:479px) {
 
@@ -94,6 +117,7 @@ nav a:hover {
     .nav p {
         width: 80%;
         font-size: 15px;
+        margin-bottom: 50px;
     }
 
 }
