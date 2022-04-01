@@ -47,9 +47,10 @@ nav a:hover {
 }
 
 .nav {
-    height: 400px;
+    height: 100%;
     background-color: #282A35;
     grid-column: 1 / -1;
+    padding-bottom: 100px;
 }
 
 .nav h1 {
@@ -68,4 +69,31 @@ nav a:hover {
         sans-serif;
     font-weight: 200;
     font-size: 20px;
+}
+
+@media screen and (max-width:767px) and (min-width:480px) {
+   .nav h1 {
+        font-size: 15px;
+
+   }  
+   
+}
+
+@media screen and (max-width:479px) {
+
+    .nav {
+        padding-bottom: 25px;
+    }
+
+    .nav h1 {
+        font-size: 20px;
+
+    }
+
+
+    .nav p {
+        width: 80%;
+        font-size: 15px;
+    }
+
 }

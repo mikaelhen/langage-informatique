@@ -24,29 +24,29 @@ require_once '../assets/include/bdd.php';
 
     <div class="nav box">
       <h1><span style="color: #059862;font-weight: bold;"> TIPS</span> Langage Informatique</h1>
-      <p>Bienvenu sur le site d'<span style="color: #059862;font-weight: bold;">échange</span>et de <span style="color: #059862;font-weight: bold;">partage</span> sur le code informatique.<br><br> Ce site est fait dans le but d'apporter ses <span style="color: #059862;font-weight: bold;"> idées</span>, ses <span style="color: #059862;font-weight: bold;"> expériences</span>, d'enrichir ses <span style="color: #059862;font-weight: bold;"> connaissances</span>. </p>
+      <p>Bienvenu sur le site d'<span style="color: #059862;font-weight: bold;">échange</span> et de <span style="color: #059862;font-weight: bold;">partage</span> sur le code informatique.<br><br> Ce site est fait dans le but d'apporter ses <span style="color: #059862;font-weight: bold;"> idées</span>, ses <span style="color: #059862;font-weight: bold;"> expériences</span>, d'enrichir ses <span style="color: #059862;font-weight: bold;"> connaissances</span>. </p>
     </div>
     <?php
-        $sql = "SELECT * FROM langage WHERE id_langage";
-        $requete = $bdd->prepare($sql);
-        $requete->execute();
-        $row = $requete->fetchAll();
-        ?>
+    $sql = "SELECT * FROM langage WHERE id_langage";
+    $requete = $bdd->prepare($sql);
+    $requete->execute();
+    $row = $requete->fetchAll();
+    ?>
 
     <div class="container">
-    <?php
-
-foreach ($row as &$langage) {
-?>
-      <article class="box1">
-                <a href="categorie.php?id_categorie=<?php echo $langage['id_langage'] ?>">
-                <img src="../assets/img/<?php echo $langage['id_affiche'];?>">
-                </a>
-      </article>
       <?php
-        }
+
+      foreach ($row as &$langage) {
       ?>
-      
+        <article class="box1">
+          <a href="categorie.php?id_categorie=<?php echo $langage['id_langage'] ?>">
+            <img src="../assets/img/<?php echo $langage['id_affiche']; ?>">
+          </a>
+        </article>
+      <?php
+      }
+      ?>
+
     </div>
 
     <?php include "../assets/include/footer.php"; ?>

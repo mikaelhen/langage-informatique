@@ -80,7 +80,7 @@ h2 {
     align-items: center;
     display: flex;
     justify-content: center;
-    padding:20px;
+    padding: 20px;
 }
 
 .container4 li {
@@ -139,4 +139,40 @@ h2 {
 
 div.container2 {
     margin: 50px;
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {}
+
+
+@media screen and (max-width:767px) and (min-width:480px) {
+    .container {
+        grid-column: 1 / span 6;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: minmax(100px, auto);
+        grid-gap: 20px;
+        padding-top: 50px;
+    }
+}
+
+@media screen and (max-width:479px) {
+    .container {
+        grid-column: 1 / span 6;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: minmax(100px, auto);
+        grid-gap: 20px;
+        padding-top: 50px;
+    }
+
+    .nav {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+   
 }
