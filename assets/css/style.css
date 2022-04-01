@@ -74,12 +74,13 @@ h2 {
 
 .container4 a:hover {
     border: 10px solid #059862;
-    height: 142px;
-    width: 400px;
+    height: auto;
+    width: auto;
     display: inline-block;
     align-items: center;
     display: flex;
     justify-content: center;
+    padding:20px;
 }
 
 .container4 li {
