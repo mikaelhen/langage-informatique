@@ -52,8 +52,8 @@
                             } else {
 
 
-                                $sql = "INSERT INTO users (pseudo_users, mail_users, mdp_users) 
-                        VALUES (:pseudo_users, :mail_users,:mdp_users)";
+                                $sql = "INSERT INTO users (pseudo_users, mail_users, mdp_users, id_role) 
+                        VALUES (:pseudo_users, :mail_users,:mdp_users, 1) ";
 
                                 $query = $bdd->prepare($sql);
 
@@ -61,6 +61,7 @@
                                 $query->bindValue(":pseudo_users", $_POST['pseudo'], PDO::PARAM_STR);
                                 $query->bindValue(":mail_users", $_POST['email'], PDO::PARAM_STR);
                                 $query->bindValue(":mdp_users", $_POST['password'], PDO::PARAM_STR);
+                                
 
                                 $query->execute();
                                 echo "c'est bon";
