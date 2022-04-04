@@ -110,13 +110,14 @@ if (empty($_GET['action']))
     
                                 echo "nb de cat : <br>";
                                 echo $nbcat;
-
+?>
                                 
-                            
+                             <form action="add_tips.php?action" method="post">
+                                 <?php
                             if ($nbcat >= '1') {
 
                                 ?>
- <form action="add_tips.php?action" method="post">
+
                                 <div class="categorie">
                          <select name="id_categorie">
                          <option value=""></option>
@@ -175,32 +176,26 @@ if (empty($_GET['action']))
 
 
                                    
-
                                     $reqone = $bdd->prepare("INSERT INTO tips (titre_tips, detail_tips) VALUES (?,?)");
                                     $reqone->execute(array($_POST['titre_tips'], $_POST['detail_tips']));
                                     $tips = $bdd->lastInsertId();
+                                    // if ($_POST['id_categorie'] == ''){
+                                        
 
-                                    var_dump($_POST['id_categorie']);
-                                    var_dump($_POST['nom_categorie']);
-                                    if ($_POST['id_categorie'] == ''){
-                                        echo 'ok';
                                         if ($_POST['nom_categorie'] != ''){
-                                            echo 'encore plus ok';
-                                            var_dump($_POST['nom_categorie']);
+
                                             $requete = $bdd->prepare("INSERT INTO categorie (nom_categorie, id_image) VALUES(?,?)");
                                             $requete->execute(array($_POST['nom_categorie'], 'imagefictif'));
 
                                             $categorie = $bdd->lastInsertId();
-                                            var_dump($_POST['language']);
-                                            var_dump($categorie);
                                             $req = $bdd->prepare("INSERT INTO possede (id_categorie, id_langage) VALUES (?,?)");
                                             $req->execute(array($categorie, $_POST['language']));
                                         }else{
                                             $categorie = $_POST['id_categorie'];
                                         }
-                                    }else{
-                                        $categorie = $_POST['id_categorie'];
-                                    }
+                                    // }else{
+                                    //     $categorie = $_POST['id_categorie'];
+                                    // }
                                     echo $categorie;
                                     echo '</br>';
                                     echo $tips;
