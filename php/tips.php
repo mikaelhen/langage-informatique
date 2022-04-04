@@ -41,8 +41,7 @@ $row = $requete->fetch();
         <div>Détail de tips:
             <pre class="detail">
         <code>
-
-            <?php echo $row['detail_tips'] . '<br>'; ?>
+        <?php  echo htmlspecialchars($row['detail_tips']); ?>
         </code>
 
     </pre>
