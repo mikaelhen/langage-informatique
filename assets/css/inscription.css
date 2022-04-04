@@ -7,7 +7,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: url(../img/metropolis.jpg);
+    background: url(../img/img_conect.jpg);
     background-size: cover;
     font-family: sans-serif;
 
@@ -20,11 +20,12 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 350px;
-    height: 440px;
+    height: 450px;
     padding: 50px;
     border-radius: 10px;
     box-sizing: border-box;
-    background: rgba(0, 0, 0, .5);
+    background: #010101;
+    opacity: 0.7;
 }
 
 .user {
@@ -33,22 +34,23 @@ body {
     border-radius: 50%;
     overflow: hidden;
     position: absolute;
-    top: calc(-100px/2);
+    top: calc(-60px/2);
     left: calc(50% - 50px);
 }
 
 h2 {
-    margin: 0;
-    padding: 10px 0 20px;
-    color: #ff0921;
+      margin: 0;
+    padding: 40px 0 20px;
+    color: #059862;
     text-align: center;
+    font-weight: bold;
 }
 
 .loginBox p {
-    margin: 0;
+      margin: 0;
     padding: 0;
     font-weight: bold;
-    color: #fff;
+    color: #059862;
 }
 
 .loginBox input {
@@ -90,19 +92,20 @@ h2 {
 }
 
 .loginBox input[type="submit"] {
-    border: none;
+   border: none;
     outline: none;
     height: 40px;
     color: #fff;
-    font-size: 16px;
-    background: #ff0921;
+    font-size: 20px;
+    background: #059862;
     cursor: pointer;
     border-radius: 20px;
+    margin-bottom: 60px;
 
 }
 
 .loginBox input[type="submit"]:hover {
-    background: #ff0921;
+    background: #D9EEE1;
     color: #262626;
 }
 
