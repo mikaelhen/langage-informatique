@@ -1,6 +1,5 @@
 
 <?php
-// die(var_dump($_POST));
 session_start();
 require_once '../assets/include/bdd.php';;
 
@@ -13,21 +12,15 @@ require_once '../assets/include/bdd.php';;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/add_tips.css">
+    <link rel="stylesheet" href="../assets/css/navbar.css">
     <title>doc</title>
 </head>
 
 <body>
+    <?php include "../assets/include/navbar.php" ?>
 
     <?php
-
-    // if (isset($_GET["action"])) {
-    //     if ($_GET["action"] == "ajout") {
-    //         echo "tu ajoutes ton tips";
-    //         $titre = $_POST["titre_tips"];
-    //         $detail = $_POST["detail_tips"];
-    //     }
-    // }
-
     $sqlLangages = "SELECT * FROM langage";
     $requeteLangages = $bdd->prepare($sqlLangages);
     $requeteLangages->execute();
@@ -51,7 +44,11 @@ require_once '../assets/include/bdd.php';;
     ?>
     <h2>Ajouter un tips</h2>
     <div class="container2">
+    ?>
 
+
+    <div class="container3">
+        <h2>Ajouter un tips</h2>
         <?php
 
 if (empty($_GET['action']))
@@ -81,6 +78,12 @@ if (empty($_GET['action']))
             </div>
             <input type="submit" class="btn" name="submit" value="submit">
             <a class="btn" href="liste.php">Retour</a>
+                        ?>
+                    </select>
+                    <input type="submit" class="btn" name="submit" value="submit">
+                    <a class="btn" href="liste.php">Retour</a>
+                </div>
+
 
         </form>
 
@@ -219,6 +222,56 @@ if (empty($_GET['action']))
 
                          // fin de isset get action
 
+                $reqone = $bdd->prepare("INSERT INTO tips (titre_tips, detail_tips) VALUES (?,?)");
+                $reqone->execute(array($_POST['titre_tips'], $_POST['detail_tips']));
+                $tips = $bdd->lastInsertId();
+
+                var_dump($_POST['id_categorie']);
+                var_dump($_POST['nom_categorie']);
+                if ($_POST['id_categorie'] == '') {
+                    echo 'ok';
+                    if ($_POST['nom_categorie'] != '') {
+                        echo 'encore plus ok';
+                        var_dump($_POST['nom_categorie']);
+                        $requete = $bdd->prepare("INSERT INTO categorie (nom_categorie, id_image) VALUES(?,?)");
+                        $requete->execute(array($_POST['nom_categorie'], 'imagefictif'));
+
+                        $categorie = $bdd->lastInsertId();
+                        var_dump($_POST['language']);
+                        var_dump($categorie);
+                        $req = $bdd->prepare("INSERT INTO possede (id_categorie, id_langage) VALUES (?,?)");
+                        $req->execute(array($categorie, $_POST['language']));
+                    } else {
+                        $categorie = $_POST['id_categorie'];
+                    }
+                } else {
+                    $categorie = $_POST['id_categorie'];
+                }
+                echo $categorie;
+                echo '</br>';
+                echo $tips;
+                $Req2 = $bdd->prepare("INSERT INTO avoir (id_tips, id_categorie) VALUES (?, ?)");
+                $Req2->execute(array($tips, $categorie));
+
+                // $sql = "INSERT INTO langage (nom_langage) values( :nom_langage)";
+                // $add = $bdd->prepare($sql);
+                // $add->execute(array(
+                //     ':nom_langage' => $l,
+
+                // ));
+                // $sql = "INSERT INTO categorie (nom_categorie) values( :nom_categorie)";
+                // $add = $bdd->prepare($sql);
+                // $add->execute(array(
+                //     ':nom_categorie' => $categorie,
+                // ));
+
+                // echo "votre tips a bien été ajouter";
+                // header("Location: liste.php");
+
+            } // fin de mon action choix
+
+
+            // fin de isset get action
 
 
 
@@ -226,6 +279,10 @@ if (empty($_GET['action']))
       
     }
     ?>
+
+
+        }
+            ?>
 
 
 
