@@ -28,16 +28,17 @@ require_once '../assets/include/bdd.php';;
 
     <div class="container3">
         <h2>Ajouter un tips</h2>
-        <?php
+        <form action="add_tips.php?action=choix" method="post">
+            <?php
 
-        if (empty($_GET['action'])) {
-
-
-
-        ?>
+            if (empty($_GET['action'])) {
 
 
-            <form action="add_tips.php?action=choix" method="post">
+
+            ?>
+
+
+
                 <div class="langue">
                     <select name="id_langage">
                         <?php
@@ -57,11 +58,11 @@ require_once '../assets/include/bdd.php';;
                 </div>
 
 
-            </form>
+        </form>
 
-        <?php
-        }
-        ?>
+    <?php
+            }
+    ?>
     </div>
     <?php
 
