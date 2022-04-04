@@ -1,4 +1,5 @@
 <?php
+// die(var_dump($_POST));
 session_start();
 require_once '../assets/include/bdd.php';;
 
@@ -11,34 +12,55 @@ require_once '../assets/include/bdd.php';;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/add_tips.css">
-    <link rel="stylesheet" href="../assets/css/navbar.css">
     <title>doc</title>
 </head>
 
 <body>
-    <?php include "../assets/include/navbar.php" ?>
 
     <?php
+
+    // if (isset($_GET["action"])) {
+    //     if ($_GET["action"] == "ajout") {
+    //         echo "tu ajoutes ton tips";
+    //         $titre = $_POST["titre_tips"];
+    //         $detail = $_POST["detail_tips"];
+    //     }
+    // }
+
     $sqlLangages = "SELECT * FROM langage";
     $requeteLangages = $bdd->prepare($sqlLangages);
     $requeteLangages->execute();
 
+
+
+    // $sql = "SELECT * FROM langage WHERE id_langage=".$_GET['id_langage']."";
+    //                                   $requete = $bdd ->prepare($sql);
+    //                                   $requete ->execute(); 
+    //                                   $row =$requete->fetch();
+    //                                   
     ?>
 
+    <?php
+
+    // if ($requete1->rowCount() > 0) {
+
+
+
+
+    ?>
 
     <div class="container3">
         <h2>Ajouter un tips</h2>
-        <form action="add_tips.php?action=choix" method="post">
-            <?php
+        <?php
 
-            if (empty($_GET['action'])) {
-
-
-
-            ?>
+        if (empty($_GET['action'])) {
 
 
 
+        ?>
+
+
+            <form action="add_tips.php?action=choix" method="post">
                 <div class="langue">
                     <select name="id_langage">
                         <?php
@@ -53,16 +75,15 @@ require_once '../assets/include/bdd.php';;
 
                         ?>
                     </select>
-                    <input type="submit" class="btn" name="submit" value="submit">
-                    <a class="btn" href="liste.php">Retour</a>
                 </div>
+                <input type="submit" class="btn" name="submit" value="submit">
+                <a class="btn" href="liste.php">Retour</a>
 
+            </form>
 
-        </form>
-
-    <?php
-            }
-    ?>
+        <?php
+        }
+        ?>
     </div>
     <?php
 
@@ -142,6 +163,11 @@ require_once '../assets/include/bdd.php';;
             <?php
 
             if (isset($_POST['titre_tips'])) {
+
+
+
+
+
 
                 $reqone = $bdd->prepare("INSERT INTO tips (titre_tips, detail_tips) VALUES (?,?)");
                 $reqone->execute(array($_POST['titre_tips'], $_POST['detail_tips']));
