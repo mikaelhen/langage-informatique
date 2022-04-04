@@ -61,7 +61,7 @@
                                 $query->bindValue(":pseudo_users", $_POST['pseudo'], PDO::PARAM_STR);
                                 $query->bindValue(":mail_users", $_POST['email'], PDO::PARAM_STR);
                                 $query->bindValue(":mdp_users", $_POST['password'], PDO::PARAM_STR);
-                                
+
 
                                 $query->execute();
                                 echo "c'est bon";

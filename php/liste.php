@@ -32,7 +32,7 @@ require_once '../assets/include/bdd.php';
                 ?>
                     <li>
                         <a href="tips.php?id_tips=<?php echo $tip['id_tips'] ?>">
-                        <?php echo $tip['titre_tips'] ?>
+                            <?php echo $tip['titre_tips'] ?>
                         </a>
                     </li>
                 <?php
