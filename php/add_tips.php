@@ -12,7 +12,7 @@ require_once '../assets/include/bdd.php';;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/add_tips.css">
     <title>doc</title>
 </head>
 
@@ -51,7 +51,7 @@ require_once '../assets/include/bdd.php';;
     ?>
     <h2>Ajouter un tips</h2>
     <div class="container2">
-
+<form action="add_tips.php?action=choix" method="post">
         <?php
 
 if (empty($_GET['action']))
@@ -62,7 +62,7 @@ if (empty($_GET['action']))
 ?>
 
 
-        <form action="add_tips.php?action=choix" method="post">
+        
             <div class="langue">
                 <select name="id_langage">
                     <?php
@@ -97,22 +97,12 @@ if (empty($_GET['action']))
                             if ($_GET["action"] == "choix")
                             {
 
-                                echo "a partir d'ici on met les autres champs<br>";
-                                echo "le langage est : ";
-                                echo $_POST['id_langage'];
-
                                 $sqlCategorie = "SELECT * FROM categorie c, possede p, langage l WHERE c.id_categorie = p.id_categorie and 
                                 p.id_langage=l.id_langage and 
                                 p.id_langage=".$_POST['id_langage']."";
                                 $requeteCategorie = $bdd->prepare($sqlCategorie);
                                 $requeteCategorie->execute();
                                 $nbcat = $requeteCategorie->rowcount();
-    
-                                echo "nb de cat : <br>";
-                                echo $nbcat;
-
-                                
-                            
                             if ($nbcat >= '1') {
 
                                 ?>
@@ -180,11 +170,9 @@ if (empty($_GET['action']))
                                     $reqone->execute(array($_POST['titre_tips'], $_POST['detail_tips']));
                                     $tips = $bdd->lastInsertId();
 
-                                    if ($_POST['id_categorie'] == ''){
+                                    // if ($_POST['id_categorie'] == ''){
                                         echo 'ok';
                                         if ($_POST['nom_categorie'] != ''){
-                                            echo 'encore plus ok';
-                                            var_dump($_POST['nom_categorie']);
                                             $requete = $bdd->prepare("INSERT INTO categorie (nom_categorie, id_image) VALUES(?,?)");
                                             $requete->execute(array($_POST['nom_categorie'], 'imagefictif'));
 
@@ -194,12 +182,10 @@ if (empty($_GET['action']))
                                         }else{
                                             $categorie = $_POST['id_categorie'];
                                         }
-                                    }else{
-                                        $categorie = $_POST['id_categorie'];
-                                    }
-                                    echo $categorie;
-                                    echo '</br>';
-                                    echo $tips;
+                                    // }else{
+                                    //     $categorie = $_POST['id_categorie'];
+                                    // }
+
                                     $Req2 = $bdd->prepare("INSERT INTO avoir (id_tips, id_categorie) VALUES (?, ?)");
                                     $Req2->execute(array($tips, $categorie));
 
