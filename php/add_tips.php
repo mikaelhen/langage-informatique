@@ -161,25 +161,21 @@ if (empty($_GET['action']))
                         <?php
      
                             if (isset($_POST['titre_tips'])) {
-                               
-
-
-
-                                   
+        
 
                                     $reqone = $bdd->prepare("INSERT INTO tips (titre_tips, detail_tips) VALUES (?,?)");
                                     $reqone->execute(array($_POST['titre_tips'], $_POST['detail_tips']));
                                     $tips = $bdd->lastInsertId();
 
                                     // if ($_POST['id_categorie'] == ''){
-                                        echo 'ok';
+                                        echo 'tips crée';
                                         if ($_POST['nom_categorie'] != ''){
                                             $requete = $bdd->prepare("INSERT INTO categorie (nom_categorie, id_image) VALUES(?,?)");
                                             $requete->execute(array($_POST['nom_categorie'], 'imagefictif'));
 
                                             $categorie = $bdd->lastInsertId();
                                             $req = $bdd->prepare("INSERT INTO possede (id_categorie, id_langage) VALUES (?,?)");
-                                            $req->execute(array($categorie, $_POST['language']));
+                                            $req->execute(array($categorie, $l));
                                         }else{
                                             $categorie = $_POST['id_categorie'];
                                         }
@@ -190,17 +186,17 @@ if (empty($_GET['action']))
                                     $Req2 = $bdd->prepare("INSERT INTO avoir (id_tips, id_categorie) VALUES (?, ?)");
                                     $Req2->execute(array($tips, $categorie));
 
-                                    // $sql = "INSERT INTO langage (nom_langage) values( :nom_langage)";
-                                    // $add = $bdd->prepare($sql);
-                                    // $add->execute(array(
-                                    //     ':nom_langage' => $l,
+                                    $sql = "INSERT INTO langage (nom_langage) values( :nom_langage)";
+                                    $add = $bdd->prepare($sql);
+                                    $add->execute(array(
+                                        ':nom_langage' => $l,
                             
-                                    // ));
-                                    // $sql = "INSERT INTO categorie (nom_categorie) values( :nom_categorie)";
-                                    // $add = $bdd->prepare($sql);
-                                    // $add->execute(array(
-                                    //     ':nom_categorie' => $categorie,
-                                    // ));
+                                    ));
+                                    $sql = "INSERT INTO categorie (nom_categorie) values( :nom_categorie)";
+                                    $add = $bdd->prepare($sql);
+                                    $add->execute(array(
+                                        ':nom_categorie' => $categorie,
+                                    ));
                             
                                     // echo "votre tips a bien été ajouter";
                                     // header("Location: liste.php");
