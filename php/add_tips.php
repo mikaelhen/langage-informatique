@@ -103,10 +103,10 @@ require_once '../assets/include/bdd.php';;
                 if ($nbcat >= '1') {
 
                 ?>
-
-                    <div class="categorie">
+ <div class="categorie">
                         <select name="id_categorie">
                             <option value=""></option>
+                   
                             <?php
 
                             while ($l = $requeteCategorie->fetch()) {
