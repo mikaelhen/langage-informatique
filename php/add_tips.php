@@ -100,7 +100,7 @@ if (empty($_GET['action']))
 
                                 $sqlCategorie = "SELECT * FROM categorie c, possede p, langage l WHERE c.id_categorie = p.id_categorie and 
                                 p.id_langage=l.id_langage and 
-                                p.id_langage=".$_POST['id_langage']."";
+                                p.id_categorie=".$_POST['id_langage']."";
                                 $requeteCategorie = $bdd->prepare($sqlCategorie);
                                 $requeteCategorie->execute();
                                 $nbcat = $requeteCategorie->rowcount();
