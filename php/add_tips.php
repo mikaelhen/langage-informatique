@@ -189,7 +189,7 @@ if (empty($_GET['action']))
                                     $sql = "INSERT INTO langage (nom_langage) values( :nom_langage)";
                                     $add = $bdd->prepare($sql);
                                     $add->execute(array(
-                                        ':nom_langage' => $l,
+                                        ':nom_langage' => $langage,
                             
                                     ));
                                     $sql = "INSERT INTO categorie (nom_categorie) values( :nom_categorie)";
