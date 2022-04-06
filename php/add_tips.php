@@ -12,9 +12,13 @@ require_once '../assets/include/bdd.php';;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/add_tips.css">
-    <title>doc</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+        <link rel="stylesheet" href="../assets/css/navbar.css">
+    <title>Tips</title>
 </head>
-
+<header>
+<?php include "../assets/include/navbar.php" ?>
+</header>
 <body>
 
     <?php
@@ -38,8 +42,10 @@ require_once '../assets/include/bdd.php';;
         ?>
 
             <form action="add_tips.php?action=choix" method="post">
-                <div class="langue">
+
+                <div class="langue">choisir votre categorie :
                     <select name="id_langage">
+                        
                         <?php
                         while ($l = $requeteLangages->fetch()) {
 
@@ -50,10 +56,14 @@ require_once '../assets/include/bdd.php';;
                         <?php
                         }
 
-                        ?>
-                    </select>
+                        ?> 
+                         </select>
+                       
+                   
+                   
                 </div>
-                <input type="submit" class="btn" name="submit" value="submit">
+                <input type="submit" class="btn" name="submit" value="validé votre catégorie">
+                
                 <a class="btn" href="liste.php">Retour</a>
 
             </form>
