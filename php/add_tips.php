@@ -195,7 +195,7 @@ if (empty($_GET['action']))
                                     $sql = "INSERT INTO categorie (nom_categorie) values( :nom_categorie)";
                                     $add = $bdd->prepare($sql);
                                     $add->execute(array(
-                                        ':nom_categorie' => $categorie,
+                                        ':nom_categorie' => $p,
                                     ));
                             
                                     // echo "votre tips a bien été ajouter";
