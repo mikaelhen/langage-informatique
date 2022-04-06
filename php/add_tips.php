@@ -98,7 +98,7 @@ if (empty($_GET['action']))
                             if ($_GET["action"] == "choix")
                             {
 
-                                $sqlCategorie = "SELECT * FROM categorie c, possede p, langage l WHERE c.id_categorie = p.id_categorie and 
+                                $sqlCategorie= "SELECT * FROM categorie c, possede p, langage l WHERE c.id_categorie = p.id_categorie and 
                                 p.id_langage=l.id_langage and 
                                 p.id_langage=".$_POST['id_langage']."";
                                 $requeteCategorie = $bdd->prepare($sqlCategorie);
@@ -176,6 +176,7 @@ if (empty($_GET['action']))
                                             $categorie = $bdd->lastInsertId();
                                             $req = $bdd->prepare("INSERT INTO possede (id_categorie, id_langage) VALUES (?,?)");
                                             $req->execute(array($categorie, $l));
+                                            echo $categorie;
                                         }else{
                                             $categorie = $_POST['id_categorie'];
                                         }
