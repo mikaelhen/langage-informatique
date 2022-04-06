@@ -64,7 +64,7 @@ require_once '../assets/include/bdd.php';
     ?>
         <article class="box2">
           <a href="liste.php?id_tips=<?php echo $categorie['id_categorie'] ?>">
-            <img src="../assets/img/<?php echo $categorie['id_image']; ?>">
+            <img src="images/<?php echo $categorie['id_image']; ?>">
           </a>
         </article>
     <?php
