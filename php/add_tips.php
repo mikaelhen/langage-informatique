@@ -50,6 +50,9 @@ require_once '../assets/include/bdd.php';;
 
 
     ?>
+
+
+
     <h2>Ajouter un tips</h2>
     <div class="container2">
     
@@ -58,6 +61,17 @@ require_once '../assets/include/bdd.php';;
 if (empty($_GET['action']))
 {
 ?>
+
+
+<form action="upload.php" method="post" enctype="multipart/form-data">
+    Image à envoyer :
+    <input type="file" name="file">
+    <input type="submit" name="submit" value="Upload">
+</form>
+
+
+
+
 <form action="add_tips.php?action=choix" method="post">
             <div class="langue">
                 <select name="id_langage">
