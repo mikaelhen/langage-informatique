@@ -58,6 +58,9 @@ require_once '../assets/include/bdd.php';
             <button class="btn">
                 <a href="liste.php">Retour</a>
             </button>
+            <button class="btn">
+                <a href="update.php.php">update</a>
+            </button>
         </div>
 
     <?php include "../assets/include/footer.php"; ?>
