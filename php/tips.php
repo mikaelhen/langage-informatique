@@ -1,5 +1,7 @@
 <?php session_start();
 require_once '../assets/include/bdd.php';
+if (!isset($_SESSION['user'])){header('location:index.php?login_err=pas_de_compte');}
+else {
 ?>
 
 <!DOCTYPE html>
@@ -68,7 +70,7 @@ require_once '../assets/include/bdd.php';
     <script>
         hljs.highlightAll();
     </script>
-
+<?php } ?>
 </body>
 
 </html>

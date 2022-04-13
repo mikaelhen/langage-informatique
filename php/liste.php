@@ -1,5 +1,7 @@
 <?php session_start();
 require_once '../assets/include/bdd.php';
+if (!isset($_SESSION['user'])){header('location:index.php?login_err=pas_de_compte');}
+else {
 ?>
 <!DOC TYPE html>
     <html lang="fr">
@@ -51,6 +53,7 @@ require_once '../assets/include/bdd.php';
                 <a href="liste.php">Retour</a>
             </button>
         </div>
+        <?php } ?>
     </body>
 
     </html>
