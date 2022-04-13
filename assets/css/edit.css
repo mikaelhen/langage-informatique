@@ -1,0 +1,50 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.tableau {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    background-color: greenyellow;
+}
+
+.langage {
+    display: flex;
+    align-items: center;
+    width: 20%;
+    height: 30px;
+    border: 1px solid black;
+    justify-content: center;
+
+}
+.categorie {
+    display: flex;
+    align-items: center;
+    width: 20%;
+    height: 30px;
+    border: 1px solid black;
+    justify-content: center;
+
+}
+.tips {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    height: 30px;
+    border: 1px solid black;
+    justify-content: center;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    width: 20%;
+    height: 30px;
+    border: 1px solid black;
+    justify-content: center;
+
+}

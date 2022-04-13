@@ -59,7 +59,7 @@ require_once '../assets/include/bdd.php';
                 <a href="liste.php">Retour</a>
             </button>
             <button class="btn">
-                <a href="update.php.php">update</a>
+                <a href="edit.php.php">update</a>
             </button>
         </div>
 
