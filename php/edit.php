@@ -6,7 +6,7 @@ if (!isset($_SESSION['user'])){header('location:index.php?login_err=pas_de_compt
 else {
 
 
-    $sqlTips = "SELECT * FROM tips, langage, categorie";
+    $sqlTips = "SELECT tips FROM langage, categorie, titre_tips";
     $requeteTips = $bdd->prepare($sqlTips);
     $requeteTips->execute();
     $tips = $bdd->lastInsertId();
