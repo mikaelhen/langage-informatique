@@ -1,7 +1,9 @@
 <?php
 // die(var_dump($_POST));
 session_start();
-require_once '../assets/include/bdd.php';;
+require_once '../assets/include/bdd.php';
+if (!isset($_SESSION['user'])){header('location:index.php?login_err=pas_de_compte');}
+else {
 
 ?>
 <!DOCTYPE html>
@@ -43,8 +45,8 @@ require_once '../assets/include/bdd.php';;
 
             <form action="add_tips.php?action=choix" method="post">
 
-                <div class="langue">choisir votre categorie :
-                    <select name="id_langage">
+                <div class="langue">choisir votre langage :
+                        <select name="id_langage">
                         
                         <?php
                         while ($l = $requeteLangages->fetch()) {
@@ -57,12 +59,12 @@ require_once '../assets/include/bdd.php';;
                         }
 
                         ?> 
-                         </select>
+                        </select>
                        
                    
                    
                 </div>
-                <input type="submit" class="btn" name="submit" value="validé votre catégorie">
+                <input type="submit" class="btn" name="submit" value="validé votre langage">
                 
                 <a class="btn" href="liste.php">Retour</a>
 
@@ -103,34 +105,39 @@ require_once '../assets/include/bdd.php';;
                 if ($nbcat >= '1') {
 
                 ?>
- <div class="categorie">
+            <div class="categorie">
                         <select name="id_categorie">
                             <option value=""></option>
                    
-                            <?php
+                <?php
 
                             while ($l = $requeteCategorie->fetch()) {
-                            ?>
-
-                                <option value="<?= $l['id_categorie'] ?>"><?= $l['nom_categorie'] ?></option>
-
-                            <?php
-                            } // fin de ma boucle
-
-                            ?>
-                        </select>
-                <?php
-                } // fin de mon else if
-
-                else if ($nbcat == '0') {
-                }
-            }
-
-            // ici creation de cat*
-
 
                 ?>
 
+                            <option value="<?= $l['id_categorie'] ?>"><?= $l['nom_categorie'] ?></option>
+
+                <?php
+
+                            } // fin de ma boucle
+
+                ?>
+                        </select>
+                <?php
+                            } // fin de mon else if
+
+                            else if ($nbcat == '0') 
+                            {
+                                echo "aucune categorie existante <br>";
+                                echo "crée votre catégorie";
+                            }
+                         
+                            }
+
+            // ici creation de cat*
+
+                ?>
+            
                 <div class="categorie">
                     <input type="name" name="nom_categorie" placeholder="crée_categorie" value="">
                 </div>
@@ -271,7 +278,9 @@ require_once '../assets/include/bdd.php';;
         // fin de isset get action
 
     }
-        ?>
+}
+     
+     ?>
 
 
 
