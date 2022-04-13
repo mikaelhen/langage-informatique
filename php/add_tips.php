@@ -104,8 +104,8 @@ require_once '../assets/include/bdd.php';;
 
                 ?>
  <div class="categorie">
-                        <select name="id_categorie">
-                            <option value=""></option>
+                        <select class="selection" name="id_categorie">
+                            <option value="">...</option>
                    
                             <?php
 
@@ -135,7 +135,7 @@ require_once '../assets/include/bdd.php';;
                     <input type="name" name="nom_categorie" placeholder="crée_categorie" value="">
                 </div>
 
-                <div class="titre">
+                <div class="titre1">
                     <input type="name" name="titre_tips" placeholder="titre" value="">
                 </div>
                 <div class="detaille">
@@ -148,7 +148,7 @@ require_once '../assets/include/bdd.php';;
                 </div>
 
 
-                <input type="submit" class="btn" name="submit" value="submit">
+                <input type="submit" class="btn1" name="submit" value="submit">
 
 
                 <?php
