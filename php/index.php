@@ -50,6 +50,19 @@ require_once '../assets/include/bdd.php';
 
     </div>
 
+    <div class="container2">
+            <button class="btn">
+                <a href="add_tips.php">
+                    Ajouter un tips</b>
+            </button>
+            <button class="btn">
+                <a href="liste.php">Retour</a>
+            </button>
+            <button class="btn">
+                <a href="edit.php.php">update</a>
+            </button>
+        </div>
+
     <?php include "../assets/include/footer.php"; ?>
   </div>
 </body>
