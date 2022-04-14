@@ -5,7 +5,7 @@ require_once '../assets/include/bdd.php';
 if (!isset($_SESSION['user'])){header('location:index.php?login_err=pas_de_compte');}
 else {
 
-var_dump($_GET);
+
     // $sqlTips = "SELECT * FROM titre_tips , langage, categorie";
     $params = [];
     $sqlTips = "SELECT * FROM t_tips
