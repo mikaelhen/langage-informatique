@@ -2,6 +2,7 @@
 // die(var_dump($_POST));
 session_start();
 require_once '../assets/include/bdd.php';
+include 'mesfonctionSQL.php'
 if (!isset($_SESSION['user'])){header('location:index.php?login_err=pas_de_compte');}
 else {
 
