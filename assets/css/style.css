@@ -101,9 +101,8 @@ h2 {
     height: 61px;
     border-radius: 25px;
     background-color: #D9EEE1;
-<<<<<<< HEAD
+
     margin-top: -6px;
-=======
     margin-top: 22px;
     margin-left: 3px;
 }
@@ -136,7 +135,7 @@ h2 {
     border-radius: 25px;
     background-color: #D9EEE1;
     text-align: center;
->>>>>>> c2abd019cc7ba89b87860864ed3d961ea2361406
+
 }
 
 .titre input {
