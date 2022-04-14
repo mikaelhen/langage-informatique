@@ -2,14 +2,24 @@
 session_start();
 require_once '../assets/include/bdd.php';
 if (!isset($_SESSION['user'])){header('location:index.php?login_err=pas_de_compte');}
-else { 
+else 
+{ 
+    function deletetips($id)
+    {
+        try 
+        {
+            $requete = "DELETE from t_tips where id_tips=:idcat";
+            $requete = $bdd->prepare($sql);
+            $requete->execute(array(
+                ':idcat' => $_GET['id_tips']
+                $stmt = $bdd->query($requete);
+            ));  ?>
+            
+            
+            
+            
+            
+        }
+    }
 
-    $sql = "DELETE * FROM t_tips WHERE id_tips=".$_GET['id_tips']."";
-    $requete = $bdd->prepare($sql);
-    $requete ->execute();
-    $row =$requete->fetch();
-
-echo "le tips a été supprimer"
- 
-
-    }   
+}

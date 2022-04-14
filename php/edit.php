@@ -2,7 +2,7 @@
 // die(var_dump($_POST));
 session_start();
 require_once '../assets/include/bdd.php';
-include 'mesfonctionSQL.php'
+// include 'mesfonctionSQL';
 if (!isset($_SESSION['user'])){header('location:index.php?login_err=pas_de_compte');}
 else {
 
@@ -67,7 +67,7 @@ else {
 
 
             <a href="update.php?id_tips=<?php echo $table['id_tips'] ?>"><button>update</button> </a>
-            <a href="traitement-delete.php?id_tips=<?php echo $table['id_tips'] ?>"><button >delete</button> </a>
+            <a href="traitement-delete.php?id_tips=<?php echo $table['id_tips'] ?>"><button>delete</button> </a>
 
 
 
