@@ -83,13 +83,12 @@ if (!isset($_SESSION['user'])) {
     <div class="container2">
       <button class="btn">
         <a href="add_tips.php">
-          Ajouter un tips</b>
+          Ajouter un tips</a>
       </button>
       <button class="btn">
         <a href="liste.php">Retour</a>
       </button>
     </div>
-
     <?php include "../assets/include/footer.php"; ?>
     </div>
   <?php } ?>
