@@ -88,7 +88,6 @@ else {
                 $idlang = $_GET['idlang'];
             }
 
-
             $sqlCategorie = "SELECT * FROM categorie c, possede p, langage l WHERE c.id_categorie = p.id_categorie and 
                                 p.id_langage=l.id_langage and 
                                 p.id_langage=" . $idlang . "";
