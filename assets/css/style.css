@@ -72,7 +72,7 @@ h2 {
 }
 
 .container4 a:hover {
-    border: 10px solid #059862;
+  
     height: auto;
     width: auto;
     display: inline-block;
@@ -80,6 +80,7 @@ h2 {
     display: flex;
     justify-content: center;
     padding: 20px;
+    background-color: #059862;
 }
 
 .container4 li {
