@@ -65,7 +65,7 @@ else {
             <div class="option">
 
 
-            <button>update</button>
+            <a href="update.php?id_tips=<?php echo $table['id_tips'] ?>"><button>update</button> </a>
             <button>delete</button>
 
 
