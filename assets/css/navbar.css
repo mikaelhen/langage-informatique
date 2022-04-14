@@ -50,7 +50,7 @@ nav a:hover {
     height: 100%;
     background-color: #282A35;
     grid-column: 1 / -1;
-    padding-bottom: 100px;
+    padding-bottom: 24px;
 }
 
 .nav h1 {
