@@ -65,7 +65,6 @@ var_dump($_GET);
             <div class="option">
 
 
-            <button>lire</button>
             <button>update</button>
             <button>delete</button>
 

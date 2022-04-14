@@ -30,7 +30,7 @@ else {
     <?php
 
 
-    $sql = "SELECT * FROM tips WHERE id_tips=:idcat";
+    $sql = "SELECT * FROM t_tips WHERE id_tips=:idcat";
     $requete = $bdd->prepare($sql);
     $requete->execute(array(
         ':idcat' => $_GET['id_tips']
