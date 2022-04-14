@@ -226,7 +226,7 @@ else {
             // Display status message
             echo $statusMsg;
 
-            $reqone = $bdd->prepare("INSERT INTO tips (titre_tips, detail_tips) VALUES (?,?)");
+            $reqone = $bdd->prepare("INSERT INTO t_tips (titre_tips, detail_tips) VALUES (?,?)");
             $reqone->execute(array($_POST['titre_tips'], $_POST['detail_tips']));
             $tips = $bdd->lastInsertId();
 

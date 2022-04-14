@@ -28,7 +28,6 @@ else {
     <div class="titre">Titre de tips: <?php echo $row['titre_tips'] . '<br>'; ?>
     <?php echo htmlspecialchars($row['detail_tips']);
     
-    
   }?>
 
 

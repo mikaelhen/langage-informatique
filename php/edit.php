@@ -66,8 +66,11 @@ else {
 
 
             <a href="update.php?id_tips=<?php echo $table['id_tips'] ?>"><button>update</button> </a>
-            <button>delete</button>
+            <a href="traitement-delete.php?id_tips=<?php echo $table['id_tips'] ?>"><button >delete</button> </a>
 
+
+
+   
 
             </div>
 
