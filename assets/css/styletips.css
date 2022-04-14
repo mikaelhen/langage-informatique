@@ -1,3 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color:#D9EEE1;
+}
+
+
 .tips{
     text-align: center;
     font-size: 30px;

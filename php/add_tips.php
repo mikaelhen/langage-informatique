@@ -88,7 +88,6 @@ else {
                 $idlang = $_GET['idlang'];
             }
 
-
             $sqlCategorie = "SELECT * FROM categorie c, possede p, langage l WHERE c.id_categorie = p.id_categorie and 
                                 p.id_langage=l.id_langage and 
                                 p.id_langage=" . $idlang . "";
@@ -105,9 +104,9 @@ else {
                 if ($nbcat >= '1') {
 
                 ?>
-            <div class="categorie">
-                        <select name="id_categorie">
-                            <option value=""></option>
+ <div class="categorie">
+                        <select class="selection" name="id_categorie">
+                            <option value="">...</option>
                    
                 <?php
 
@@ -142,7 +141,7 @@ else {
                     <input type="name" name="nom_categorie" placeholder="crée_categorie" value="">
                 </div>
 
-                <div class="titre">
+                <div class="titre1">
                     <input type="name" name="titre_tips" placeholder="titre" value="">
                 </div>
                 <div class="detaille">
@@ -155,7 +154,7 @@ else {
                 </div>
 
 
-                <input type="submit" class="btn" name="submit" value="submit">
+                <input type="submit" class="btn1" name="submit" value="submit">
 
 
                 <?php
