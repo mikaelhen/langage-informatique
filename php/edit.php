@@ -5,14 +5,22 @@ require_once '../assets/include/bdd.php';
 if (!isset($_SESSION['user'])){header('location:index.php?login_err=pas_de_compte');}
 else {
 
+var_dump($_GET);
+    // $sqlTips = "SELECT * FROM titre_tips , langage, categorie";
+    $params = [];
+    $sqlTips = "SELECT * FROM t_tips
+    INNER JOIN avoir ON t_tips.id_tips = avoir.id_tips
+    INNER JOIN categorie ON avoir.id_categorie = categorie.id_categorie
+    INNER JOIN possede ON possede.id_categorie = categorie.id_categorie
+    INNER JOIN langage ON possede.id_langage = langage.id_langage";
+    if(isset($_GET['id_tips'])) {
+        $sqlTips = $sqlTips . " WHERE t_tips.id_tips = ?";
+        $params = [ $_GET['id_tips'] ];
+    }
 
-<<<<<<< HEAD
-    $sqlTips = "SELECT * FROM titre_tips , langage, categorie";
-=======
-    $sqlTips = "SELECT tips FROM langage, categorie, titre_tips";
->>>>>>> 2397255eb4c83a84923c7ace87c6d01120ac9a36
+    // WHERE t_tips.id_tips = ?";
     $requeteTips = $bdd->prepare($sqlTips);
-    $requeteTips->execute();
+    $requeteTips->execute($params);
     $tips = $bdd->lastInsertId();
 ?>
     <!DOCTYPE html>
