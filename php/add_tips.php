@@ -65,7 +65,7 @@ if (!isset($_SESSION['user'])) {
 
 
                     </div>
-                    <input type="submit" class="btn" name="submit" value="validé votre langage">
+                    <input type="submit" class="btn" name="submit" value="VALIDER LE LANGUAGE">
 
                 </form>
 
@@ -139,14 +139,14 @@ if (!isset($_SESSION['user'])) {
                 </div>
                 <div class="cont_all">
                     <div class="categorie3">
-                        <input type="name" name="nom_categorie" placeholder="crée_categorie" value="">
+                        <input type="name" name="nom_categorie" placeholder="CREER CATEGORIE" value="">
                     </div>
 
                     <div class="titre1">
-                        <input type="name" name="titre_tips" placeholder="titre" value="">
+                        <input type="name" name="titre_tips" placeholder="TITRE" value="">
                     </div>
                     <div class="detaille">
-                        <input type="name" name="detail_tips" placeholder="detail" value="">
+                        <input type="name" name="detail_tips" placeholder="DETAILS" value="">
                     </div>
 
                     <div class="detaille1">
