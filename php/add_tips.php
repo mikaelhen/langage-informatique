@@ -285,8 +285,8 @@ if (!isset($_SESSION['user'])) {
         ?>
 
         </div>
-
-        <?php include "../assets/include/footer.php"; ?>
+        <div>
+            <?php include "../assets/include/footer.php"; ?>
         </div>
 
     </body>
