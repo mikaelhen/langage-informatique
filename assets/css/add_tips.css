@@ -141,3 +141,32 @@ input {
 .container10 ul {
     list-style: none;
 }
+
+.btn1 {
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 188px;
+    width: 246px;
+    height: 61px;
+    border-radius: 25px;
+    background-color: #D9EEE1;
+    font-size: 22px;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: #282A35;
+}
+
+.btn1 a {
+    font-size: 22px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: auto;
+    font-weight: bold;
+    color: #282A35;
+}
+
+.btn:hover {
+    color: black;
+    background-color: #059862;
+}

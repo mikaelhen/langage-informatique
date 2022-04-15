@@ -153,8 +153,8 @@ if (!isset($_SESSION['user'])) {
                         <input type="file" name="file">
                     </div>
 
-
-                    <input type="submit" class="btn1" name="submit" value="submit">
+                    .
+                    <input type="submit" class="btn1" name="submit" value="Valider">
 
 
                     <?php
