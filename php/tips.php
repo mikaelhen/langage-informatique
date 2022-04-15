@@ -75,7 +75,7 @@ if (!isset($_SESSION['user'])) {
         </button>
 
         <button class="btn">
-            <a href="liste.php">Retour</a>
+            <a href="index.php">Retour</a>
         </button>
     </div>
 
