@@ -87,7 +87,7 @@ if (!isset($_SESSION['user'])) {
           Ajouter un tips</a>
       </button>
       <button class="btn">
-        <a href="index.php">Retour</a>
+        <a href="liste.php">Retour</a>
       </button>
 
     <?php } ?>
