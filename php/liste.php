@@ -21,7 +21,7 @@ if (!isset($_SESSION['user'])) {
             <?php include "../assets/include/navbar.php" ?>
             <?php
 
-            $sql = "SELECT * FROM avoir a,categorie c,t_tips t WHERE a.id_tips = t.id_tips and c.id_categorie= a.id_categorie and c.id_categorie=" . $_GET['id_tips'] . "";
+            $sql = "SELECT * FROM avoir a,categorie c,t_tips t WHERE a.id_tips = t.id_tips and c.id_categorie = a.id_categorie and c.id_categorie=" . $_GET['id_tips'] . "";
 
             $requete = $bdd->prepare($sql);
             $requete->execute();

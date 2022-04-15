@@ -14,10 +14,10 @@ if (!isset($_SESSION['user'])) {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="assets/css/add_tips.css">
         <link rel="stylesheet" href="../assets/css/style.css">
         <link rel="stylesheet" href="../assets/css/navbar.css">
         <link rel="stylesheet" href="../assets/css/footer.css">
+        <link rel="stylesheet" href="../assets/css/add_tips.css">
 
         <title>Tips</title>
     </head>
@@ -28,18 +28,15 @@ if (!isset($_SESSION['user'])) {
     <body>
 
         <?php
-
-
         $sqlLangages = "SELECT * FROM langage";
         $requeteLangages = $bdd->prepare($sqlLangages);
         $requeteLangages->execute();
         $l = $bdd->lastInsertId();
-
-
         ?>
 
 
         <h2>Ajouter un tips</h2>
+
         <div class="container6">
 
             <?php
@@ -77,9 +74,7 @@ if (!isset($_SESSION['user'])) {
             ?>
 
         </div>
-        <button class="btn">
-            <a href="liste.php">Retour</a>
-        </button>
+
         <?php
 
 
@@ -283,10 +278,13 @@ if (!isset($_SESSION['user'])) {
     }
 
         ?>
-
+        <div class="container2">
+            <button class="btn">
+                <a href="liste.php">Retour</a>
+            </button>
         </div>
-
-        <?php include "../assets/include/footer.php"; ?>
+        <div>
+            <?php include "../assets/include/footer.php"; ?>
         </div>
 
     </body>
