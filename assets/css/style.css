@@ -38,10 +38,10 @@ h2 {
     margin-right: auto;
     display: flex;
     align-items: center;
-    justify-content: center;
     height: 200px;
     width: 80%;
-    justify-content: space-between;
+    justify-content: flex-end;
+    justify-content:space-between;
 }
 
 .container4 {
