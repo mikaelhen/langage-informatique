@@ -283,7 +283,7 @@ if (!isset($_SESSION['user'])) {
         ?>
         <div class="container2">
             <button class="btn">
-                <a href="liste.php">Retour</a>
+                <a href="index.php">Retour</a>
             </button>
         </div>
         <div>
