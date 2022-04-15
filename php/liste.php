@@ -22,7 +22,9 @@ if (!isset($_SESSION['user'])) {
 
             <?php
 
-            $sql = "SELECT * FROM avoir a,categorie c,t_tips t WHERE a.id_tips = t.id_tips and c.id_categorie = a.id_categorie and c.id_categorie=" . $_GET['id_tips'] . "";
+
+            $sql = "SELECT * FROM avoir a, categorie c, t_tips t WHERE a.id_tips = t.id_tips and c.id_categorie= a.id_categorie and c.id_categorie= " . $_GET['id_tips'] . "";
+
 
             $requete = $bdd->prepare($sql);
             $requete->execute();
@@ -50,7 +52,11 @@ if (!isset($_SESSION['user'])) {
                 </ul>
             <?php } ?>
             </div>
-           
+            <div class="container2">
+                <button class="btn">
+                    <a href="add_tips.php">
+                        Ajouter un tips</a>
+                </button>
                 <button class="btn">
                     <a href="index.php">Retour</a>
                 </button>
