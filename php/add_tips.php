@@ -98,44 +98,47 @@ if (!isset($_SESSION['user'])) {
                 $nbcat = $requeteCategorie->rowcount();
 
         ?>
-                <form action="add_tips.php?action=choix&idlang=<?php echo $idlang; ?>" method="post" enctype="multipart/form-data">
+                <div class="action">
+                    <form action="add_tips.php?action=choix&idlang=<?php echo $idlang; ?>" method="post" enctype="multipart/form-data">
+                        <?php
+
+                        if ($nbcat >= '1') {
+
+                        ?>
+                            <div class="selec">
+                                <select class="selection" name="id_categorie">
+                                    <option value="">...</option>
+
+                                    <?php
+
+                                    while ($l = $requeteCategorie->fetch()) {
+
+                                    ?>
+
+                                        <option value="<?= $l['id_categorie'] ?>"><?= $l['nom_categorie'] ?></option>
+
+                                    <?php
+
+                                    } // fin de ma boucle
+
+                                    ?>
+                                </select>
+                            </div>
                     <?php
+                        } // fin de mon else if
 
-                    if ($nbcat >= '1') {
-
-                    ?>
-                        <div class="categorie">
-                            <select class="selection" name="id_categorie">
-                                <option value="">...</option>
-
-                                <?php
-
-                                while ($l = $requeteCategorie->fetch()) {
-
-                                ?>
-
-                                    <option value="<?= $l['id_categorie'] ?>"><?= $l['nom_categorie'] ?></option>
-
-                                <?php
-
-                                } // fin de ma boucle
-
-                                ?>
-                            </select>
-                    <?php
-                    } // fin de mon else if
-
-                    else if ($nbcat == '0') {
-                        echo "aucune categorie existante <br>";
-                        echo "crée votre catégorie";
+                        else if ($nbcat == '0') {
+                            echo "aucune categorie existante <br>";
+                            echo "crée votre catégorie";
+                        }
                     }
-                }
 
-                // ici creation de cat*
+                    // ici creation de cat*
 
                     ?>
-
-                    <div class="categorie">
+                </div>
+                <div class="cont_all">
+                    <div class="categorie3">
                         <input type="name" name="nom_categorie" placeholder="crée_categorie" value="">
                     </div>
 
@@ -146,7 +149,7 @@ if (!isset($_SESSION['user'])) {
                         <input type="name" name="detail_tips" placeholder="detail" value="">
                     </div>
 
-                    <div class="detaille">
+                    <div class="detaille1">
                         Image à envoyer :
                         <input type="file" name="file">
                     </div>
@@ -165,9 +168,9 @@ if (!isset($_SESSION['user'])) {
                     }
                     ?>
 
-                </form>
+                    </form>
 
-
+                </div>
         <?php
 
             if (isset($_POST['titre_tips'])) {
