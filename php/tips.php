@@ -20,6 +20,9 @@ if (!isset($_SESSION['user'])) {
         </script>
         <link rel="stylesheet" href="../assets/css/navbar.css">
         <link rel="stylesheet" href="../assets/css/style.css">
+        <link rel="stylesheet" href="../assets/css/footer.css">
+
+
 
 
 

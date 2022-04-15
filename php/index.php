@@ -10,6 +10,7 @@ require_once '../assets/include/bdd.php';
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/navbar.css">
+  <link rel="stylesheet" href="../assets/css/footer.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200&display=swap');
   </style>
@@ -20,6 +21,7 @@ require_once '../assets/include/bdd.php';
   <div class="container-mik">
     <header class="header box">
       <?php include "../assets/include/navbar.php" ?>
+
     </header>
 
     <div class="nav box">

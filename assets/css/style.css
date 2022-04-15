@@ -21,17 +21,6 @@
     background-color: #D9EEE1
 }
 
-.footer {
-    background-color: #282A35;
-    grid-column: 1 / -1;
-    height: 100px;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
 h2 {
     display: flex;
     font-size: 80px;
