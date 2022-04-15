@@ -33,13 +33,13 @@ if (!isset($_SESSION['user'])) {
         <div class="tips">
             <h2>Tips en PHP</h2>
         </div>
-<?php
-        $sql1 ="SELECT * FROM langage WHERE id_langage";
+        <?php
+        $sql1 = "SELECT * FROM langage WHERE id_langage";
         $requete1 = $bdd->prepare($sql1);
         $requete1->execute();
 
 
-        $sql2 ="SELECT * FROM categorie WHERE id_categorie";
+        $sql2 = "SELECT * FROM categorie WHERE id_categorie";
         $requete2 = $bdd->prepare($sql2);
         $requete2->execute();
 
@@ -70,92 +70,91 @@ if (!isset($_SESSION['user'])) {
     <?php } ?>
 
     <div class="cont_all">
-                    
-                    </div>
 
-                    <div class="titre1">
-                        <input type="name" name="titre_tips" placeholder="TITRE" value="">
-                    </div>
-                    <div class="detaille">
-                        <input type="name" name="detail_tips" placeholder="DETAILS" value="">
-                    </div>
-                    <div class="categorie3">
-                        <input type="name" name="nom_categorie" placeholder="nom categorie" value="">ou bien 
-                        <select class="selection" name="id_categorie">
-                    
-                   <?php 
-                   while ($categorie = $requete2->fetch()) 
-                    { ?>
+    </div>
 
-                        <option value="<?= $categorie['id_categorie'] ?>"><?= $categorie['nom_categorie'] ?></option>
+    <div class="titre1">
+        <input type="name" name="titre_tips" placeholder="TITRE" value="">
+    </div>
+    <div class="detaille">
+        <input type="name" name="detail_tips" placeholder="DETAILS" value="">
+    </div>
+    <div class="categorie3">
+        <input type="name" name="nom_categorie" placeholder="nom categorie" value="">ou bien
+        <select class="selection" name="id_categorie">
 
-                    <?php } ?>
-                    </div>
-                    </select>
-                    <select class="selection" name="id_categorie">
-                    <?php 
-                   while ($langage = $requete1->fetch()) 
-                    { ?>
-                    <option value="<?= $langage['id_langage'] ?>"><?= $langage['nom_langage'] ?></option>
-                    <?php } ?>
-                        </select> 
-       
+            <?php
+            while ($categorie = $requete2->fetch()) { ?>
 
-                    <div class="detaille1">
-                        Image à envoyer :
-                        <input type="file" name="file">
-                    </div>
-                    <?php
-                    if (isset($_POST['titre_tips'])) {
-                    $reqone = $bdd->prepare("INSERT INTO t_tips (titre_tips, detail_tips) VALUES (?,?)");
-                $reqone->execute(array($_POST['titre_tips'], $_POST['detail_tips']));
-                $tips = $bdd->lastInsertId();
+                <option value="<?= $categorie['id_categorie'] ?>"><?= $categorie['nom_categorie'] ?></option>
 
-                // if ($_POST['id_categorie'] == ''){
-
-                if ($_POST['nom_categorie'] != '') {
-                    $requete = $bdd->prepare("INSERT INTO categorie (nom_categorie, id_image) VALUES(?,?)");
-                    $requete->execute(array($_POST['nom_categorie'], $fileName));
-
-                    $categorie = $bdd->lastInsertId();
+            <?php } ?>
+    </div>
+    </select>
+    <select class="selection" name="id_categorie">
+        <?php
+        while ($langage = $requete1->fetch()) { ?>
+            <option value="<?= $langage['id_langage'] ?>"><?= $langage['nom_langage'] ?></option>
+        <?php } ?>
+    </select>
 
 
-                    $req = $bdd->prepare("INSERT INTO possede (id_categorie, id_langage) VALUES (:cat,:idlang)");
-                    $req->execute(array(
-                        ":cat" => $categorie,
-                        ":idlang" => $idlang
-                    ));
-                } else {
-                    $categorie = $_POST['id_categorie'];
-                }
-                echo 'tips crée';
+    <div class="detaille1">
+        Image à envoyer :
+        <input type="file" name="file">
+    </div>
+    <?php
+    if (isset($_POST['titre_tips'])) {
+        $reqone = $bdd->prepare("INSERT INTO t_tips (titre_tips, detail_tips) VALUES (?,?)");
+        $reqone->execute(array($_POST['titre_tips'], $_POST['detail_tips']));
+        $tips = $bdd->lastInsertId();
 
-                // }else{
-                //     $categorie = $_POST['id_categorie'];
-                // }
+        // if ($_POST['id_categorie'] == ''){
 
-                $Req2 = $bdd->prepare("INSERT INTO avoir (id_tips, id_categorie) VALUES (?, ?)");
-                $Req2->execute(array($tips, $categorie));
+        if ($_POST['nom_categorie'] != '') {
+            $requete = $bdd->prepare("INSERT INTO categorie (nom_categorie, id_image) VALUES(?,?)");
+            $requete->execute(array($_POST['nom_categorie'], $fileName));
 
-                $sql = "INSERT INTO langage (nom_langage) values( :nom_langage)";
-                $add = $bdd->prepare($sql);
-                $add->execute(array(
-                    ':nom_langage' => $l,
+            $categorie = $bdd->lastInsertId();
 
-                ));
-                $sql = "INSERT INTO categorie (nom_categorie) values( :nom_categorie)";
-                $add = $bdd->prepare($sql);
-                $add->execute(array(
-                    ':nom_categorie' => $categorie,
-                )); }
-                ?>
+
+            $req = $bdd->prepare("INSERT INTO possede (id_categorie, id_langage) VALUES (:cat,:idlang)");
+            $req->execute(array(
+                ":cat" => $categorie,
+                ":idlang" => $idlang
+            ));
+        } else {
+            $categorie = $_POST['id_categorie'];
+        }
+        echo 'tips crée';
+
+        // }else{
+        //     $categorie = $_POST['id_categorie'];
+        // }
+
+        $Req2 = $bdd->prepare("INSERT INTO avoir (id_tips, id_categorie) VALUES (?, ?)");
+        $Req2->execute(array($tips, $categorie));
+
+        $sql = "INSERT INTO langage (nom_langage) values( :nom_langage)";
+        $add = $bdd->prepare($sql);
+        $add->execute(array(
+            ':nom_langage' => $l,
+
+        ));
+        $sql = "INSERT INTO categorie (nom_categorie) values( :nom_categorie)";
+        $add = $bdd->prepare($sql);
+        $add->execute(array(
+            ':nom_categorie' => $categorie,
+        ));
+    }
+    ?>
 
 
 
 
 
     <div class="container2">
-        <button class="btn"type="submit">
+        <button class="btn" type="submit">
             <a href="edit.php">
                 update un tips</a>
         </button>
