@@ -65,21 +65,79 @@
 }
 
 .detaille {
-   width: 80%;
+    width: 80%;
     height: 200px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 50px;
 }
- .detaille input {
-      width: 100%;
+
+.detaille input {
+    width: 100%;
     height: 100%;
- }
+}
+
 input {
     font-size: 20px;
     text-align: center;
 }
 
- .cont_all {
-     background-color: #D9EEE1;
- }
+.cont_all {
+    background-color: #D9EEE1;
+}
+
+.detaille1 {
+    text-align: center;
+}
+
+.container6 {
+    width: 100%;
+    text-align: center;
+}
+
+.cont_langue {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.langue {
+    border: 2px solid black;
+    width: 20%;
+    height: 64px;
+    border-radius: 25px;
+    background-color: #D9EEE1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.container10 {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    height: 200px;
+    width: 80%;
+    justify-content: flex-end;
+}
+
+.container10 a {
+    font-size: 22px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: auto;
+    font-weight: bold;
+    color: #282A35;
+}
+
+.container10 a:hover {
+    color: black;
+    background-color: #059862;
+}
+
+.container10 ul {
+    list-style: none;
+}

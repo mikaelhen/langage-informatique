@@ -45,25 +45,24 @@ if (!isset($_SESSION['user'])) {
             ?>
 
                 <form action="add_tips.php?action=choix" method="post">
+                    <div class="cont_langue">
+                        <div class="langue">choisir votre langage :
+                            <select name="id_langage">
 
-                    <div class="langue">choisir votre langage :
-                        <select name="id_langage">
+                                <?php
+                                while ($l = $requeteLangages->fetch()) {
 
-                            <?php
-                            while ($l = $requeteLangages->fetch()) {
+                                ?>
 
-                            ?>
+                                    <option value="<?= $l['id_langage'] ?>"><?= $l['nom_langage'] ?></option>
 
-                                <option value="<?= $l['id_langage'] ?>"><?= $l['nom_langage'] ?></option>
+                                <?php
+                                }
 
-                            <?php
-                            }
+                                ?>
+                            </select>
 
-                            ?>
-                        </select>
-
-
-
+                        </div>
                     </div>
                     <input type="submit" class="btn" name="submit" value="VALIDER LE LANGUAGE">
 
@@ -281,7 +280,7 @@ if (!isset($_SESSION['user'])) {
     }
 
         ?>
-        <div class="container2">
+        <div class="container10">
             <button class="btn">
                 <a href="index.php">Retour</a>
             </button>
