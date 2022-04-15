@@ -17,6 +17,7 @@ if (!isset($_SESSION['user'])) {
     <link rel="stylesheet" href="../assets/css/categorie.css">
     <link rel="stylesheet" href="../assets/css/navbar.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
 
 
 
@@ -88,10 +89,12 @@ if (!isset($_SESSION['user'])) {
       <button class="btn">
         <a href="liste.php">Retour</a>
       </button>
+
+    <?php } ?>
     </div>
+
     <?php include "../assets/include/footer.php"; ?>
     </div>
-  <?php } ?>
   </body>
 
   </html>

@@ -13,22 +13,28 @@ if (!isset($_SESSION['user'])) {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="../assets/css/style.css">
             <link rel="stylesheet" href="../assets/css/navbar.css">
+            <link rel="stylesheet" href="../assets/css/footer.css">
             <title>Document</title>
         </head>
 
         <body>
             <?php include "../assets/include/navbar.php" ?>
+
             <?php
 
-            $sql = "SELECT * FROM avoir a,categorie c,t_tips t WHERE a.id_tips = t.id_tips and c.id_categorie= a.id_categorie and c.id_categorie=" . $_GET['id_tips'] . "";
+
+            $sql = "SELECT * FROM avoir a, categorie c, t_tips t WHERE a.id_tips = t.id_tips and c.id_categorie= a.id_categorie and c.id_categorie= " . $_GET['id_tips'] . "";
+
 
             $requete = $bdd->prepare($sql);
             $requete->execute();
             $row = $requete->fetchAll();
             ?>
+
             <h2>LES TIPS</h2>
             <div class="container4">
                 <ul>
+
                     <?php
 
                     foreach ($row as &$tip) {
@@ -52,7 +58,7 @@ if (!isset($_SESSION['user'])) {
                         Ajouter un tips</a>
                 </button>
                 <button class="btn">
-                    <a href="liste.php">Retour</a>
+                    <a href="index.php">Retour</a>
                 </button>
             </div>
             </div>

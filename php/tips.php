@@ -20,6 +20,9 @@ if (!isset($_SESSION['user'])) {
         </script>
         <link rel="stylesheet" href="../assets/css/navbar.css">
         <link rel="stylesheet" href="../assets/css/style.css">
+        <link rel="stylesheet" href="../assets/css/footer.css">
+
+
 
 
 
@@ -50,15 +53,15 @@ if (!isset($_SESSION['user'])) {
             // $row = $requete->fetch();{
         ?>
 
-            <div class="titre">Titre de tips: <?php echo $row['titre_tips'] . '<br>'; ?>
+            <div class="titre">Titre de tips: <?php echo $row['titre_tips']; ?>
             </div>
-            <div>Détail de tips:
+            <div class="detail_tips">
+                <h3>Détail de tips:</h3>
                 <pre class="detail">
         <code>
         <?php echo htmlspecialchars($row['detail_tips']); ?>
         </code>
-
-    </pre>
+                </pre>
 
             </div>
         <?php

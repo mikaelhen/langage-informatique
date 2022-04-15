@@ -1,12 +1,13 @@
 .footer {
-    width: 100%;
+    background-color: #282A35;
+    grid-column: 1 / -1;
     height: 100px;
-    background-color: #000;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    grid-column: 1 / -1;
 }
+
 
 footer p {
     color: #fff;
