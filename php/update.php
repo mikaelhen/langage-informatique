@@ -17,6 +17,13 @@ else {
         <title>Document</title>
     </head>
     <body>
+
+    
+
+
+
+
+
         <?php
     $sql = "SELECT * FROM t_tips WHERE id_tips=:idcat";
     $requete = $bdd->prepare($sql);
