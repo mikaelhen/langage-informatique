@@ -3,8 +3,9 @@
 session_start();
 require_once '../assets/include/bdd.php';
 // include 'mesfonctionSQL';
-if (!isset($_SESSION['user'])){header('location:index.php?login_err=pas_de_compte');}
-else {
+if (!isset($_SESSION['user'])) {
+    header('location:index.php?login_err=pas_de_compte');
+} else {
 
 
     // $sqlTips = "SELECT * FROM titre_tips , langage, categorie";
@@ -14,9 +15,9 @@ else {
     INNER JOIN categorie ON avoir.id_categorie = categorie.id_categorie
     INNER JOIN possede ON possede.id_categorie = categorie.id_categorie
     INNER JOIN langage ON possede.id_langage = langage.id_langage";
-    if(isset($_GET['id_tips'])) {
+    if (isset($_GET['id_tips'])) {
         $sqlTips = $sqlTips . " WHERE t_tips.id_tips = ?";
-        $params = [ $_GET['id_tips'] ];
+        $params = [$_GET['id_tips']];
     }
 
     // WHERE t_tips.id_tips = ?";
@@ -26,63 +27,73 @@ else {
 ?>
     <!DOCTYPE html>
     <html lang="fr">
+
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../assets/css/edit.css">
-        <title>Document</title>
+        <link rel="stylesheet" href="../assets/css/footer.css">
+        <link rel="stylesheet" href="../assets/css/navbar.css">
+
+        <title>edit</title>
     </head>
+
     <body>
-    <h2>Selection le tips a modifier</h2>
+        <?php include "../assets/include/navbar.php" ?>
+        <div class="titre_edit">
+            <h2>Selection le tips a modifier</h2>
+        </div>
 
-    <div class="tableau">
-
-
-            <div class="langage">langage</div>
-
-            <div class="categorie">categorie</div>
-
-            <div class="tips">titre tips</div>
-
-            <div class="option">option</div>
-
-
-
-
-
-    </div>
-
-    <?php foreach ($requeteTips as $table){ ?>
         <div class="tableau">
-
-
-            <div class="langage"><?php echo $table["nom_langage"];?></div>
-
-            <div class="categorie"><?php echo $table["nom_categorie"];?></div>
-
-            <div class="tips"><?php echo $table["titre_tips"];?></div>
-
-            <div class="option">
-
-            <a href=tips.php?id_tips=<?php echo $table['id_tips'] ?>"><button>voir</button> </a>
-            <a href="traitement-update.php?id_tips=<?php echo $table['id_tips'] ?>"><button>update</button> </a>
-            <a href="traitement-delete.php?id_tips=<?php echo $table['id_tips'] ?>"><button>delete</button> </a>
-
-
-
-   
-
+            <div class="langage">
+                <h2>LANGAGE</h2>
             </div>
 
+            <div class="categorie">
+                <h2>CATEGORIE</h2>
+            </div>
+
+            <div class="tips">
+                <h2>TITRE TIPS</h2>
+            </div>
+
+            <div class="option">
+                <h2>OPTIONS</h2>
+            </div>
 
         </div>
 
+        <?php foreach ($requeteTips as $table) { ?>
+            <div class="tableau">
 
-                <?php } ?>
+
+                <div class="langage">
+                    <h3><?php echo $table["nom_langage"]; ?></h3>
+                </div>
+
+                <div class="categorie">
+                    <h3><?php echo $table["nom_categorie"]; ?></h3>
+                </div>
+
+                <div class="tips">
+                    <h3><?php echo $table["titre_tips"]; ?></h3>
+                </div>
+
+                <div class="option">
+
+                    <a href="tips.php?id_tips=<?php echo $table['id_tips'] ?>"><button>voir</button> </a>
+                    <a href="traitement-update.php?id_tips=<?php echo $table['id_tips'] ?>"><button>update</button> </a>
+                    <a href="traitement-delete.php?id_tips=<?php echo $table['id_tips'] ?>"><button>delete</button> </a>
+
+                </div>
+
+            </div>
+
+        <?php } ?>
 
 
-    <!-- <div class="container2">
+        <!-- <div class="container2">
 
             <form action="edit.php?action=choix" method="post">
 
@@ -90,24 +101,25 @@ else {
                         <select name="id_tips">
                         
                     <?php
-                        // while ($tips = $requeteTips->fetch()) {
+                    // while ($tips = $requeteTips->fetch()) {
 
-                        ?>
+                    ?>
 
                             <!-- <option value="<?= $tips['id_tips'] ?>"><?= $tips['titre_tips'] ?></option> -->
 
-                        <?php
-                        // }
+        <?php
+        // }
 
-                        ?> 
-                        <!-- </select>
+        ?>
+        <!-- </select>
                         <input type="submit" class="btn" name="submit" value="validé votre choix">
                 
-                <a class="btn" href="liste.php">Retour</a> --> 
+                <a class="btn" href="liste.php">Retour</a> -->
 
-        
-
-        
-   <?php } ?>
+    <?php } ?>
+    </div>
+    <?php include "../assets/include/footer.php"; ?>
+    </div>
     </body>
+
     </html>
