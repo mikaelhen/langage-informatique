@@ -34,7 +34,6 @@ if (!isset($_SESSION['user'])) {
         $l = $bdd->lastInsertId();
         ?>
 
-
         <h2>Ajouter un tips</h2>
 
         <div class="container6">
