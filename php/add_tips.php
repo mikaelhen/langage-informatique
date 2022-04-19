@@ -170,7 +170,8 @@ if (!isset($_SESSION['user'])) {
                     </form>
 
                 </div>
-        <?php
+                <div class="upload">
+            <?php
 
             if (isset($_POST['titre_tips'])) {
 
@@ -220,7 +221,7 @@ if (!isset($_SESSION['user'])) {
                         $statusMsg = 'Désolé, seul les formats suivents sont autorisés : JPG, JPEG, PNG, GIF et PDF.';
                     }
                 } else {
-                    $statusMsg = 'Merci de choisir un fichier à upload.';
+                    $statusMsg = '<span style="color:red">Merci de choisir un fichier à upload.</span>';
                 }
 
                 // Display status message
@@ -247,7 +248,7 @@ if (!isset($_SESSION['user'])) {
                 } else {
                     $categorie = $_POST['id_categorie'];
                 }
-                echo 'tips crée';
+                echo '<span style="color:red">tips crée</span>';
 
                 // }else{
                 //     $categorie = $_POST['id_categorie'];
@@ -279,15 +280,16 @@ if (!isset($_SESSION['user'])) {
         }
     }
 
-        ?>
-        <div class="container10">
-            <button class="btn">
-                <a href="index.php">Retour</a>
-            </button>
-        </div>
-        <div>
-            <?php include "../assets/include/footer.php"; ?>
-        </div>
+            ?>
+                </div>
+                <div class="container10">
+                    <button class="btn">
+                        <a href="index.php">Retour</a>
+                    </button>
+                </div>
+                <div>
+                    <?php include "../assets/include/footer.php"; ?>
+                </div>
 
     </body>
 
