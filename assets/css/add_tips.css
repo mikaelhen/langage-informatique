@@ -29,7 +29,7 @@
 }
 
 .selection {
-    width: 80%;
+    width: 50%;
     height: 200px;
     margin-top: 50px;
     margin-bottom: 50px;
@@ -37,7 +37,7 @@
 
 .categorie3 {
     background-color: #D9EEE1;
-    width: 80%;
+    width: 50%;
     height: 200px;
     margin-left: auto;
     margin-right: auto;
@@ -51,7 +51,7 @@
 
 .titre1 {
     background-color: #D9EEE1;
-    width: 80%;
+    width: 50%;
     height: 200px;
     margin-left: auto;
     margin-right: auto;
@@ -65,7 +65,7 @@
 }
 
 .detaille {
-    width: 80%;
+    width: 50%;
     height: 200px;
     margin-left: auto;
     margin-right: auto;
@@ -169,4 +169,8 @@ input {
 .btn:hover {
     color: black;
     background-color: #059862;
+}
+
+.span {
+    margin-top: 200px;
 }
