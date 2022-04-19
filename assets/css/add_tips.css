@@ -171,6 +171,8 @@ input {
     background-color: #059862;
 }
 
-.span {
-    margin-top: 200px;
+.upload  {
+position: absolute;
+margin-top: 150px;
+margin-left: 165px;
 }

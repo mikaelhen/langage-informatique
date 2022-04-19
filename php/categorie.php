@@ -61,26 +61,25 @@ if (!isset($_SESSION['user'])) {
       </div>
 
     <?php } ?>
+    <div class="cont_all">
+      <div class="container_grid">
+        <?php
+        if ($requete->rowCount() > 0) {
 
-    <div class="container">
-      <?php
-      if ($requete->rowCount() > 0) {
-
-        foreach ($row as &$categorie) {
-      ?>
-          <article class="box2">
-            <a href="liste.php?id_tips=<?php echo $categorie['id_categorie'] ?>">
-              <img src="images/<?php echo $categorie['id_image']; ?>">
-            </a>
-          </article>
-      <?php
+          foreach ($row as &$categorie) {
+        ?>
+            <article class="box2">
+              <a href="liste.php?id_tips=<?php echo $categorie['id_categorie'] ?>">
+                <img src="images/<?php echo $categorie['id_image']; ?>">
+              </a>
+            </article>
+        <?php
+          }
         }
-      }
-      ?>
-    </div>
+        ?>
+      </div>
     </div>
 
-    </div>
     <div class="container2">
       <button class="btn">
         <a href="add_tips.php">

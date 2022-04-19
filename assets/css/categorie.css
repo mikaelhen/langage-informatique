@@ -33,8 +33,9 @@ h1.logo {
     margin-right: 140px;
     cursor: pointer;
 }
+
 .contenaire5 {
-    height:400px;
+    height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,6 +48,7 @@ h1.logo {
     margin-right: auto;
     margin-left: auto;
 }
+
 .box3 {
     height: 240px;
     width: 240px;
@@ -66,19 +68,23 @@ h1.logo {
 }
 
 
-.container {
+.container_grid {
     grid-column: 3 / span 4;
     grid-row: 3;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-auto-rows: minmax(100px, auto);
-    grid-gap: 20px;
-    margin-bottom: 83px;
+    grid-gap: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #D9EEE1;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 
 
-img {
+.container_grid img {
     height: 100%;
     width: 100%;
 }
