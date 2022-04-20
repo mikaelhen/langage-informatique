@@ -150,10 +150,6 @@ if (!isset($_SESSION['user'])) {
     }
     ?>
 
-
-
-
-
     <div class="container2">
         <button class="btn" type="submit">
             <a href="">
