@@ -123,6 +123,7 @@ if (!isset($_SESSION['user'])) {
                 ":cat" => $categorie,
                 ":idlang" => $idlang
             ));
+            
         } else {
             $categorie = $_POST['id_categorie'];
         }
