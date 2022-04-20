@@ -42,58 +42,58 @@ if (!isset($_SESSION['user'])) {
     <body>
         <?php include "../assets/include/navbar.php" ?>
         <div class="titre_edit">
-            <h2>Selection le tips a modifier</h2>
+            <h2>TIPS à modifier</h2>
         </div>
-
-        <div class="tableau">
-            <div class="langage">
-                <h2>LANGAGE</h2>
-            </div>
-
-            <div class="categorie">
-                <h2>CATEGORIE</h2>
-            </div>
-
-            <div class="tips">
-                <h2>TITRE TIPS</h2>
-            </div>
-
-            <div class="option">
-                <h2>OPTIONS</h2>
-            </div>
-
-        </div>
-
-        <?php foreach ($requeteTips as $table) { ?>
+        <div class="tab_all">
             <div class="tableau">
-
-
                 <div class="langage">
-                    <h3><?php echo $table["nom_langage"]; ?></h3>
+                    <h2>LANGAGE</h2>
                 </div>
 
                 <div class="categorie">
-                    <h3><?php echo $table["nom_categorie"]; ?></h3>
+                    <h2>CATEGORIE</h2>
                 </div>
 
                 <div class="tips">
-                    <h3><?php echo $table["titre_tips"]; ?></h3>
+                    <h2>TITRE TIPS</h2>
                 </div>
 
                 <div class="option">
-
-                    <a href="tips.php?id_tips=<?php echo $table['id_tips'] ?>"><button>voir</button> </a>
-                    <a href="traitement-update.php?id_tips=<?php echo $table['id_tips'] ?>"><button>update</button> </a>
-                    <a href="traitement-delete.php?id_tips=<?php echo $table['id_tips'] ?>"><button>delete</button> </a>
-
+                    <h2>OPTIONS</h2>
                 </div>
 
             </div>
 
-        <?php } ?>
+            <?php foreach ($requeteTips as $table) { ?>
+                <div class="tableau">
 
 
-        <!-- <div class="container2">
+                    <div class="langage">
+                        <h3><?php echo $table["nom_langage"]; ?></h3>
+                    </div>
+
+                    <div class="categorie">
+                        <h3><?php echo $table["nom_categorie"]; ?></h3>
+                    </div>
+
+                    <div class="tips">
+                        <h3><?php echo $table["titre_tips"]; ?></h3>
+                    </div>
+
+                    <div class="option">
+
+                        <a href="tips.php?id_tips=<?php echo $table['id_tips'] ?>"><button>voir</button> </a>
+                        <a href="traitement-update.php?id_tips=<?php echo $table['id_tips'] ?>"><button>update</button> </a>
+                        <a href="traitement-delete.php?id_tips=<?php echo $table['id_tips'] ?>"><button>delete</button> </a>
+
+                    </div>
+
+                </div>
+
+            <?php } ?>
+
+
+            <!-- <div class="container2">
 
             <form action="edit.php?action=choix" method="post">
 
@@ -107,19 +107,20 @@ if (!isset($_SESSION['user'])) {
 
                             <!-- <option value="<?= $tips['id_tips'] ?>"><?= $tips['titre_tips'] ?></option> -->
 
-        <?php
-        // }
+            <?php
+            // }
 
-        ?>
-        <!-- </select>
+            ?>
+            <!-- </select>
                         <input type="submit" class="btn" name="submit" value="validé votre choix">
                 
                 <a class="btn" href="liste.php">Retour</a> -->
 
-    <?php } ?>
-    </div>
-    <?php include "../assets/include/footer.php"; ?>
-    </div>
+        <?php } ?>
+        </div>
+        </div>
+        <?php include "../assets/include/footer.php"; ?>
+        </div>
     </body>
 
     </html>
