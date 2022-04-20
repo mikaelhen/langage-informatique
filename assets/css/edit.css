@@ -4,9 +4,15 @@
 }
 
 
-.tableau {
+.tableau  {
     display: flex;
     background-color: #D9EEE1;
+    border-width: thin;
+}
+.tableau1 {
+    display: flex;
+    background-color: #282A35;
+    color: #fff;
 }
 
 .langage {
@@ -45,7 +51,24 @@
     height: 100px;
     border: 1px solid black;
     justify-content: center;
+    justify-content: space-evenly;
+}
+.option button {
+    border: none;
+    cursor: pointer;
+    background-color:none;
+}
+.option i {
+    background-color:#D9EEE1;
+}
 
+.option li {
+    list-style-type: none;
+    text-align: center;
+}
+
+.option i:hover{
+    color: #059862;
 }
 
 .titre_edit h2 {
@@ -78,4 +101,9 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom:50px;
+}
+
+i {
+    font-size: 35px;
+
 }

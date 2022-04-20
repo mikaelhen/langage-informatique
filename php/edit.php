@@ -35,6 +35,7 @@ if (!isset($_SESSION['user'])) {
         <link rel="stylesheet" href="../assets/css/edit.css">
         <link rel="stylesheet" href="../assets/css/footer.css">
         <link rel="stylesheet" href="../assets/css/navbar.css">
+        <script src="https://kit.fontawesome.com/f0fc4e252c.js" crossorigin="anonymous"></script>
 
         <title>edit</title>
     </head>
@@ -45,7 +46,7 @@ if (!isset($_SESSION['user'])) {
             <h2>TIPS à modifier</h2>
         </div>
         <div class="tab_all">
-            <div class="tableau">
+            <div class="tableau1">
                 <div class="langage">
                     <h2>LANGAGE</h2>
                 </div>
@@ -67,7 +68,6 @@ if (!isset($_SESSION['user'])) {
             <?php foreach ($requeteTips as $table) { ?>
                 <div class="tableau">
 
-
                     <div class="langage">
                         <h3><?php echo $table["nom_langage"]; ?></h3>
                     </div>
@@ -81,10 +81,19 @@ if (!isset($_SESSION['user'])) {
                     </div>
 
                     <div class="option">
-
-                        <a href="tips.php?id_tips=<?php echo $table['id_tips'] ?>"><button>voir</button> </a>
-                        <a href="traitement-update.php?id_tips=<?php echo $table['id_tips'] ?>"><button>update</button> </a>
-                        <a href="traitement-delete.php?id_tips=<?php echo $table['id_tips'] ?>"><button>delete</button> </a>
+                        <ul>
+                            <li> <a href="tips.php?id_tips=<?php echo $table['id_tips'] ?>"><button><i class="far fa-eye"></i></button></a></li>
+                            <li>voir</li>
+                        </ul>
+                        <ul>
+                            <li><a href="traitement-update.php?id_tips=<?php echo $table['id_tips'] ?>"><button><i class="fa fa-refresh" aria-hidden="true"></i>
+                                    </button> </a></li>
+                            <li>update</li>
+                        </ul>
+                        <ul>
+                            <li> <a href="traitement-delete.php?id_tips=<?php echo $table['id_tips'] ?>"><button><i class="fas fa-trash-alt"></i></button></a></li>
+                            <li>supprimer</li>
+                        </ul>
 
                     </div>
 
