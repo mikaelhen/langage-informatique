@@ -118,8 +118,10 @@ if (!isset($_SESSION['user'])) {
         // if ($_POST['id_categorie'] == ''){
 
         if ($_POST['nom_categorie'] != '') {
-            $requete = $bdd->prepare("UPDATE INTO categorie (nom_categorie, id_image) VALUES(?,?)");
-            $requete->execute(array($_POST['nom_categorie'], $fileName));
+            $requete = $bdd->prepare("UPDATE categorie set nom_categorie=:nom_categorie, id_image=id_image where id_categorie=:id_categorie");
+            $requete->execute(array(
+                ":nom_categorie" => $_POST['nom_categorie'],
+                 "$fileName));
 
             $categorie = $bdd->lastInsertId();
 
