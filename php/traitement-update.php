@@ -104,16 +104,13 @@ if (!isset($_SESSION['user'])) {
         Image à envoyer :
         <input type="file" name="file">
     </div>
+<form>
     <?php
+
     if (isset($_POST['titre_tips'])) {
-        die('<h1>ICI</h1>');
-        $reqone = $bdd->prepare("UPDATE t_tips SET titre_tips=:titre_tips, details_tips=:detail_tips  WHERE id_tips=:id_tips");
-        $reqone->execute(array(
-            ":titre_tips" => $_POST['titre_tips'],
-            ":detail_tips" => $_POST['detail_tips'],
-            ":id_tips"=> $_GET['id_tips']
-        ));
-        // $tips = $bdd->lastInsertId();
+        $reqone = $bdd->prepare("UPDATE INTO t_tips (titre_tips, detail_tips) VALUES (?,?)");
+        $reqone->execute(array($_POST['titre_tips'], $_POST['detail_tips']));
+        $tips = $bdd->lastInsertId();
 
         // if ($_POST['id_categorie'] == ''){
 
@@ -161,6 +158,7 @@ if (!isset($_SESSION['user'])) {
             ':id_categorie' => $cat
         ));
     }
+    
     ?>
 
 
@@ -178,7 +176,7 @@ if (!isset($_SESSION['user'])) {
             <a href="index.php">Retour</a>
         </button>
     </div>
-
+</form>
     </div>
     <?php include "../assets/include/footer.php"; ?>
     </div>
