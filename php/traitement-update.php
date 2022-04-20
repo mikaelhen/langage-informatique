@@ -52,7 +52,7 @@ if (!isset($_SESSION['user'])) {
         ));
         $row = $requete->fetch(); {
         ?>
-
+<!-- afficher le tips a modifier --> 
             <div class="titre">Titre de tips: <?php echo $row['titre_tips']; ?>
             </div>
             <div class="detail_tips">
@@ -72,7 +72,8 @@ if (!isset($_SESSION['user'])) {
     <div class="cont_all">
 
     </div>
-
+    <!-- tips modifier a mettre a jour -->
+<form action="" method="post" >
     <div class="titre1">
         <input type="name" name="titre_tips" placeholder="TITRE" value="">
     </div>
@@ -125,12 +126,9 @@ if (!isset($_SESSION['user'])) {
             ));
         } else {
             $categorie = $_POST['id_categorie'];
-        }
-        echo 'tips modifier';
 
-        // }else{
-        //     $categorie = $_POST['id_categorie'];
-        // }
+
+        }
 
         $Req2 = $bdd->prepare("UPDATE INTO avoir (id_tips, id_categorie) VALUES (?, ?)");
         $Req2->execute(array($tips, $categorie));
@@ -138,7 +136,7 @@ if (!isset($_SESSION['user'])) {
         $sql = "UPDATE INTO langage (nom_langage) values( :nom_langage)";
         $add = $bdd->prepare($sql);
         $add->execute(array(
-            ':nom_langage' => $l,
+            ':nom_langage' => $langage,
 
         ));
         $sql = "UPDATE INTO categorie (nom_categorie) values( :nom_categorie)";
@@ -152,12 +150,13 @@ if (!isset($_SESSION['user'])) {
 
 
 
-
     <div class="container2">
         <button class="btn" type="submit">
             <a href="">
                 update un tips</a>
         </button>
+
+        </form>
 
         <button class="btn">
             <a href="index.php">Retour</a>
