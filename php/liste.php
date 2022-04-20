@@ -14,7 +14,7 @@ if (!isset($_SESSION['user'])) {
             <link rel="stylesheet" href="../assets/css/style.css">
             <link rel="stylesheet" href="../assets/css/navbar.css">
             <link rel="stylesheet" href="../assets/css/footer.css">
-            <title>Document</title>
+            <title>liste</title>
         </head>
 
         <body>
