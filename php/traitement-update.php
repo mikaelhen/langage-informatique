@@ -158,7 +158,7 @@ if (!isset($_SESSION['user'])) {
             ':id_categorie' => $cat
         ));
     }
-    
+    var_dump($langage ,$l ,$categorie ,$cat ,$tips)
     ?>
 
 
