@@ -118,18 +118,21 @@ if (!isset($_SESSION['user'])) {
         // if ($_POST['id_categorie'] == ''){
 
         if ($_POST['nom_categorie'] != '') {
-            $requete = $bdd->prepare("UPDATE categorie set nom_categorie=:nom_categorie, id_image=id_image where id_categorie=:id_categorie");
+            $requete = $bdd->prepare("UPDATE categorie SET nom_categorie=:nom_categorie, id_image=id_image WHERE id_categorie=:id_categorie");
             $requete->execute(array(
                 ":nom_categorie" => $_POST['nom_categorie'],
-                 "$fileName));
+                 ":id_image" => $fileName,
+                 ":id_categorie" => $_GET['id_categorie']
+
+                ));
 
             $categorie = $bdd->lastInsertId();
 
 
-            $req = $bdd->prepare("UPDATE INTO possede (id_categorie, id_langage) VALUES (:cat,:idlang)");
+            $req = $bdd->prepare("UPDATE possede SET id_categorie=:id_categorie, id_langage=:id_langage WHERE id_categorie=:id_categorie");
             $req->execute(array(
-                ":cat" => $categorie,
-                ":idlang" => $idlang
+                ":id_categorie" => $categorie,
+                ":id_langage" => $idlang
             ));
             
         } else {
@@ -138,19 +141,24 @@ if (!isset($_SESSION['user'])) {
 
         }
 
-        $Req2 = $bdd->prepare("UPDATE INTO avoir (id_tips, id_categorie) VALUES (?, ?)");
-        $Req2->execute(array($tips, $categorie));
+        $Req2 = $bdd->prepare("UPDATE  avoir SET id_tips=:id_tips, id_categorie=:id_categorie WHERE id_categorie=:id_categorie");
+        $Req2->execute(array(
+            ":id_tips" => $tips,
+            ":id_categorie" => $categorie
+        ));
 
-        $sql = "UPDATE INTO langage (nom_langage) values( :nom_langage)";
+        $sql = "UPDATE langage SET  nom_langage=:nom_langage, WHERE id_langage=:id_langage";
         $add = $bdd->prepare($sql);
         $add->execute(array(
             ':nom_langage' => $langage,
+            ':id_langage' => $l
 
         ));
-        $sql = "UPDATE INTO categorie (nom_categorie) values( :nom_categorie)";
+        $sql = "UPDATE categorie SET nom_categorie=:nom_categorie WHERE  id_categorie=:id_categorie";
         $add = $bdd->prepare($sql);
         $add->execute(array(
             ':nom_categorie' => $categorie,
+            ':id_categorie' => $cat
         ));
     }
     ?>
