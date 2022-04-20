@@ -105,20 +105,20 @@ if (!isset($_SESSION['user'])) {
     </div>
     <?php
     if (isset($_POST['titre_tips'])) {
-        $reqone = $bdd->prepare("INSERT INTO t_tips (titre_tips, detail_tips) VALUES (?,?)");
+        $reqone = $bdd->prepare("UPDATE INTO t_tips (titre_tips, detail_tips) VALUES (?,?)");
         $reqone->execute(array($_POST['titre_tips'], $_POST['detail_tips']));
         $tips = $bdd->lastInsertId();
 
         // if ($_POST['id_categorie'] == ''){
 
         if ($_POST['nom_categorie'] != '') {
-            $requete = $bdd->prepare("INSERT INTO categorie (nom_categorie, id_image) VALUES(?,?)");
+            $requete = $bdd->prepare("UPDATE INTO categorie (nom_categorie, id_image) VALUES(?,?)");
             $requete->execute(array($_POST['nom_categorie'], $fileName));
 
             $categorie = $bdd->lastInsertId();
 
 
-            $req = $bdd->prepare("INSERT INTO possede (id_categorie, id_langage) VALUES (:cat,:idlang)");
+            $req = $bdd->prepare("UPDATE INTO possede (id_categorie, id_langage) VALUES (:cat,:idlang)");
             $req->execute(array(
                 ":cat" => $categorie,
                 ":idlang" => $idlang
@@ -126,22 +126,22 @@ if (!isset($_SESSION['user'])) {
         } else {
             $categorie = $_POST['id_categorie'];
         }
-        echo 'tips crée';
+        echo 'tips modifier';
 
         // }else{
         //     $categorie = $_POST['id_categorie'];
         // }
 
-        $Req2 = $bdd->prepare("INSERT INTO avoir (id_tips, id_categorie) VALUES (?, ?)");
+        $Req2 = $bdd->prepare("UPDATE INTO avoir (id_tips, id_categorie) VALUES (?, ?)");
         $Req2->execute(array($tips, $categorie));
 
-        $sql = "INSERT INTO langage (nom_langage) values( :nom_langage)";
+        $sql = "UPDATE INTO langage (nom_langage) values( :nom_langage)";
         $add = $bdd->prepare($sql);
         $add->execute(array(
             ':nom_langage' => $l,
 
         ));
-        $sql = "INSERT INTO categorie (nom_categorie) values( :nom_categorie)";
+        $sql = "UPDATE INTO categorie (nom_categorie) values( :nom_categorie)";
         $add = $bdd->prepare($sql);
         $add->execute(array(
             ':nom_categorie' => $categorie,
@@ -155,7 +155,7 @@ if (!isset($_SESSION['user'])) {
 
     <div class="container2">
         <button class="btn" type="submit">
-            <a href="edit.php">
+            <a href="">
                 update un tips</a>
         </button>
 
