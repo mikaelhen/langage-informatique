@@ -60,6 +60,7 @@
 }
 .option i {
     background-color:#D9EEE1;
+    padding-bottom: 5px;
 }
 
 .option li {
@@ -94,6 +95,10 @@
     border-bottom: 1px solid black;
     margin: 0;
     color: white;
+}
+
+.langage h3 {
+    text-transform: uppercase;
 }
 
 .tab_all {
