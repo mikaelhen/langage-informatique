@@ -106,6 +106,7 @@ if (!isset($_SESSION['user'])) {
     </div>
     <?php
     if (isset($_POST['titre_tips'])) {
+        die('<h1>ICI</h1>');
         $reqone = $bdd->prepare("UPDATE INTO t_tips (titre_tips, detail_tips) VALUES (?,?)");
         $reqone->execute(array($_POST['titre_tips'], $_POST['detail_tips']));
         $tips = $bdd->lastInsertId();
@@ -124,6 +125,7 @@ if (!isset($_SESSION['user'])) {
                 ":cat" => $categorie,
                 ":idlang" => $idlang
             ));
+            
         } else {
             $categorie = $_POST['id_categorie'];
 
