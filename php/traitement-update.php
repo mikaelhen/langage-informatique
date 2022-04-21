@@ -107,56 +107,117 @@ if (!isset($_SESSION['user'])) {
         <form>
             <?php
 
-            if (isset($_POST['titre_tips'])) {
-                $reqone = $bdd->prepare("UPDATE INTO t_tips (titre_tips, detail_tips) VALUES (?,?)");
-                $reqone->execute(array($_POST['titre_tips'], $_POST['detail_tips']));
-                $tips = $bdd->lastInsertId();
+            // if (isset($_POST['titre_tips'])) {
+            //     $reqone = $bdd->prepare("UPDATE INTO t_tips (titre_tips, detail_tips) VALUES (?,?)");
+            //     $reqone->execute(array($_POST['titre_tips'], $_POST['detail_tips']));
+            //     $tips = $bdd->lastInsertId();
 
-                // if ($_POST['id_categorie'] == ''){
+            //     // if ($_POST['id_categorie'] == ''){
 
-                if ($_POST['nom_categorie'] != '') {
-                    $requete = $bdd->prepare("UPDATE categorie SET nom_categorie=:nom_categorie, id_image=id_image WHERE id_categorie=:id_categorie");
-                    $requete->execute(array(
-                        ":nom_categorie" => $_POST['nom_categorie'],
-                        ":id_image" => $fileName,
-                        ":id_categorie" => $_GET['id_categorie']
+            //     if ($_POST['nom_categorie'] != '') {
+            //         $requete = $bdd->prepare("UPDATE categorie SET nom_categorie=:nom_categorie,  WHERE id_categorie=:id_categorie, id_image=id_image");
+            //         $requete->execute(array(
+            //             ":nom_categorie" => $_POST['nom_categorie'],
+            //             ":id_image" => $fileName,
+            //             ":id_categorie" => $_GET['id_categorie']
+                    
 
-                    ));
+            //         ));
 
-                    $categorie = $bdd->lastInsertId();
+            //         $categorie = $bdd->lastInsertId();
 
 
-                    $req = $bdd->prepare("UPDATE possede SET id_langage=:id_langage WHERE id_categorie=:id_categorie");
-                    $req->execute(array(
-                        ":id_categorie" => $categorie,
-                        ":id_langage" => $idlang
-                    ));
-                } else {
-                    $categorie = $_POST['id_categorie'];
-                }
+            //         $req = $bdd->prepare("UPDATE possede SET id_langage=:id_langage WHERE id_categorie=:id_categorie");
+            //         $req->execute(array(
+            //             ":id_categorie" => $categorie,
+            //             ":id_langage" => $idlang
+            //         ));
+            //     } else {
+            //         $categorie = $_POST['id_categorie'];
+            //     }
 
-                $Req2 = $bdd->prepare("UPDATE  avoir SET id_tips=:id_tips WHERE id_categorie=:id_categorie");
-                $Req2->execute(array(
-                    ":id_tips" => $tips,
-                    ":id_categorie" => $categorie,
+            //     $Req2 = $bdd->prepare("UPDATE  avoir SET id_tips=:id_tips WHERE id_categorie=:id_categorie");
+            //     $Req2->execute(array(
+            //         ":id_tips" => $tips,
+            //         ":id_categorie" => $categorie,
+            //     ));
+
+            //     $sql = ("UPDATE langage SET  nom_langage=:nom_langage WHERE id_langage=:id_langage, id_affiche=:id_affiche");
+            //     $add = $bdd->prepare($sql);
+            //     $add->execute(array(
+            //         ':nom_langage' => $langage,
+            //         ':id_langage' => $l,
+            //         ':id_affiche' => $idaffiche,
+
+            //     ));
+            //     $sql = ("UPDATE categorie SET nom_categorie=:nom_categorie WHERE  id_categorie=:id_categorie, id_image=:id_image");
+            //     $add = $bdd->prepare($sql);
+            //     $add->execute(array(
+            //         ':nom_categorie' => $categorie,
+            //         ':id_categorie' => $cat,
+            //         ':id_image' => $idimage,
+            //     ));
+            // }
+
+
+
+
+
+            $req = $bdd->prepare('UPDATE categorie SET id_categorie = :id_categorie, id_image= :id_image WHERE nom_categorie = :nom_categorie ');
+
+            $req->execute(array(
+
+                'id_categorie' => $idcat,
+
+                'id_image' => $idimage,
+
+                'nom_categorie' => $nom_cat
+
+            ));
+
+
+            $req = $bdd->prepare('UPDATE possede SET id_categorie = :id_categorie, id_langage= :id_lanhgage WHERE id_categorie = :id_categorie ');
+
+            $req->execute(array(
+       
+                'id_categorie' => $idcat,
+       
+                'id_langage' => $idlang,
+       
+       
+              ));
+
+
+              $req = $bdd->prepare('UPDATE avoir SET id_tips = :id_tips, id_categorie= :id_lcategorie WHERE id_tips = :id_tips ');
+
+              $req->execute(array(
+       
+                'id_tips' => $idtips,
+       
+                'id_categorie' => $idcat,
+       
+       
+              ));
+
+
+
+              $req = $bdd->prepare('UPDATE langage SET id_langage = :id_langage, id_affiche= :id_affiche WHERE nom_langage = :nom_langage ');
+
+              $req->execute(array(
+         
+                  'id_langage' => $idlang,
+         
+                  'id_affiche' => $idaffiche,
+
+                  'nom_langage' => $nom_lang,
+         
+         
                 ));
 
-                $sql = ("UPDATE langage SET  nom_langage=:nom_langage WHERE id_langage=:id_langage, id_affiche=:id_affiche");
-                $add = $bdd->prepare($sql);
-                $add->execute(array(
-                    ':nom_langage' => $langage,
-                    ':id_langage' => $l,
-                    ':id_affiche' => $idaffiche,
 
-                ));
-                $sql = ("UPDATE categorie SET nom_categorie=:nom_categorie WHERE  id_categorie=:id_categorie, id_image=:id_image");
-                $add = $bdd->prepare($sql);
-                $add->execute(array(
-                    ':nom_categorie' => $categorie,
-                    ':id_categorie' => $cat,
-                    ':id_image' => $idimage,
-                ));
-            }
+
+
+
 
             ?>
 
