@@ -82,7 +82,11 @@ if (!isset($_SESSION['user'])) {
             <input type="name" name="detail_tips" placeholder="DETAILS" value="">
         </div>
         <div class="categorie3">
+<<<<<<< HEAD
             <input type="name" name="nom_categorie" placeholder="NOM CATEGORIE" value="">ou bien
+=======
+            <input type="name" name="nom_categorie" placeholder="nom categorie" value="">ou bien
+>>>>>>> 1fe38b7ddffb1b680d7c7a3e4143f62a31065dcb
             <select class="selection" name="id_categorie">
 
                 <?php
@@ -92,7 +96,11 @@ if (!isset($_SESSION['user'])) {
 
                 <?php } ?>
         </div>
+<<<<<<< HEAD
         </select><br>
+=======
+        </select>
+>>>>>>> 1fe38b7ddffb1b680d7c7a3e4143f62a31065dcb
         <select class="selection" name="id_categorie">
             <?php
             while ($langage = $requete1->fetch()) { ?>
@@ -127,7 +135,11 @@ if (!isset($_SESSION['user'])) {
                     $categorie = $bdd->lastInsertId();
 
 
+<<<<<<< HEAD
                     $req = $bdd->prepare("UPDATE possede SET id_categorie=:id_categorie, id_langage=:id_langage WHERE id_categorie=:id_categorie");
+=======
+                    $req = $bdd->prepare("UPDATE possede SET id_langage=:id_langage WHERE id_categorie=:id_categorie");
+>>>>>>> 1fe38b7ddffb1b680d7c7a3e4143f62a31065dcb
                     $req->execute(array(
                         ":id_categorie" => $categorie,
                         ":id_langage" => $idlang
@@ -135,6 +147,7 @@ if (!isset($_SESSION['user'])) {
                 } else {
                     $categorie = $_POST['id_categorie'];
                 }
+
 
                 $Req2 = $bdd->prepare("UPDATE  avoir SET id_tips=:id_tips, id_categorie=:id_categorie WHERE id_categorie=:id_categorie");
                 $Req2->execute(array(
@@ -154,16 +167,73 @@ if (!isset($_SESSION['user'])) {
                 $add->execute(array(
                     ':nom_categorie' => $categorie,
                     ':id_categorie' => $cat
+
+                $Req2 = $bdd->prepare("UPDATE  avoir SET id_tips=:id_tips WHERE id_categorie=:id_categorie");
+                $Req2->execute(array(
+                    ":id_tips" => $tips,
+                    ":id_categorie" => $categorie,
+                ));
+
+                $req3 = $bdd->prepare("UPDATE langage SET  nom_langage=:nom_langage, WHERE id_langage=:id_langage");
+                $req3->execute(array(
+                    ':nom_langage' => $langage,
+                    ':id_langage' => $l,
+                    ':id_affiche' => $idaffiche,
+
+                ));
+                $req4 = $bdd->prepare("UPDATE categorie SET nom_categorie=:nom_categorie WHERE  id_categorie=:id_categorie");
+                $req4->execute(array(
+                    ':nom_categorie' => $categorie,
+                    ':id_categorie' => $cat,
+                    ':id_image' => $idimage,
+>>>>>>> 1fe38b7ddffb1b680d7c7a3e4143f62a31065dcb
                 ));
             }
 
             ?>
+
 
             <div class="container2">
                 <button class="btn" type="submit">
                     <a href="">
                         update un tips</a>
                 </button>
+=======
+
+        }
+
+        $Req4 = $bdd->prepare("UPDATE  avoir SET id_tips=:id_tips, id_categorie=:id_categorie WHERE id_categorie=:id_categorie");
+        $Req4->execute(array(
+            ":id_tips" => $tips,
+            ":id_categorie" => $categorie
+        ));
+
+        $sql = "UPDATE langage SET  nom_langage=:nom_langage, WHERE id_langage=:id_langage";
+        $add = $bdd->prepare($sql);
+        $add->execute(array(
+            ':nom_langage' => $langage,
+            ':id_langage' => $l
+
+        ));
+        $sql = "UPDATE categorie SET nom_categorie=:nom_categorie WHERE  id_categorie=:id_categorie";
+        $add = $bdd->prepare($sql);
+        $add->execute(array(
+            ':nom_categorie' => $categorie,
+            ':id_categorie' => $cat
+        ));
+    }
+    var_dump($langage ,$l ,$categorie ,$cat ,$tips)
+    ?>
+
+
+
+
+    <div class="container2">
+        <button class="btn" type="submit">
+            <a href="">
+                update un tips</a>
+        </button>
+>>>>>>> 1fe38b7ddffb1b680d7c7a3e4143f62a31065dcb
 
         </form>
 
