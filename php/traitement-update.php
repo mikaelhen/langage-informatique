@@ -126,7 +126,7 @@ if (!isset($_SESSION['user'])) {
                     $categorie = $bdd->lastInsertId();
 
 
-                    $req = $bdd->prepare("UPDATE possede SET id_categorie=:id_categorie, id_langage=:id_langage WHERE id_categorie=:id_categorie");
+                    $req = $bdd->prepare("UPDATE possede SET id_langage=:id_langage WHERE id_categorie=:id_categorie");
                     $req->execute(array(
                         ":id_categorie" => $categorie,
                         ":id_langage" => $idlang
@@ -135,22 +135,24 @@ if (!isset($_SESSION['user'])) {
                     $categorie = $_POST['id_categorie'];
                 }
 
-                $Req2 = $bdd->prepare("UPDATE  avoir SET id_tips=:id_tips, id_categorie=:id_categorie WHERE id_categorie=:id_categorie");
+                $Req2 = $bdd->prepare("UPDATE  avoir SET id_tips=:id_tips WHERE id_categorie=:id_categorie");
                 $Req2->execute(array(
                     ":id_tips" => $tips,
-                    ":id_categorie" => $categorie
+                    ":id_categorie" => $categorie,
                 ));
 
                 $req3 = $bdd->prepare("UPDATE langage SET  nom_langage=:nom_langage, WHERE id_langage=:id_langage");
                 $req3->execute(array(
                     ':nom_langage' => $langage,
-                    ':id_langage' => $l
+                    ':id_langage' => $l,
+                    ':id_affiche' => $idaffiche,
 
                 ));
                 $req4 = $bdd->prepare("UPDATE categorie SET nom_categorie=:nom_categorie WHERE  id_categorie=:id_categorie");
                 $req4->execute(array(
                     ':nom_categorie' => $categorie,
-                    ':id_categorie' => $cat
+                    ':id_categorie' => $cat,
+                    ':id_image' => $idimage,
                 ));
             }
 
