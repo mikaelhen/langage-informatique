@@ -42,74 +42,77 @@ if (!isset($_SESSION['user'])) {
         $requete->execute(array(
             ':idcat' => $_GET['id_tips']
         ));
-        $row = $requete->fetch(); 
+        $row = $requete->fetch();
         $sqll = "SELECT * FROM langage where id_langage";
         $req1 = $bdd->prepare($sqll);
         $req1->execute();
         $row1 = $req1->fetch();
 
         ?>
-            
-            <form action="traitement-update.php?id_tips=<?php echo $_GET['id_tips'];?>&action=maj" method="POST">
-            
+
+        <form action="traitement-update.php?id_tips=<?php echo $_GET['id_tips']; ?>&action=maj" method="POST">
+
             <!-- afficher le tips a modifier -->
-            <div class="titre">Titre de tips: 
+            <div class="titre">Titre de tips:
                 <input type="text" name="titre_tips" value="<?php echo $row['titre_tips']; ?>">
-                
+
             </div>
-            
-                <h3>Détail de tips:</h3>
-                <pre class="detail">
+
+            <h3>Détail de tips:</h3>
+            <pre class="detail">
                 <textarea type= "text" name="detail_tips" class="detail_tips"><?php echo htmlspecialchars($row['detail_tips']); ?></textarea>
-                </pre>      
-    <?php }
-    
-    if(isset($_GET['action'])){}
- 
-    ?>
+                </pre>
+        <?php }
 
-    <!-- tips modifier a mettre a jour -->
+    if (isset($_GET['action'])) {
+    }
 
-            <?php
+        ?>
 
-            if (isset($_POST['titre_tips'])) {
-                $reqone = $bdd->prepare(
-                    "UPDATE t_tips 
+        <!-- tips modifier a mettre a jour -->
+
+        <?php
+
+        if (isset($_POST['titre_tips'])) {
+            $reqone = $bdd->prepare(
+                "UPDATE t_tips 
                     SET titre_tips=:titre_tips, detail_tips=:detail_tips
-                    WHERE id_tips=:id_tips ");
-                $reqone->execute(array(
-                ":detail_tips"=> $_POST['detail_tips'],
-                ":titre_tips"=> $_POST['titre_tips'],
-                ":id_tips"=> $_GET['id_tips'],
+                    WHERE id_tips=:id_tips "
+            );
+            $reqone->execute(array(
+                ":detail_tips" => $_POST['detail_tips'],
+                ":titre_tips" => $_POST['titre_tips'],
+                ":id_tips" => $_GET['id_tips'],
 
-            
+
             ));
-                $tips = $bdd->lastInsertId();
-            }
+            $tips = $bdd->lastInsertId();
+        }
 
-            ?>
+        ?>
 
-            <div class="container2">
-                <button class="btn" type="submit">
-                        update un tips
-                </button>
+        <div class="container2">
+            <button class="btn" type="submit">
+                update un tips
+            </button>
 
         </form>
-
-        <button class="btn">
-            <a href="index.php">Retour</a>
-        </button>
-        <button class="btn">
-            <a href="update-categorie.php">update categorie</a>
-        </button>
-        <button class="btn">
-            <a href="update-langage.php?id_tips=<?php echo $row1['id_langage']?>">Update langage</a>
-        </button>
+        <div class="conatiner2">
+            <button class="btn">
+                <a href="index.php">Retour</a>
+            </button>
+            <button class="btn">
+                <a href="update-categorie.php">update categorie</a>
+            </button>
+            <button class="btn">
+                <a href="update-langage.php?id_tips=<?php echo $row1['id_langage'] ?>">Update langage</a>
+            </button>
         </div>
-    
-    </div>
-    <?php include "../assets/include/footer.php"; ?>
-    </div>
+
+        </div>
+        </div>
+        <?php include "../assets/include/footer.php"; ?>
+        </div>
 
     </body>
 
