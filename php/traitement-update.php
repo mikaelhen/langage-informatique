@@ -34,197 +34,64 @@ if (!isset($_SESSION['user'])) {
             <h2>Tips en PHP</h2>
         </div>
         <?php
-        $sql1 = "SELECT * FROM langage WHERE id_langage";
-        $requete1 = $bdd->prepare($sql1);
-        $requete1->execute();
-
-
-        $sql2 = "SELECT * FROM categorie WHERE id_categorie";
-        $requete2 = $bdd->prepare($sql2);
-        $requete2->execute();
-
-
-
-        $sql = "SELECT * FROM t_tips WHERE id_tips=:idcat";
+        $sql = "SELECT * FROM t_tips tt, avoir a, categorie c
+         WHERE  tt.id_tips=a.id_tips
+         AND c.id_categorie=a.id_categorie
+         AND tt.id_tips=:idcat";
         $requete = $bdd->prepare($sql);
         $requete->execute(array(
             ':idcat' => $_GET['id_tips']
         ));
-        $row = $requete->fetch(); {
+        $row = $requete->fetch(); 
+        $sqll = "SELECT * FROM langage where id_langage";
+        $req1 = $bdd->prepare($sqll);
+        $req1->execute();
+        $row1 = $req1->fetch();
+
         ?>
+            
+            <form action="traitement-update.php?id_tips=<?php echo $_GET['id_tips'];?>&action=maj" method="POST">
+            
             <!-- afficher le tips a modifier -->
-            <div class="titre">Titre de tips: <?php echo $row['titre_tips']; ?>
+            <div class="titre">Titre de tips: 
+                <input type="text" name="titre_tips" value="<?php echo $row['titre_tips']; ?>">
+                
             </div>
-            <div class="detail_tips">
+            
                 <h3>Détail de tips:</h3>
                 <pre class="detail">
-        <code>
-        <?php echo htmlspecialchars($row['detail_tips']); ?>
-        </code>
-                </pre>
+                <textarea type= "text" name="detail_tips" class="detail_tips"><?php echo htmlspecialchars($row['detail_tips']); ?></textarea>
+                </pre>      
+    <?php }
+    
+    if(isset($_GET['action'])){}
+ 
+    ?>
 
-            </div>
-        <?php
-        }
-        ?>
-    <?php } ?>
-
-    <div class="cont_all">
-
-    </div>
     <!-- tips modifier a mettre a jour -->
-    <form action="" method="post">
-        <div class="titre1">
-            <input type="name" name="titre_tips" placeholder="TITRE" value="">
-        </div>
-        <div class="detaille">
-            <input type="name" name="detail_tips" placeholder="DETAILS" value="">
-        </div>
-        <div class="categorie3">
-            <input type="name" name="nom_categorie" placeholder="nom categorie" value="">ou bien
-            <select class="selection" name="id_categorie">
 
-                <?php
-                while ($categorie = $requete2->fetch()) { ?>
-
-                    <option value="<?= $categorie['id_categorie'] ?>"><?= $categorie['nom_categorie'] ?></option>
-
-                <?php } ?>
-        </div>
-        </select>
-        <select class="selection" name="id_categorie">
-            <?php
-            while ($langage = $requete1->fetch()) { ?>
-                <option value="<?= $langage['id_langage'] ?>"><?= $langage['nom_langage'] ?></option>
-            <?php } ?>
-        </select>
-
-
-        <div class="detaille1">
-            Image à envoyer :
-            <input type="file" name="file">
-        </div>
-        <form>
             <?php
 
-            // if (isset($_POST['titre_tips'])) {
-            //     $reqone = $bdd->prepare("UPDATE INTO t_tips (titre_tips, detail_tips) VALUES (?,?)");
-            //     $reqone->execute(array($_POST['titre_tips'], $_POST['detail_tips']));
-            //     $tips = $bdd->lastInsertId();
+            if (isset($_POST['titre_tips'])) {
+                $reqone = $bdd->prepare(
+                    "UPDATE t_tips 
+                    SET titre_tips=:titre_tips, detail_tips=:detail_tips
+                    WHERE id_tips=:id_tips ");
+                $reqone->execute(array(
+                ":detail_tips"=> $_POST['detail_tips'],
+                ":titre_tips"=> $_POST['titre_tips'],
+                ":id_tips"=> $_GET['id_tips'],
 
-            //     // if ($_POST['id_categorie'] == ''){
-
-            //     if ($_POST['nom_categorie'] != '') {
-            //         $requete = $bdd->prepare("UPDATE categorie SET nom_categorie=:nom_categorie,  WHERE id_categorie=:id_categorie, id_image=id_image");
-            //         $requete->execute(array(
-            //             ":nom_categorie" => $_POST['nom_categorie'],
-            //             ":id_image" => $fileName,
-            //             ":id_categorie" => $_GET['id_categorie']
-                    
-
-            //         ));
-
-            //         $categorie = $bdd->lastInsertId();
-
-
-            //         $req = $bdd->prepare("UPDATE possede SET id_langage=:id_langage WHERE id_categorie=:id_categorie");
-            //         $req->execute(array(
-            //             ":id_categorie" => $categorie,
-            //             ":id_langage" => $idlang
-            //         ));
-            //     } else {
-            //         $categorie = $_POST['id_categorie'];
-            //     }
-
-            //     $Req2 = $bdd->prepare("UPDATE  avoir SET id_tips=:id_tips WHERE id_categorie=:id_categorie");
-            //     $Req2->execute(array(
-            //         ":id_tips" => $tips,
-            //         ":id_categorie" => $categorie,
-            //     ));
-
-            //     $sql = ("UPDATE langage SET  nom_langage=:nom_langage WHERE id_langage=:id_langage, id_affiche=:id_affiche");
-            //     $add = $bdd->prepare($sql);
-            //     $add->execute(array(
-            //         ':nom_langage' => $langage,
-            //         ':id_langage' => $l,
-            //         ':id_affiche' => $idaffiche,
-
-            //     ));
-            //     $sql = ("UPDATE categorie SET nom_categorie=:nom_categorie WHERE  id_categorie=:id_categorie, id_image=:id_image");
-            //     $add = $bdd->prepare($sql);
-            //     $add->execute(array(
-            //         ':nom_categorie' => $categorie,
-            //         ':id_categorie' => $cat,
-            //         ':id_image' => $idimage,
-            //     ));
-            // }
-
-
-
-
-
-            $req = $bdd->prepare('UPDATE categorie SET id_categorie = :id_categorie, id_image= :id_image WHERE nom_categorie = :nom_categorie ');
-
-            $req->execute(array(
-
-                'id_categorie' => $idcat,
-
-                'id_image' => $idimage,
-
-                'nom_categorie' => $nom_cat
-
+            
             ));
-
-
-            $req = $bdd->prepare('UPDATE possede SET id_categorie = :id_categorie, id_langage= :id_lanhgage WHERE id_categorie = :id_categorie ');
-
-            $req->execute(array(
-       
-                'id_categorie' => $idcat,
-       
-                'id_langage' => $idlang,
-       
-       
-              ));
-
-
-              $req = $bdd->prepare('UPDATE avoir SET id_tips = :id_tips, id_categorie= :id_lcategorie WHERE id_tips = :id_tips ');
-
-              $req->execute(array(
-       
-                'id_tips' => $idtips,
-       
-                'id_categorie' => $idcat,
-       
-       
-              ));
-
-
-
-              $req = $bdd->prepare('UPDATE langage SET id_langage = :id_langage, id_affiche= :id_affiche WHERE nom_langage = :nom_langage ');
-
-              $req->execute(array(
-         
-                  'id_langage' => $idlang,
-         
-                  'id_affiche' => $idaffiche,
-
-                  'nom_langage' => $nom_lang,
-         
-         
-                ));
-
-
-
-
-
+                $tips = $bdd->lastInsertId();
+            }
 
             ?>
 
             <div class="container2">
                 <button class="btn" type="submit">
-                    <a href="">
-                        update un tips</a>
+                        update un tips
                 </button>
 
         </form>
@@ -232,8 +99,14 @@ if (!isset($_SESSION['user'])) {
         <button class="btn">
             <a href="index.php">Retour</a>
         </button>
+        <button class="btn">
+            <a href="update-categorie.php">update categorie</a>
+        </button>
+        <button class="btn">
+            <a href="update-langage.php?id_tips=<?php echo $row1['id_langage']?>">Update langage</a>
+        </button>
         </div>
-    </form>
+    
     </div>
     <?php include "../assets/include/footer.php"; ?>
     </div>

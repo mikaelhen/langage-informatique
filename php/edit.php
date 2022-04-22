@@ -86,7 +86,7 @@ if (!isset($_SESSION['user'])) {
                             <li>voir</li>
                         </ul>
                         <ul>
-                            <li><a href="traitement-update.php?id_tips=<?php echo $table['id_tips'] ?>"><button><i class="fa fa-refresh" aria-hidden="true"></i>
+                            <li><a href="update.php?id_tips=<?php echo $table['id_tips'] ?>"><button><i class="fa fa-refresh" aria-hidden="true"></i>
                                     </button> </a></li>
                             <li>update</li>
                         </ul>
@@ -100,30 +100,6 @@ if (!isset($_SESSION['user'])) {
                 </div>
 
             <?php } ?>
-
-
-            <!-- <div class="container2">
-
-            <form action="edit.php?action=choix" method="post">
-
-                <div class="Tips">choisssir le tips :
-                        <select name="id_tips">
-                        
-                    <?php
-                    // while ($tips = $requeteTips->fetch()) {
-
-                    ?>
-
-                            <!-- <option value="<?= $tips['id_tips'] ?>"><?= $tips['titre_tips'] ?></option> -->
-
-            <?php
-            // }
-
-            ?>
-            <!-- </select>
-                        <input type="submit" class="btn" name="submit" value="validé votre choix">
-                
-                <a class="btn" href="liste.php">Retour</a> -->
 
         <?php } ?>
         </div>
