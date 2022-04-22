@@ -58,7 +58,7 @@ require_once '../assets/include/bdd.php';
           Ajouter un tips</a>
       </button>
       <button class="btn">
-        <a href="edit.php">update</a>
+        <a href="edit.php">Update</a>
       </button>
       <button class="btn">
         <a href="liste.php">Retour</a>
