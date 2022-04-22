@@ -18,6 +18,10 @@ if (!isset($_SESSION['user'])) {
     <link rel="stylesheet" href="../assets/css/navbar.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
+
+
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css">
     <title>Categorie</title>
@@ -57,25 +61,26 @@ if (!isset($_SESSION['user'])) {
       </div>
 
     <?php } ?>
-    <div class="cont_all">
-      <div class="container_grid">
-        <?php
-        if ($requete->rowCount() > 0) {
 
-          foreach ($row as &$categorie) {
-        ?>
-            <article class="box2">
-              <a href="liste.php?id_tips=<?php echo $categorie['id_categorie'] ?>">
-                <img src="images/<?php echo $categorie['id_image']; ?>">
-              </a>
-            </article>
-        <?php
-          }
+    <div class="container">
+      <?php
+      if ($requete->rowCount() > 0) {
+
+        foreach ($row as &$categorie) {
+      ?>
+          <article class="box2">
+            <a href="liste.php?id_tips=<?php echo $categorie['id_categorie'] ?>">
+              <img src="images/<?php echo $categorie['id_image']; ?>">
+            </a>
+          </article>
+      <?php
         }
-        ?>
-      </div>
+      }
+      ?>
+    </div>
     </div>
 
+    </div>
     <div class="container2">
       <button class="btn">
         <a href="add_tips.php">

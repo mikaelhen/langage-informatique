@@ -173,10 +173,7 @@ if (!isset($_SESSION['user'])) {
             <?php
 
             if (isset($_POST['titre_tips'])) {
-
-
-                // Include the database configuration file
-                // include '../assets/include/bdd.php';
+                
                 $statusMsg = '';
 
 
