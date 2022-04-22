@@ -174,11 +174,26 @@ h2 {
 
 
 @media only screen and (max-width: 320px) {
+
     /*style petits smartphones en voie de disparition*/
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    img {
+        height: 150px;
+        width: 150px;
+    }
+
 }
 
 @media only screen and (min-width: 321px) and (max-width: 799px) {
+
     /*style smartphones et petites tablettes en portrait*/
+    .container {
+        grid-template-columns: 1fr 1fr;
+    }
+
 }
 
 @media only screen and (min-width: 800px) and (max-width: 966px) {
@@ -186,7 +201,6 @@ h2 {
     /*style petites-moyennes tablettes */
     .container {
         grid-template-columns: 1fr 1fr 1fr;
-
     }
 
     .nav p {
