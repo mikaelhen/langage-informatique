@@ -22,6 +22,17 @@ h1.logo {
     font-size: 30px;
     color: blue;
 }
+.container {
+  grid-column: 1 / span 6;
+  grid-row: 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-rows: minmax(100px, auto);
+  grid-gap: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #D9EEE1;
+}
 
 .deconnection-container {
     cursor: pointer;
@@ -53,7 +64,11 @@ h1.logo {
     height: 240px;
     width: 240px;
 }
-
+.box2 img {
+    height: 250px;
+    width: 310px;
+    margin-left: 20px;
+}
 .box1 {
     background: #fff;
     color: rgb(245, 149, 108);

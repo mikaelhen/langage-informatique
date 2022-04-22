@@ -97,9 +97,9 @@ nav a:hover {
         font-size: 10px;
     }
 
-    label {
+    /* label {
         display: none;
-    }
+    } */
 }
 
 @media only screen and (max-width: 320px) {
