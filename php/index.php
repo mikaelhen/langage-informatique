@@ -57,9 +57,29 @@ require_once '../assets/include/bdd.php';
         <a href="add_tips.php">
           Ajouter un tips</a>
       </button>
+
+
+      <?php
+        $sql = "SELECT * FROM users
+        WHERE  pseudo_users=:user ";
+       $requete = $bdd->prepare($sql);
+       $requete->execute(array(
+           ':user' => $_SESSION['user']
+       ));
+       $row = $requete->fetch(); 
+
+       if ($row["id_role"] == 3){
+
+
+      ?>
       <button class="btn">
         <a href="edit.php">update</a>
       </button>
+
+      <?php
+       }
+       else{}
+      ?>
       <button class="btn">
         <a href="liste.php">Retour</a>
       </button>
