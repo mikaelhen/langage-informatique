@@ -116,7 +116,7 @@ nav a:hover {
 
 @media only screen and (min-width: 321px) and (max-width: 799px) {
     /*style smartphones et petites tablettes en portrait*/
- .label 
+ /* .label 
     {
         width: 60px;
         display: flex;
@@ -130,7 +130,7 @@ nav a:hover {
      nav 
     {
         display: none;
-    }
+    } */
     .nav {
         height: auto;
     }
