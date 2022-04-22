@@ -97,18 +97,70 @@ nav a:hover {
         font-size: 10px;
     }
 
-
-@media only screen and (min-width: 321px) and (max-width: 799px) {
-    .nav h1 {
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 400;
-            margin-bottom: 50px;
-            margin-top: 50px;
-            font-size: 30px;
+    label {
+        display: none;
     }
 }
 
+@media only screen and (max-width: 320px) {
 
+    /*style petits smartphones en voie de disparition*/
+    .nav {
+        height: auto;
+    }
 
-@media only screen and (min-width: 800px) and (max-width: 966px) {}
+    .btn {
+        height: 40px;
+    }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 799px) {
+    /*style smartphones et petites tablettes en portrait*/
+ .label 
+    {
+        width: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        font-size: 100px;
+        color: white;
+        cursor: pointer;
+    }
+     nav 
+    {
+        display: none;
+    }
+    .nav {
+        height: auto;
+    }
+
+    .nav h1 {
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+        margin-bottom: 50px;
+        margin-top: 50px;
+        font-size: 18px;
+    }
+
+    .nav p {
+        font-size: 10px;
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .container2 a {
+        font-size: 10px;
+    }
+
+    .btn {
+        height: 40px;
+    }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 966px) {
+
+    /*style petites-moyennes tablettes */
+}

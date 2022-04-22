@@ -3,6 +3,8 @@
         ?> -->
 
 <header>
+    <label for="toggle">☰</label>
+    <input type="checkbox" id="toggle">
     <nav>
         <?php
         if (isset($_SESSION['user'])) {
