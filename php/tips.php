@@ -46,11 +46,7 @@ if (!isset($_SESSION['user'])) {
             ':idcat' => $_GET['id_tips']
         ));
         $row = $requete->fetch(); {
-            // $sql = "SELECT * FROM avoir a,categorie c,tips t WHERE a.id_tips = t.id_tips and c.id_categorie= a.id_categorie and c.id_categorie=".$_GET['id_tips']."";
-
-            // $requete = $bdd->prepare($sql);
-            // $requete->execute();
-            // $row = $requete->fetch();{
+     
         ?>
 
             <div class="titre">Titre de tips: <?php echo $row['titre_tips']; ?>
