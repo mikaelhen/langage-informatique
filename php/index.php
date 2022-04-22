@@ -49,9 +49,9 @@ require_once '../assets/include/bdd.php';
       <?php
       }
       ?>
-
     </div>
-
+  </div>
+  <div class="cont_btn">
     <div class="container2">
       <button class="btn">
         <a href="add_tips.php">
@@ -64,8 +64,9 @@ require_once '../assets/include/bdd.php';
         <a href="liste.php">Retour</a>
       </button>
     </div>
-    <?php include "../assets/include/footer.php"; ?>
   </div>
+  <?php include "../assets/include/footer.php"; ?>
+
 </body>
 
 </html>
