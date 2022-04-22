@@ -72,7 +72,7 @@ if (!isset($_SESSION['user'])) {
                         <h3><?php echo $table["nom_langage"]; ?></h3>
                     </div>
 
-                    <div class="categorie">
+                    <div class="categorie" >
                         <h3><?php echo $table["nom_categorie"]; ?></h3>
                     </div>
 
@@ -82,16 +82,19 @@ if (!isset($_SESSION['user'])) {
 
                     <div class="option">
                         <ul>
-                            <li> <a href="tips.php?id_tips=<?php echo $table['id_tips'] ?>"><button><i class="far fa-eye"></i></button></a></li>
+                            <li> <a href="tips.php?id_tips=<?php echo $table['id_tips'] ?>">
+                            <button><i class="far fa-eye"></i></button></a></li>
                             <li>voir</li>
                         </ul>
                         <ul>
-                            <li><a href="update.php?id_tips=<?php echo $table['id_tips'] ?>"><button><i class="fa fa-refresh" aria-hidden="true"></i>
+                            <li><a href="update.php?id_tips=<?php echo $table['id_tips'] ?>">
+                            <button><i class="fa fa-refresh" aria-hidden="true"></i>
                                     </button> </a></li>
                             <li>update</li>
                         </ul>
                         <ul>
-                            <li> <a href="traitement-delete.php?id_tips=<?php echo $table['id_tips'] ?>"><button><i class="fas fa-trash-alt"></i></button></a></li>
+                            <li> <a href="traitement-delete.php?id_tips=<?php echo $table['id_tips'] ?>"><button>
+                                <i class="fas fa-trash-alt"></i></button></a></li>
                             <li>supprimer</li>
                         </ul>
 

@@ -36,13 +36,94 @@ else {
         <div class="tips">
             <h2>Tips en PHP</h2>
         </div>
-        <?php
+<?php 
+        if(isset($_GET['action'])){
+
+if ($_GET['action'] == 'maj'){
+
+    if (isset($_POST['titre_tips'])) {
+        $reqone = $bdd->prepare(
+            "UPDATE t_tips 
+            SET titre_tips=:titre_tips, detail_tips=:detail_tips
+            WHERE id_tips=:id_tips ");
+        $reqone->execute(array(
+        ":detail_tips"=> $_POST['detail_tips'],
+        ":titre_tips"=> $_POST['titre_tips'],
+        ":id_tips"=> $_GET['id_tips'],
+
+    
+    ));
+        $tips = $bdd->lastInsertId();
+
+       
+
+        // if ($_POST['nom_categorie'] = '') {
+
+          
+
+            // je modifie que le nom categorie + image
+            $sqlcat = "SELECT * FROM categorie WHERE id_categorie=".$_POST['id_categorie']."";
+            $requetecat = $bdd->prepare($sqlcat);
+            $requetecat->execute();
+            $rowcat = $requetecat->fetch(); 
+
+            $requete = $bdd->prepare(
+                "UPDATE categorie 
+                SET nom_categorie=:nom_categorie
+                WHERE id_categorie=:id_categorie ");
+            $requete->execute(array(
+                ":nom_categorie" => $rowcat['nom_categorie'],
+                ":id_categorie" => $_POST['id_categorie'],
+            ));
+
+
+            $categorie = $bdd->lastInsertId();
+
+
+            $req = $bdd->prepare(
+                "UPDATE possede 
+                SET id_langage=:id_langage 
+                WHERE id_categorie=:id_categorie");
+            $req->execute(array(
+                ":id_categorie" => $_POST['id_categorie'],
+                ":id_langage" => $_POST['langage'],
+            ));
+        // } else {
+        //     $categorie = $_POST['id_categorie'];
+        // }
+
+        $Req2 = $bdd->prepare(
+            "UPDATE  avoir 
+            SET id_categorie=:id_categorie
+            WHERE  id_tips=:id_tips");
+        $Req2->execute(array(
+            ":id_tips" => $_GET['id_tips'],
+            ":id_categorie" => $_POST['id_categorie'],
+        ));
+
+        // $sql = (
+        //     "UPDATE langage 
+        //     SET  nom_langage=:nom_langage, id_affiche=:id_affiche
+        //     WHERE id_langage=:id_langage");
+        // $add = $bdd->prepare($sql);
+        // $add->execute(array(
+        //     ':nom_langage' => $_POST['nom_langage'],
+        //     ':id_langage' => $_POST['id_langage'],
+        //     ':id_affiche' => $_POST['id_affiche'],
+
+        // ));
+       
+    }
+echo "La modification est prise en compte";
+}
+}
+
         $sql1 = "SELECT * FROM langage";
         $requete1 = $bdd->prepare($sql1);
         $requete1->execute();
 
 
-        $sql2 = "SELECT * FROM categorie WHERE id_categorie";
+        $sql2 = "SELECT * FROM categorie ORDER BY nom_categorie ASC";
         $requete2 = $bdd->prepare($sql2);
         $requete2->execute();
 
@@ -61,18 +142,20 @@ else {
         $row = $requete->fetch(); 
 
         ?>
+
+        <br><br>
             
-            <form action="traitement-update.php?id_tips=<?php echo $_GET['id_tips'];?>&action=maj" method="POST">
+            <form action="update.php?id_tips=<?php echo $_GET['id_tips'];?>&action=maj" method="POST">
             
             <!-- afficher le tips a modifier -->
             <div class="titre">Titre de tips: 
-                <input type="text" name="titre_tips" value="<?php echo $row['titre_tips']; ?>">
+                <input type="text" name="titre_tips" value="<?php echo $row['titre_tips']; ?>"></input>
                 
             </div>
             
                 <h3>Détail de tips:</h3>
                 <pre class="detail">
-                <textarea type= "text" name="detail_tips" class="detail_tips"><?php echo htmlspecialchars($row['detail_tips']); ?></textarea>
+                <textarea cols="100" rows="10" type= "text" name="detail_tips" class="detail_tips"><?php echo htmlspecialchars($row['detail_tips']); ?></textarea>
                 </pre>
 
              
@@ -103,15 +186,7 @@ else {
       
     <?php }
     
-    if(isset($_GET['action'])){
 
-        if ($_GET['action'] == 'maj'){
-
-            // tu recuperes tous les posts
-            echo "id cat =  ";
-            echo $_POST['id_categorie'];
-        }
-    }
     
     
     ?>
@@ -123,7 +198,7 @@ else {
         </select>
         <div>
         
-        <select class="selection" name="id_categorie">
+        <select class="selection" name="langage">
         <option value="<?= $row['id_langage'] ?>">
                 <?php echo  $row['nom_langage']; ?></option>
             <?php
@@ -134,94 +209,27 @@ else {
               }              else {
               ?>              
                 <option value="<?= $langage['id_langage'] ?>">
-                <?php echo  $langage['nom_langage']; echo  $langage['id_langage']; ?></option>
+                <?php echo  $langage['nom_langage']; ?></option>
             <?php
           } } ?>
         </div>
         </select>
+        <br> <br>
         <?php 
 echo($langage);
 ?>
 
-        <div class="detaille1">
+        <!-- <div class="detaille1">
             Image à envoyer :
             <input type="file" name="file">
-        </div>
+        </div> -->
         
-            <?php
-
-            if (isset($_POST['titre_tips'])) {
-                $reqone = $bdd->prepare(
-                    "UPDATE t_tips 
-                    SET titre_tips=:titre_tips, detail_tips=:detail_tips
-                    WHERE id_tips=:id_tips ");
-                $reqone->execute(array(
-                ":detail_tips"=> $_POST['detail_tips'],
-                ":titre_tips"=> $_POST['titre_tips'],
-                ":id_tips"=> $_GET['id_tips'],
-
-            
-            ));
-                $tips = $bdd->lastInsertId();
-
-               
-
-                if ($_POST['nom_categorie'] = '') {
-                    $requete = $bdd->prepare(
-                        "UPDATE categorie 
-                        SET nom_categorie=:nom_categorie,  id_image=id_image
-                        WHERE id_categorie=:id_categorie ");
-                    $requete->execute(array(
-                        ":nom_categorie" => $_POST['nom_categorie'],
-                        ":id_image" => $_POST['id_image'],
-                        ":id_categorie" => $_POST['id_categorie'],
-                    ));
-
-                    $categorie = $bdd->lastInsertId();
-
-
-                    $req = $bdd->prepare(
-                        "UPDATE possede 
-                        SET id_langage=:id_langage 
-                        WHERE id_categorie=:id_categorie");
-                    $req->execute(array(
-                        ":id_categorie" => $_POST['id_categorie'],
-                        ":id_langage" => $_POST['id langage'],
-                    ));
-                } else {
-                    $categorie = $_POST['id_categorie'];
-                }
-
-                $Req2 = $bdd->prepare(
-                    "UPDATE  avoir 
-                    SET id_categorie=:id_categorie
-                    WHERE  id_tips=:id_tips");
-                $Req2->execute(array(
-                    ":id_tips" => $_GET['id_tips'],
-                    ":id_categorie" => $_POST['id_categorie'],
-                ));
-
-                $sql = (
-                    "UPDATE langage 
-                    SET  nom_langage=:nom_langage, id_affiche=:id_affiche
-                    WHERE id_langage=:id_langage");
-                $add = $bdd->prepare($sql);
-                $add->execute(array(
-                    ':nom_langage' => $_POST['nom_langage'],
-                    ':id_langage' => $_POST['id_langage'],
-                    ':id_affiche' => $_POST['id_affiche'],
-
-                ));
-               
-            }
-
-
-
-            ?>
+        <br> <br>
 
             <div class="container2">
-                <button class="btn" type="submit">
-                        update un tips
+                <button class="btn"> 
+                update un tips
+                        
                 </button>
 
         </form>
