@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 h2 {
 display: flex;
 font-size: 80px;
@@ -48,4 +53,28 @@ font-family: 'Poppins', sans-serif;
   margin-top: -6px;
   margin-top: 22px;
   margin-left: 3px;
+}
+
+.detail_tips {
+  margin-top: 50px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.titre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    background-color: #D9EEE1;
+    font-size: 25px;
+}
+
+.titre input {
+  width: auto;
+  height: 40px;
+  text-align: center;
+  margin-left: 20px;
 }

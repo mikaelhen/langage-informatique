@@ -73,7 +73,7 @@ require_once '../assets/include/bdd.php';
 
       ?>
       <button class="btn">
-        <a href="edit.php">update</a>
+        <a href="edit.php">Update</a>
       </button>
 
       <?php

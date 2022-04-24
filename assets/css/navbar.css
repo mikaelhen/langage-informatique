@@ -97,9 +97,6 @@ nav a:hover {
         font-size: 10px;
     }
 
-    /* label {
-        display: none;
-    } */
 }
 
 @media only screen and (max-width: 320px) {
@@ -116,25 +113,10 @@ nav a:hover {
 
 @media only screen and (min-width: 321px) and (max-width: 799px) {
     /*style smartphones et petites tablettes en portrait*/
- /* .label 
-    {
-        width: 60px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-        font-size: 100px;
-        color: white;
-        cursor: pointer;
-    }
-     nav 
-    {
-        display: none;
-    } */
+
     .nav {
         height: auto;
     }
-
     .nav h1 {
         color: white;
         font-family: 'Poppins', sans-serif;
@@ -161,6 +143,5 @@ nav a:hover {
 }
 
 @media only screen and (min-width: 800px) and (max-width: 966px) {
-
     /*style petites-moyennes tablettes */
 }
