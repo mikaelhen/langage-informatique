@@ -21,7 +21,6 @@ require_once '../assets/include/bdd.php';
   <div class="container-mik">
     <header class="header box">
       <?php include "../assets/include/navbar.php" ?>
-
     </header>
 
     <div class="nav box">
@@ -60,25 +59,25 @@ require_once '../assets/include/bdd.php';
 
 
       <?php
-        $sql = "SELECT * FROM users
+      $sql = "SELECT * FROM users
         WHERE  pseudo_users=:user ";
-       $requete = $bdd->prepare($sql);
-       $requete->execute(array(
-           ':user' => $_SESSION['user']
-       ));
-       $row = $requete->fetch(); 
+      $requete = $bdd->prepare($sql);
+      $requete->execute(array(
+        ':user' => $_SESSION['user']
+      ));
+      $row = $requete->fetch();
 
-       if ($row["id_role"] == 3){
+      if ($row["id_role"] == 3) {
 
 
       ?>
-      <button class="btn">
-        <a href="edit.php">Update</a>
-      </button>
+        <button class="btn">
+          <a href="edit.php">Update</a>
+        </button>
 
       <?php
-       }
-       else{}
+      } else {
+      }
       ?>
       <button class="btn">
         <a href="liste.php">Retour</a>
