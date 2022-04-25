@@ -18,7 +18,9 @@
             <a href="index.php">
                 <div class="logo"><img src="../assets/img/logo2.png"></div>
             </a>
-            <li><a href="connexion.php">Connexion</a></li>
+            <li>
+                <a href="connexion.php">Connexion</a>
+            </li>
         <?php
         }
 
