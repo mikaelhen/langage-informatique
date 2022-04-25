@@ -59,6 +59,8 @@ require_once '../assets/include/bdd.php';
       </button>
 
 
+    
+
       <?php
         $sql = "SELECT * FROM users
         WHERE  pseudo_users=:user ";
@@ -74,6 +76,9 @@ require_once '../assets/include/bdd.php';
       ?>
       <button class="btn">
         <a href="edit.php">Update</a>
+      </button>
+      <button class="btn">
+        <a href="test_user.php">Membres</a>
       </button>
 
       <?php

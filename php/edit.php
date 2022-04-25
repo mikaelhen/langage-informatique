@@ -1,9 +1,7 @@
 <?php
-// die(var_dump($_POST));
-session_start();
+ session_start();
 require_once '../assets/include/bdd.php';
-// include 'mesfonctionSQL';
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user']['role= 3']))   {
     header('location:index.php?login_err=pas_de_compte');
 } else {
 

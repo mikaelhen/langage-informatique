@@ -1,5 +1,11 @@
+<?php session_start();
+require_once '../assets/include/bdd.php';
+if (!isset($_SESSION['user']['role= 3']))   {
+    header('location:index.php?login_err=pas_de_compte');
+} else {
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,11 +17,22 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
+<header>
+     <?php 
+     require_once '../assets/include/bdd.php';
+     include "../assets/include/navbar.php" ?>
+        </header>
+  
 
+
+
+<div class="titre_edit">
+<h2>Espace Membres</h2>
+</div>
+
+<?php
 // die(var_dump($_POST));
-session_start();
-require_once '../assets/include/bdd.php';
+
 
     $sql= "SELECT * FROM users u, role r
     WHERE u.id_role= r.id_role";
@@ -55,7 +72,6 @@ require_once '../assets/include/bdd.php';
     <td width="150px" >Pseudo</td>
     <td width="150px">Mail</td>
     <td width="150px">Role</td>
-    <td width="150px">Gestion</td>
 </tr>
 
 <?php
@@ -68,6 +84,8 @@ while ($affiche_users = $requet_user->fetch())
     <td><?php echo $affiche_users['mail_users'];?></td>
     <td>
     <form action="test_user.php?id_user=<?= $affiche_users['id_users'];?>&action=roles" method="POST">
+
+<!-- // Role admin, menbre // -->
 
 <select name="roles">
 
@@ -92,15 +110,23 @@ else {
     <option value="3">Administrateur</option>
     <?php
 }
+
+
+if ($affiche_users['id_role'] == 6){}
+else {
+    ?> 
+    <option value="6">Desactiver</option>
+    <?php
+}
 ?>
+
 </select>
 <input type="submit" value="Valider">
     </form>    
-    <td>option a faire</td>
 </tr>
 
 <?php
-}
+}}
 ?>
 
 
