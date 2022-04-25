@@ -1,8 +1,25 @@
 <?php session_start();
 require_once '../assets/include/bdd.php';
-if (!isset($_SESSION['user']['role= 3']))   {
+
+if (!isset($_SESSION['user']))   {
     header('location:index.php?login_err=pas_de_compte');
-} else {
+} 
+
+// Ici une requete selec where user = session user
+else {
+
+    $sqladmin = 'SELECT * FROM users WHERE pseudo_users="'.$_SESSION['user'].'"';
+    $requeteadmin = $bdd->prepare($sqladmin);
+    $requeteadmin->execute();
+    $afficheadmin = $requeteadmin->fetch();
+
+    if ($afficheadmin["id_role"] == 3){
+        echo "vous etes admin";
+    }
+    else {header('location:index.php?login_err=pas_admin');}
+      
+ 
+    
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -11,6 +28,7 @@ if (!isset($_SESSION['user']['role= 3']))   {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/edit.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
         <link rel="stylesheet" href="../assets/css/footer.css">
         <link rel="stylesheet" href="../assets/css/navbar.css">
         <script src="https://kit.fontawesome.com/f0fc4e252c.js" crossorigin="anonymous"></script>
@@ -22,14 +40,12 @@ if (!isset($_SESSION['user']['role= 3']))   {
      require_once '../assets/include/bdd.php';
      include "../assets/include/navbar.php" ?>
         </header>
-  
-
-
+        
 
 <div class="titre_edit">
 <h2>Espace Membres</h2>
 </div>
-
+<div class="membre_tableau">
 <?php
 // die(var_dump($_POST));
 
@@ -63,31 +79,32 @@ if (!isset($_SESSION['user']['role= 3']))   {
         }
     }
 
-
-
 ?>
 
 <table  >
-<tr height="35px" >
-    <td width="150px" >Pseudo</td>
-    <td width="150px">Mail</td>
-    <td width="150px">Role</td>
-</tr>
+
+<div class="tableau">
+    <div class="td1" >Pseudo</div>
+    <div class="td1" >mail</div>
+    <div class="td1" >role</div>
+</div>
+
 
 <?php
 
 while ($affiche_users = $requet_user->fetch())
 {
 ?>
-<tr height="50px" >
-    <td><?php echo $affiche_users['pseudo_users'];?></td>
-    <td><?php echo $affiche_users['mail_users'];?></td>
-    <td>
+
+<div class="tableau">
+    <div class="td"><?php echo $affiche_users['pseudo_users'];?></div>
+    <div class="td"><?php echo $affiche_users['mail_users'];?></div>
+    <div class="td">
     <form action="test_user.php?id_user=<?= $affiche_users['id_users'];?>&action=roles" method="POST">
 
 <!-- // Role admin, menbre // -->
 
-<select name="roles">
+<select class= "select" name="roles">
 
 <option value="<?php echo $affiche_users['id_role'];?>"><?php echo $affiche_users['nom_role'];?></option>
 
@@ -95,6 +112,7 @@ while ($affiche_users = $requet_user->fetch())
 if ($affiche_users['id_role'] == 1){}
 else {
     ?> 
+     
     <option value="1">Membre</option>
     <?php
 }
@@ -122,9 +140,13 @@ else {
 
 </select>
 <input type="submit" value="Valider">
-    </form>    
-</tr>
 
+
+</form>
+</div> 
+</div>
+</div>
+ 
 <?php
 }}
 ?>
