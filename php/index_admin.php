@@ -59,7 +59,52 @@ require_once '../assets/include/bdd.php';
         <a href="add_tips.php">
           Ajouter un tips</a>
       </button>
+
+
+      <?php
+
+
+// if ((!isset($_SESSION['pseudo_user'])) || (empty($_SESSION['pseudo_user'])))
+// {
+//     // la variable 'login' de session est non déclaré ou vide
+//     echo '  <p>Petit curieux... <a href="index.php" title="Connexion">Connexion d\'abord !</a></p>';
+//     exit();
+// }
+// ?>
+
+
+      <?php
+        $sql = "SELECT * FROM users
+        WHERE  pseudo_users=:user ";
+       $requete = $bdd->prepare($sql);
+       $requete->execute(array(
+           ':user' => $_SESSION['user']
+       ));
+       $row = $requete->fetch(); 
+       ?>
  
+     
+      <?php
+       if ($row["id_role"] == 3){
+
+      ?>
+
+      <button class="btn">
+        <a href="edit.php">Update</a>
+      </button>
+
+       <?php
+       }
+       if ($row["id_role"] != 1){
+       ?>
+
+      <button class="btn">
+        <a href="test_user.php">Membres</a>
+      </button>
+
+      <?php }
+      ?>
+
       <button class="btn">
         <a href="liste.php">Retour</a>
       </button>

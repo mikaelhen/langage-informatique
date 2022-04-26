@@ -63,7 +63,7 @@ session_start();
                         }
                             if ($password == $data['mdp_users']) {
                                 $_SESSION['user'] = $pseudo;
-                                header('Location:index.php');
+                                header('Location:index_admin.php');
                             } else
                                 echo "Mot de passe incorrect";
                         } else
