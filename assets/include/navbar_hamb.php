@@ -11,27 +11,36 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <!-- logo -->
-        <a class="navbar-brand" href="#"><img src="../assets/img/logo2.png" style="width:70px;height:70px"></a>
-
-        <!-- bouton burger -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- lien navbar -->
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="inscription.php">Inscription</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="deconnection.php">deconnexion</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <!--Nav-->
+    <div class="sticky-top">
+        <nav class="navbar navbar-light bg-light">
+            <div class="container justify-content-between">
+                <div class="d-none d-lg-block">
+                    <img src="../img/logo2.png" alt="" width="90" height="70">
+                </div>
+                <div class="navbar navbar-expand-lg">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="toggle-navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbar-content">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Accueil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Connection</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Inscription</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        </nav>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
