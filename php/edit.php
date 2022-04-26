@@ -33,6 +33,8 @@ if (!isset($_SESSION['user'])) {
     $requeteTips = $bdd->prepare($sqlTips);
     $requeteTips->execute($params);
     $tips = $bdd->lastInsertId();
+
+
 ?>
     <!DOCTYPE html>
     <html lang="fr">
@@ -50,7 +52,14 @@ if (!isset($_SESSION['user'])) {
     </head>
 
     <body>
-        <?php include "../assets/include/navbar.php" ?>
+        <?php
+
+
+        include "../assets/include/navbar_admin.php";
+
+
+
+        ?>
         <div class="titre_edit">
             <h2>TIPS à modifier</h2>
         </div>
@@ -74,7 +83,9 @@ if (!isset($_SESSION['user'])) {
 
             </div>
 
-            <?php foreach ($requeteTips as $table) { ?>
+            <?php
+
+            foreach ($requeteTips as $table) { ?>
                 <div class="tableau">
 
                     <div class="langage">

@@ -20,7 +20,7 @@ require_once '../assets/include/bdd.php';
     <header>
         <?php
         require_once '../assets/include/bdd.php';
-        include "../assets/include/navbar.php"
+        include "../assets/include/navbar_admin.php"
         ?>
     </header>
     <div class="role">
@@ -36,12 +36,6 @@ require_once '../assets/include/bdd.php';
             $requeteadmin = $bdd->prepare($sqladmin);
             $requeteadmin->execute();
             $afficheadmin = $requeteadmin->fetch();
-
-            if ($afficheadmin["id_role"] == 3) {
-                echo "Administrateur";
-            } else {
-                header('location:index.php?login_err=pas_admin');
-            }
         ?>
     </div>
 

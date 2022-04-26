@@ -28,7 +28,7 @@ if (!isset($_SESSION['user'])) {
   </head>
 
   <body>
-    <?php include "../assets/include/navbar.php" ?>
+    <?php include "../assets/include/navbar_admin.php" ?>
     <?php
     $sql = "SELECT * FROM possede p,categorie c,langage l WHERE p.id_langage = l.id_langage and p.id_categorie=c.id_categorie and l.id_langage=" . $_GET['id_categorie'] . "";
     $requete = $bdd->prepare($sql);

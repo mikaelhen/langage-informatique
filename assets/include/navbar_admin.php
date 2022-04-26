@@ -1,0 +1,29 @@
+<header>
+
+    <nav>
+    
+        <?php
+        if (isset($_SESSION['user'])){
+            echo ('Connecté en tant que : ' . $_SESSION['user']); ?>
+             <?php 
+
+
+?>
+
+            <a href="index_admin.php">
+                <div class="logo"><img src="../assets/img/logo2.png"></div>
+            </a>
+            <li><a href="deconnection.php">deconnexion</a></li>
+        <?php
+        } else { ?>
+            <li><a href="inscription.php">Inscription</a></li>
+            <a href="index_admin.php">
+                <div class="logo"><img src="../assets/img/logo2.png"></div>
+            </a>
+            <li><a href="connexion.php">Connexion</a></li>
+        <?php
+        }
+        ?>
+    </nav>
+
+</header>
