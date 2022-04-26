@@ -8,23 +8,6 @@ if (!isset($_SESSION['user'])) {
 } else {
 
 
-    // $sqlTips = "SELECT * FROM titre_tips , langage, categorie";
-//     $params = [];
-//     $sqlTips = "SELECT * FROM users
-//     INNER JOIN avoir ON t_tips.id_tips = avoir.id_tips
-//     INNER JOIN categorie ON avoir.id_categorie = categorie.id_categorie
-//     INNER JOIN possede ON possede.id_categorie = categorie.id_categorie
-//     INNER JOIN langage ON possede.id_langage = langage.id_langage";
-//     if (isset($_GET['id_tips'])) {
-//         $sqlTips = $sqlTips . " WHERE t_tips.id_tips = ?";
-//         $params = [$_GET['id_tips']];
-//     }
-
-//     // WHERE t_tips.id_tips = ?";
-//     $requeteTips = $bdd->prepare($sqlTips);
-//     $requeteTips->execute($params);
-//     $tips = $bdd->lastInsertId();
-
     $sql= "SELECT * FROM users u, role r
     WHERE u.id_role= r.id_role";
     $requet_user = $bdd->prepare($sql);

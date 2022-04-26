@@ -27,24 +27,40 @@ session_start();
             <input type="submit" name="" value="s'identifier">
             <div class="compte">
                 <?php
+               
                 include('../assets/include/bdd.php');
                 if (isset($_POST['pseudo']) && isset($_POST['password'])) {
                     $pseudo = htmlspecialchars($_POST['pseudo']);
                     $password = htmlspecialchars($_POST['password']);
 
-                    if (isset($_POST['pseudo']) && isset($_POST['password'])) {
+                        $check = $bdd->prepare('SELECT * FROM users WHERE pseudo_users = ?');
+                        $check->execute(array($pseudo));
+                        // $data = $check->fetch();
+                        // $row = $check->rowCount();
+
+
+                        if($check->rowcount()==1){
+
+                            $data =$check->fetch();
+                            $password= hash ('sha1', $password);
+                            if($data['mdp_users'] === $password)
+                            {
+                                $S_SESSION['user'] = $pseudo;
+                                header('location:index.php');
+                            
+                    if (isset($_POST['pseudo']) && isset($_POST['mdp_users'])) {
                         $pseudo = htmlspecialchars($_POST['pseudo']);
-                        $password = htmlspecialchars($_POST['password']);
+                        $password = htmlspecialchars($_POST['mdp_users']);
 
                         $check = $bdd->prepare('SELECT * FROM users WHERE pseudo_users = ?');
                         $check->execute(array($pseudo));
                         $data = $check->fetch();
                         $row = $check->rowCount();
-
+                    }
                         if ($row == 1) {
                             // $password = hash('sha256', $password);
 
-
+                        }
                             if ($password == $data['mdp_users']) {
                                 $_SESSION['user'] = $pseudo;
                                 header('Location:index.php');

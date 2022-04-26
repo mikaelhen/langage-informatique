@@ -15,7 +15,10 @@ else {
     }
     else {header('location:index.php?login_err=pas_admin');}
       
- 
+    if ($affichemoderateur["id_role"] == 2){
+        echo "vous etes moderateur";
+    }
+    else {header('location:index.php?login_err=pas_admin');}
 ?>
 
     <!DOCTYPE html>

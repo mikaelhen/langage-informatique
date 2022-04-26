@@ -15,22 +15,21 @@
             <a href="index.php"> <img src="../assets/img/logo2.png" class="user"></a>
             <h2>Inscription</h2>
             <p>Pseudo</p>
-            <input type="text" name="pseudo" class="form-control" placeholder="pseudo" required="required" autocomplete="off">
+            <input type="text" name="pseudo_users" class="form-control" placeholder="pseudo" required="required" autocomplete="off">
 
 
             <p>Adresse E-mail</p>
-            <input type="email" name="email" class="form-control" placeholder="Email" required="required" autocomplete="off">
+            <input type="email" name="mail_users" class="form-control" placeholder="Email" required="required" autocomplete="off">
 
 
             <p>Mot de passe</p>
-            <input type="password" name="password" class="form-control" placeholder="Mot de passe" required="required" autocomplete="off">
+            <input type="password" name="mdp_users" class="form-control" placeholder="Mot de passe" required="required" autocomplete="off">
 
             <input type="submit" name="" value="Inscription">
 
-        </form>
-        <div class="compte">
             <?php
             include('../assets/include/bdd.php');
+            echo "salut";
 
             if (isset($_GET["action"])) {
                 if ($_GET["action"] == "ajout") {
@@ -39,42 +38,77 @@
 
                     if (!empty($_POST)) { // ici on fait le traitement de l'inscription
 
-                        if (isset($_POST['pseudo'], $_POST['email'], $_POST['password']) && !empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['password'])) {
+                        if (isset($_POST['pseudo_users']) && isset( $_POST['mail_users'])&& isset( $_POST['mdp_users'])) {
+                            echo ($_POST['pseudo_users']);
 
 
-                            $check = $bdd->prepare('SELECT * FROM users WHERE pseudo_users = ?');
-                            $check->execute(array($_POST['pseudo']));
+                            // $check = $bdd->prepare('SELECT * FROM users WHERE pseudo_users = ?');
+                            // $check->execute(array($_POST['pseudo']));
+                            // $data = $check->fetch();
+                            // $row = $check->rowCount();
+
+                            $pseudo = htmlspecialchars($_POST['pseudo_users']);
+                            $email = htmlspecialchars($_POST['mail_users']);
+                            $password = htmlspecialchars($_POST['mdp_users']);
+                            $check = $bdd->prepare(
+                                'SELECT pseudo_users, mail_users, mdp_users, id_role FROM users WHERE pseudo_users =?'
+                            );
+                            $check->execute(array($pseudo));
                             $data = $check->fetch();
                             $row = $check->rowCount();
 
-                            if ($row == 1) {
-                                echo ('pseudo est déja utilisé');
-                            } else {
+                            if ($row == 0) {
+                                if (strlen($pseudo) <= 100) {
+                                    if (strlen($email) <= 100) {
+                                        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                                            $password = hash('sha1', $password);
+
+                                            $insert = $bdd->prepare('INSERT INTO users(pseudo_users, mail_users, mdp_users, id_role) 
+                            VALUES (:pseudo_users, :mail_users, :mdp_users ,1)');
+                                            $insert->execute(array(
+                                                'pseudo_users' => $pseudo,
+                                                'mail_users' => $email,
+                                                'mdp_users' => $password,
+
+                                            ));
+                                            header('location: connexion.php?reg_err=success');
+                                        } else header('location:inscription.php');
+                                    } else header('location:inscription.php?reg_err=email');
+                                } else header('location:inscription.php?reg_err=email_length');
+                            } else header('location:inscription.php?reg_err=pseudo_length');
+                        } else header('location:inscription.php?reg_err=already');
+            ?>
+
+        </form>
+        <div class="compte">
+<?php
 
 
-                                $sql = "INSERT INTO users (pseudo_users, mail_users, mdp_users, id_role) 
-                        VALUES (:pseudo_users, :mail_users,:mdp_users, 1) ";
 
-                                $query = $bdd->prepare($sql);
+                        // $sql = "INSERT INTO users (pseudo_users, mail_users, mdp_users, id_role) 
+                        // VALUES (:pseudo_users, :mail_users,:mdp_users, 1) ";
 
-                                // permet de verifier que c'est bien une chaine de caractere
-                                $query->bindValue(":pseudo_users", $_POST['pseudo'], PDO::PARAM_STR);
-                                $query->bindValue(":mail_users", $_POST['email'], PDO::PARAM_STR);
-                                $query->bindValue(":mdp_users", $_POST['password'], PDO::PARAM_STR);
+                        // $query = $bdd->prepare($sql);
+
+                        // // permet de verifier que c'est bien une chaine de caractere
+                        // $query->bindValue(":pseudo_users", $_POST['pseudo'], PDO::PARAM_STR);
+                        // $query->bindValue(":mail_users", $_POST['email'], PDO::PARAM_STR);
+                        // $query->bindValue(":mdp_users", $_POST['password'], PDO::PARAM_STR);
 
 
-                                $query->execute();
-                                echo "c'est bon";
-                                header("Location:connexion.php");
-                            }
-                        } else {
-                            echo "merci de remplir les champs";
-                        }
+
+
+                        //                     echo "c'est bon";
+                        //                     header("Location:connexion.php");
+                        //                 }
+                        //             } else {
+                        //                 echo "merci de remplir les champs";
+                        //             }
                     }
                 }
             }
 
-            ?>
+?>
 
         </div>
 

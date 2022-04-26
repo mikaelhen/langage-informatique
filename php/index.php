@@ -1,5 +1,7 @@
-<?php session_start();
+<?php 
+session_start();
 require_once '../assets/include/bdd.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,13 +79,16 @@ require_once '../assets/include/bdd.php';
       <button class="btn">
         <a href="edit.php">Update</a>
       </button>
+       <?php
+       }
+       if ($row["id_role"] != 1){
+       ?>
+
       <button class="btn">
         <a href="test_user.php">Membres</a>
       </button>
 
-      <?php
-       }
-       else{}
+      <?php }
       ?>
       <button class="btn">
         <a href="liste.php">Retour</a>
