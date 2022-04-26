@@ -20,10 +20,14 @@ require_once '../assets/include/bdd.php';
 </head>
 
 <body>
+
+
+
   <div class="container-mik">
     <header class="header box">
-      <?php include "../assets/include/navbar.php" ?>
 
+      <?php include "../assets/include/navbar_admin.php" ?>
+   
     </header>
 
     <div class="nav box">
@@ -36,10 +40,14 @@ require_once '../assets/include/bdd.php';
     $requete = $bdd->prepare($sql);
     $requete->execute();
     $row = $requete->fetchAll();
-    ?>
+   
+        
+  ?> 
+   
 
     <div class="container">
       <?php
+
 
       foreach ($row as &$langage) {
       ?>
@@ -105,9 +113,7 @@ require_once '../assets/include/bdd.php';
       <?php }
       ?>
 
-      <button class="btn">
-        <a href="liste.php">Retour</a>
-      </button>
+     
     </div>
   </div>
   <?php include "../assets/include/footer.php"; ?>

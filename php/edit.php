@@ -10,10 +10,7 @@ else {
     $requeteadmin->execute();
     $afficheadmin = $requeteadmin->fetch();
 
-    if ($afficheadmin["id_role"] == 3){
-        echo "vous etes admin";
-    }
-    else {header('location:index.php?login_err=pas_admin');}
+   
       
 
 
@@ -28,11 +25,13 @@ else {
         $sqlTips = $sqlTips . " WHERE t_tips.id_tips = ?";
         $params = [$_GET['id_tips']];
     }
-
+ 
     // WHERE t_tips.id_tips = ?";
     $requeteTips = $bdd->prepare($sqlTips);
     $requeteTips->execute($params);
     $tips = $bdd->lastInsertId();
+    
+   
 ?>
     <!DOCTYPE html>
     <html lang="fr">
@@ -50,7 +49,14 @@ else {
     </head>
 
     <body>
-        <?php include "../assets/include/navbar.php" ?>
+        <?php 
+        
+
+        include "../assets/include/navbar_admin.php";  
+        
+      
+
+?> 
         <div class="titre_edit">
             <h2>TIPS à modifier</h2>
         </div>
@@ -74,7 +80,9 @@ else {
 
             </div>
 
-            <?php foreach ($requeteTips as $table) { ?>
+            <?php 
+            
+            foreach ($requeteTips as $table) { ?>
                 <div class="tableau">
 
                     <div class="langage">

@@ -31,7 +31,7 @@ if (!isset($_SESSION['user'])) {
 
     <body>
         <header>
-            <?php include "../assets/include/navbar.php" ?>
+            <?php include "../assets/include/navbar_admin.php" ?>
         </header>
 
         <div class="tips">

@@ -22,7 +22,7 @@ if (!isset($_SESSION['user'])) {
         <title>Tips</title>
     </head>
     <header>
-        <?php include "../assets/include/navbar.php" ?>
+        <?php include "../assets/include/navbar_admin.php" ?>
     </header>
 
     <body>
@@ -280,7 +280,7 @@ if (!isset($_SESSION['user'])) {
                 </div>
                 <div class="container10">
                     <button class="btn">
-                        <a href="index.php">Retour</a>
+                        <a href="index_admin.php">Retour</a>
                     </button>
                 </div>
                 <div>
