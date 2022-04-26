@@ -22,16 +22,12 @@ if (!isset($_SESSION['user'])) {
         <link rel="stylesheet" href="../assets/css/style.css">
         <link rel="stylesheet" href="../assets/css/footer.css">
 
-
-
-
-
     </head>
 
 
     <body>
         <header>
-            <?php include "../assets/include/navbar.php" ?>
+            <?php include "../assets/include/navbar_admin.php" ?>
         </header>
 
         <div class="tips">
@@ -71,7 +67,7 @@ if (!isset($_SESSION['user'])) {
         </button>
 
         <button class="btn">
-            <a href="index.php">Retour</a>
+            <a href="index_admin.php">Retour</a>
         </button>
     </div>
 

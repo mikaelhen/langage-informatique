@@ -202,7 +202,7 @@ if (!isset($_SESSION['user'])) {
                 <a href=""> Mise à jour tips</a>
             </button>
             <button class="btn">
-                <a href="index.php">Retour</a>
+                <a href="index_admin.php">Retour</a>
             </button>
         </div>
 

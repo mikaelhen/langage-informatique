@@ -61,10 +61,10 @@ require_once '../assets/include/bdd.php';
                 if ($_GET['action'] == 'roles') {
                     // tu fais un update de id_role en recuperant le post du form OU id_utilisateur = get user
 
-                    echo "role ";
-                    echo $_POST['roles'];
-                    echo "id user ";
-                    echo $_GET['id_user'];
+                    // echo "role ";
+                    // echo $_POST['roles'];
+                    // echo "id user ";
+                    // echo $_GET['id_user'];
 
                     $Req2 = $bdd->prepare(
                         "UPDATE users SET id_role=:roles WHERE id_users=:users"
@@ -74,7 +74,7 @@ require_once '../assets/include/bdd.php';
                         ":users" => $_GET['id_user'],
                     ));
 
-                    echo "On change le rôle ici ";
+                    // echo "On change le rôle ici ";
                 }
             }
 
@@ -104,8 +104,8 @@ require_once '../assets/include/bdd.php';
 
                             <select class="select" name="roles">
 
-                                <option value="<?php echo $affiche_users['id_role']; ?>">
-                                    <?php echo $affiche_users['nom_role']; ?></option>
+                                <!-- <option value="<?php echo $affiche_users['id_role']; ?>">
+                                    <?php echo $affiche_users['nom_role']; ?></option> -->
 
                                 <?php
                                 if ($affiche_users['id_role'] == 1) {
