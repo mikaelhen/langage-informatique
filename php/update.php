@@ -141,12 +141,12 @@ if (!isset($_SESSION['user'])) {
             <div class="detail_tips">
                 <h3>Détail de tips:</h3>
                 <pre class="detail">
-                <textarea cols="100" rows="10" type= "text" name="detail_tips" class="detail_tips"><?php echo htmlspecialchars($row['detail_tips']); ?></textarea>
+                <textarea cols="100" style="background-color:#f3f3f3" rows="10" type= "text" name="detail_tips" class="detail_tips"><?php echo htmlspecialchars($row['detail_tips']); ?></textarea>
                 </pre>
 
                 <!-- si vous choisissez pas de categorie, choississez une categorie existante -->
             </div>
-            <div>
+            <div class="selec">
                 <select class="selection" name="id_categorie">
                     <option value="<?php echo $row['id_categorie']; ?>">
                         <?php echo $row['nom_categorie']; ?></option>
