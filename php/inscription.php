@@ -83,27 +83,6 @@
         <div class="compte">
 <?php
 
-
-
-                        // $sql = "INSERT INTO users (pseudo_users, mail_users, mdp_users, id_role) 
-                        // VALUES (:pseudo_users, :mail_users,:mdp_users, 1) ";
-
-                        // $query = $bdd->prepare($sql);
-
-                        // // permet de verifier que c'est bien une chaine de caractere
-                        // $query->bindValue(":pseudo_users", $_POST['pseudo'], PDO::PARAM_STR);
-                        // $query->bindValue(":mail_users", $_POST['email'], PDO::PARAM_STR);
-                        // $query->bindValue(":mdp_users", $_POST['password'], PDO::PARAM_STR);
-
-
-
-
-                        //                     echo "c'est bon";
-                        //                     header("Location:connexion.php");
-                        //                 }
-                        //             } else {
-                        //                 echo "merci de remplir les champs";
-                        //             }
                     }
                 }
             }
