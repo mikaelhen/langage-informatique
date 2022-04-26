@@ -21,8 +21,7 @@
             <li><a href="connexion.php">Connexion</a></li>
         <?php
         }
-
         ?>
-
     </nav>
+
 </header>

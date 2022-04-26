@@ -173,7 +173,7 @@ if (!isset($_SESSION['user'])) {
             <?php
 
             if (isset($_POST['titre_tips'])) {
-                
+
                 $statusMsg = '';
 
 

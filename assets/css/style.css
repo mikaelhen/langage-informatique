@@ -216,12 +216,12 @@ table {
 }
 
 
-input {
+/* input {
     width: 90px;
     height: 51px;
     margin-left: 12%;
     border-radius: 11%;
-}
+} */
 
 .select {
     height: 50px;
