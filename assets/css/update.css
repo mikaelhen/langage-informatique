@@ -4,16 +4,16 @@
 }
 
 h2 {
-display: flex;
-font-size: 80px;
-align-items: center;
-justify-content: center;
-height: 275px;
-background-color: #282A35;
-border-bottom: 1px solid black;
-margin: 0;
-color: white;
-font-family: 'Poppins', sans-serif;
+  display: flex;
+  font-size: 80px;
+  align-items: center;
+  justify-content: center;
+  height: 275px;
+  background-color: #282A35;
+  border-bottom: 1px solid black;
+  margin: 0;
+  color: white;
+  font-family: 'Poppins', sans-serif;
 }
 
 .detail_tips {
@@ -33,6 +33,7 @@ font-family: 'Poppins', sans-serif;
   justify-content: flex-end;
   justify-content: space-between;
 }
+
 .container2 a {
   font-size: 22px;
   text-decoration: none;
@@ -41,10 +42,12 @@ font-family: 'Poppins', sans-serif;
   font-weight: bold;
   color: #282A35;
 }
+
 .btn:hover {
   color: black;
   background-color: #059862;
 }
+
 .btn {
   width: 246px;
   height: 61px;
@@ -63,13 +66,13 @@ font-family: 'Poppins', sans-serif;
 }
 
 .titre {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 200px;
-    background-color: #D9EEE1;
-    font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  background-color: #D9EEE1;
+  font-size: 25px;
 }
 
 .titre input {
@@ -77,4 +80,16 @@ font-family: 'Poppins', sans-serif;
   height: 40px;
   text-align: center;
   margin-left: 20px;
+  font-size: 20px;
+}
+
+.selec {
+  width: auto;
+  text-align: center;
+}
+
+.selection {
+  height:40px;
+  font-size: 20px;
+  margin-block: 20px;
 }
