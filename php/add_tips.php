@@ -244,7 +244,7 @@ if (!isset($_SESSION['user'])) {
                 } else {
                     $categorie = $_POST['id_categorie'];
                 }
-                echo '<span style="color:red">tips crée</span>';
+                // echo '<span style="color:red">tips crée</span>';
 
                 // }else{
                 //     $categorie = $_POST['id_categorie'];
@@ -252,19 +252,16 @@ if (!isset($_SESSION['user'])) {
 
                 $Req2 = $bdd->prepare("INSERT INTO avoir (id_tips, id_categorie) VALUES (?, ?)");
                 $Req2->execute(array($tips, $categorie));
-
                 $sql = "INSERT INTO langage (nom_langage) values( :nom_langage)";
                 $add = $bdd->prepare($sql);
                 $add->execute(array(
                     ':nom_langage' => $l,
-
                 ));
                 $sql = "INSERT INTO categorie (nom_categorie) values( :nom_categorie)";
                 $add = $bdd->prepare($sql);
                 $add->execute(array(
                     ':nom_categorie' => $categorie,
                 ));
-
                 // echo "votre tips a bien été ajouter";
                 // header("Location: liste.php");
 

@@ -5,10 +5,11 @@
         <?php
         if (isset($_SESSION['user'])){
             echo ('Connecté en tant que : ' . $_SESSION['user']); ?>
-            
+             <?php 
 
-     
- 
+
+?>
+
             <a href="index_admin.php">
                 <div class="logo"><img src="../assets/img/logo2.png"></div>
             </a>
