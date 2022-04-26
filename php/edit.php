@@ -2,16 +2,19 @@
 require_once '../assets/include/bdd.php';
 if (!isset($_SESSION['user'])) {
     header('location:index.php?login_err=pas_de_compte');
-} 
-else {
+} else {
 
-    $sqladmin = 'SELECT * FROM users WHERE pseudo_users="'.$_SESSION['user'].'"';
+    $sqladmin = 'SELECT * FROM users WHERE pseudo_users="' . $_SESSION['user'] . '"';
     $requeteadmin = $bdd->prepare($sqladmin);
     $requeteadmin->execute();
     $afficheadmin = $requeteadmin->fetch();
 
-   
-      
+    if ($afficheadmin["id_role"] == 3) {
+        echo "vous etes admin";
+    } else {
+        header('location:index.php?login_err=pas_admin');
+    }
+
 
 
     // $sqlTips = "SELECT * FROM titre_tips , langage, categorie";
@@ -25,13 +28,13 @@ else {
         $sqlTips = $sqlTips . " WHERE t_tips.id_tips = ?";
         $params = [$_GET['id_tips']];
     }
- 
+
     // WHERE t_tips.id_tips = ?";
     $requeteTips = $bdd->prepare($sqlTips);
     $requeteTips->execute($params);
     $tips = $bdd->lastInsertId();
-    
-   
+
+
 ?>
     <!DOCTYPE html>
     <html lang="fr">
@@ -49,14 +52,14 @@ else {
     </head>
 
     <body>
-        <?php 
-        
+        <?php
 
-        include "../assets/include/navbar_admin.php";  
-        
-      
 
-?> 
+        include "../assets/include/navbar_admin.php";
+
+
+
+        ?>
         <div class="titre_edit">
             <h2>TIPS à modifier</h2>
         </div>
@@ -80,8 +83,8 @@ else {
 
             </div>
 
-            <?php 
-            
+            <?php
+
             foreach ($requeteTips as $table) { ?>
                 <div class="tableau">
 
@@ -89,7 +92,7 @@ else {
                         <h3><?php echo $table["nom_langage"]; ?></h3>
                     </div>
 
-                    <div class="categorie" >
+                    <div class="categorie">
                         <h3><?php echo $table["nom_categorie"]; ?></h3>
                     </div>
 
@@ -100,20 +103,21 @@ else {
                     <div class="option">
                         <ul>
                             <li> <a href="tips.php?id_tips=<?php echo $table['id_tips'] ?>">
-                            <button><i class="far fa-eye"></i></button></a></li>
+                                    <button><i class="far fa-eye"></i></button></a></li>
                             <li>voir</li>
                         </ul>
                         <ul>
                             <li><a href="update.php?id_tips=<?php echo $table['id_tips'] ?>">
-                            <button><i class="fa fa-refresh" aria-hidden="true"></i>
+                                    <button><i class="fa fa-refresh" aria-hidden="true"></i>
                                     </button> </a></li>
                             <li>update</li>
                         </ul>
                         <ul>
                             <li> <a href="traitement-delete.php?id_tips=<?php echo $table['id_tips'] ?>"><button>
-                                <i class="fas fa-trash-alt"></i></button></a></li>
+                                        <i class="fas fa-trash-alt"></i></button></a></li>
                             <li>supprimer</li>
                         </ul>
+
 
                     </div>
 
@@ -123,9 +127,12 @@ else {
 
         <?php } ?>
         </div>
-        </div>
-        <?php include "../assets/include/footer.php"; ?>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
         </div>
     </body>
+
+    <?php include "../assets/include/footer.php"; ?>
+    </div>
+
 
     </html>
