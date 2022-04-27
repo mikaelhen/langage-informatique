@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 header {
     grid-column: 1 / -1;
     display: flex;
@@ -117,6 +122,7 @@ nav a:hover {
     .nav {
         height: auto;
     }
+
     .nav h1 {
         color: white;
         font-family: 'Poppins', sans-serif;

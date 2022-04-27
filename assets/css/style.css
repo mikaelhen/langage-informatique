@@ -57,6 +57,7 @@ h2 {
     justify-content: center;
     background-color: #D9EEE1;
     padding-top: 50px;
+    min-height: 30vh;
 }
 
 .container4 a {
@@ -67,14 +68,7 @@ h2 {
 }
 
 .container4 a:hover {
-
-    height: auto;
-    width: auto;
-    display: inline-block;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
+    padding-block: 20px;
     background-color: #059862;
 }
 
@@ -182,10 +176,11 @@ table {
     border-color: grey;
     width: 100%;
     border: solid 2px black;
-      justify-content: center;
-      padding-left:60px ;
-      padding-right: 60px;
+    justify-content: center;
+    padding-left: 60px;
+    padding-right: 60px;
 }
+
 .td {
     border: solid 2px black;
     width: 33.33%;
@@ -197,7 +192,7 @@ table {
     FONT-SIZE: 25px;
     font-size: uperc;
     text-transform: uppercase;
-   
+
 }
 
 .td1 {
@@ -228,8 +223,8 @@ table {
     font-size: 28px;
     text-align: center;
 }
- 
-.membre_tableau{
+
+.membre_tableau {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
