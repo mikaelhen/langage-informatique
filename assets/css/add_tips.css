@@ -93,6 +93,7 @@ input {
 .container6 {
     width: 100%;
     text-align: center;
+    min-height: 30vh;
 }
 
 .cont_langue {
@@ -171,8 +172,8 @@ input {
     background-color: #059862;
 }
 
-.upload  {
-position: absolute;
-margin-top: 150px;
-margin-left: 165px;
+.upload {
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 165px;
 }
