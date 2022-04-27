@@ -138,7 +138,9 @@ require_once '../assets/include/bdd.php';
                                 ?>
 
                             </select>
-                            <input type="submit" value="Valider">
+                            <div class="submit2">
+                                <input type="submit" value="Valider">
+                            </div>
                         </form>
                     </div>
                 </div>

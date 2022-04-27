@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 require_once '../assets/include/bdd.php';
 
@@ -55,9 +55,9 @@ require_once '../assets/include/bdd.php';
   </div>
   <div class="cont_btn">
     <div class="container2">
-      
- 
-      
+
+
+
     </div>
   </div>
   <?php include "../assets/include/footer.php"; ?>
