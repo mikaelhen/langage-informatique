@@ -60,7 +60,9 @@ require_once '../assets/include/bdd.php';
 
     </div>
   </div>
-  <?php include "../assets/include/footer.php"; ?>
+  <footer>
+    <?php include "../assets/include/footer.php"; ?>
+  </footer>
 
 </body>
 
